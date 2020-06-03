@@ -1,0 +1,6 @@
+CREATE TABLE t1(aa, bb);
+CREATE INDEX t1x1 on t1(abs(aa), abs(bb));
+INSERT INTO t1 VALUES(-2,-3),(+2,-3),(-2,+3),(+2,+3);
+SELECT * FROM (t1)
+ WHERE ((abs(aa)=1 AND 1=2) OR abs(aa)=2)
+   AND abs(bb)=3;

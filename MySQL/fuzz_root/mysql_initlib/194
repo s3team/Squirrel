@@ -1,0 +1,1 @@
+CREATE VIEW v0 ( v12 , v11 , v1 , v13 , v14 , v15 , v6 , v3 , v4 , v5 , v19 , v16 , v17 , v18 , v10 , v7 , v8 , v9 , v2 ) AS SELECT COUNT ( * ) OVER( ) , 3 ; SELECT * FROM v0 AS one , v0 AS two NATURAL JOIN v0 NATURAL JOIN v0 ORDER BY '1995-03-15' ; 

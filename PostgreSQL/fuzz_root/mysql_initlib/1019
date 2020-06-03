@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 INTEGER PRIMARY KEY ) ; INSERT INTO v0 ( v1 , v1 ) VALUES ( 'LG PACK' , '18' ) ; SELECT quote ( zeroblob ( 127 ) ) ; 

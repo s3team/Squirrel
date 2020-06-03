@@ -1,0 +1,181 @@
+application_id = _empty_
+application_id = _int_
+
+auto_vacuum = _empty_
+auto_vacuum = 0
+auto_vacuum = NONE
+auto_vacuum = 1
+auto_vacuum = FULL
+auto_vacuum = 2
+auto_vacuum = INCREMENTAL
+
+automatic_index = _empty_
+automatic_index = _boolean_
+
+busy_timeout = _empty_
+busy_timeout = _int_
+
+cache_size = _empty_
+cache_size = _int_
+cache_size = _neg_int_
+
+cache_spill = _empty_
+cache_spill = _boolean_
+cache_spill = _int_
+
+case_sensitive_like = _boolean_
+
+cell_size_check = _empty_
+cell_size_check = _boolean_
+
+checkpoint_fullfsync = _empty_
+checkpoint_fullfsync = _boolean_
+
+collation_list = _empty_
+
+compile_options = _empty_
+
+data_version = _empty_
+
+database_list = _empty_
+
+defer_foreign_keys = _empty_
+
+defer_foreign_keys = _boolean_
+
+encoding = _empty_
+encoding = 'UTF-8'
+encoding = 'UTF-16'
+encoding = 'UTF-16le'
+encoding = 'UTF-16be'
+
+foreign_key_check = _empty_
+
+foreign_keys = _empty_
+foreign_keys = _boolean_
+
+freelist_count = _empty_
+
+fullfsync = _empty_
+fullfsync = _boolean_
+
+function_list = _empty_
+incremental_vacuum = _empty_
+
+integrity_check = _empty_ 
+integrity_check = _int_
+
+journal_mode = _empty_
+journal_mode = DELETE
+journal_mode = TRUNCATE
+journal_mode = PERSIST
+journal_mode = MEMORY
+journal_mode = WAL
+journal_mode = OFF
+
+journal_size_limit
+journal_size_limit = _int_
+
+legacy_alter_table = _empty_
+legacy_alter_table = _boolean_
+
+legacy_file_format = _empty_
+legacy_file_format = _boolean_
+
+locking_mode = _empty_
+locking_mode = NORMAL
+locking_mode = EXCLUSIVE
+
+max_page_count = _empty_
+max_page_count = _int_
+
+mmap_size = _empty_
+mmap_size = _int_
+
+module_list = _empty_
+
+optimize = _empty_
+page_count = _empty_
+
+page_size = _empty_
+page_size = _int_
+
+parser_trace = _boolean_
+
+pragma_list = _empty_
+
+query_only = _empty_
+query_only = _boolean_
+quick_check = _empty_
+quick_check = _int_
+
+read_uncommitted = _empty_
+read_uncommitted = _boolean_
+
+recursive_triggers = _empty_
+recursive_triggers = _boolean_
+
+reverse_unordered_selects = _empty_
+reverse_unordered_selects = _boolean_
+
+version = _empty_
+version = _int_
+
+secure_delete = _empty_
+secure_delete = _boolean_
+secure_delete = FAST
+
+
+shrink_memory = _empty_
+soft_heap_limit = _empty_
+soft_heap_limit = _int_
+
+stats = _empty_
+
+
+synchronous = _empty_
+synchronous = 0
+synchronous = OFF
+synchronous = 1
+synchronous = NORMAL
+synchronous = 2
+synchronous = FULL
+synchronous = 3
+synchronous = EXTRA
+
+temp_store = _empty_
+temp_store = 0
+temp_store = DEFAULT
+temp_store = 1
+temp_store = FILE
+temp_store = 2
+temp_store = MEMORY
+
+threads = _empty_
+threads = _int_
+
+
+user_version = _empty_
+user_version = _int_
+
+vdbe_addoptrace = _boolean_
+
+
+vdbe_debug = _boolean_
+
+
+vdbe_listing = _boolean_
+
+
+vdbe_trace = _boolean_
+
+
+wal_autocheckpoint = _empty_
+wal_autocheckpoint = _int_
+
+
+wal_checkpoint = _empty_
+
+writable_= _boolean_
+
+

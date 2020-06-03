@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 INTEGER PRIMARY KEY ) ; INSERT INTO v0 VALUES ( 10 ) ; SELECT count ( * ) , substr ( v1 , 3 , NULL ) AS mx FROM v0 ; 

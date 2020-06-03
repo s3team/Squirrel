@@ -1,0 +1,5 @@
+CREATE TABLE item (id int, price int);
+INSERT INTO item (id, price) VALUES (1, 1);
+SELECT COUNT(id) FILTER (WHERE double_price > 42) FROM (
+  SELECT id, (price * 2) as double_price FROM item
+);

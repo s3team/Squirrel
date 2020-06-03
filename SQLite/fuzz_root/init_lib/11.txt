@@ -1,0 +1,8 @@
+  ATTACH '' AS aux;
+  CREATE TABLE aux.t1(a, b, c);
+  CREATE TEMP TRIGGER tmp AFTER INSERT ON t1 BEGIN
+    SELECT 'abc';
+  END;
+
+  DETACH aux;
+  DROP TRIGGER tmp;

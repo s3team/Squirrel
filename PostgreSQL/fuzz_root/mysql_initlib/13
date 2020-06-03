@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 FLOAT ) ; INSERT INTO v0 VALUES ( 10 ) ,( 1 ) ,( 1 ) ,( 0 ) ,( 10 ) ,( 10 ) ; SELECT substr ( TYPEOF ( DISTINCT v1 ) , 9223372036854775807 , ( v1 NOT IN ( 0 ) AND v1 NOT IN ( 0 ) ) ) FROM v0 ; SELECT printf ( v1 , v1 ) FROM v0 ORDER BY PROMO_REVENUE * 1 ; 

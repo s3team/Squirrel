@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v2 INT , v1 INT ) ; INSERT INTO v0 ( v2 , v2 ) VALUES ( 2 , 10 ) ; SELECT * , 'MED PKG' FROM v0 WHERE v1 NOT IN ( 1 , NULL , 0 , 2 , lower ( 's%' ) ) ORDER BY v1 DESC ; 

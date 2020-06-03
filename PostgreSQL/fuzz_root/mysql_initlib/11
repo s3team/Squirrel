@@ -1,0 +1,1 @@
+SELECT - '199419' ; INSERT INTO v0 ( v2 , v3 , v1 ) VALUES ( 10 , 1 , 10 ) ,( 3 , 0 , NULL ) ,( 3.100000 , '%%green%%' , 1 ) ,( 9223372036854775807 , 1 , NULL ) ,( 0 , 10 , 1 ) ,( 1 , 10 , 3 ) ,( 1 , 10 , 1 ) ,( 1 , 1 , 2 ) ; SELECT * FROM v4 AS one , v5 AS two NATURAL JOIN v6 NATURAL JOIN v7 ORDER BY random () ; SELECT min ( v11 ) FROM v10 ORDER BY v12 * 10 ; 

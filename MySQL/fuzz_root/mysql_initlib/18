@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 INTEGER ) ; INSERT INTO v0 VALUES ( 10 ) ,( 10 ) ,( 0 ) ,( 8 ) ,( 127 ) ,( 10 ) ; SELECT instr ( v1 , zeroblob ( v1 ) ) FROM v0 ; SELECT min ( 10 AS PROMO_REVENUE , v1 ) FROM v0 ORDER BY v1 * 1 ; 

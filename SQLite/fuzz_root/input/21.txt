@@ -1,0 +1,10 @@
+CREATE TABLE t1(x);
+INSERT INTO t1 VALUES('a'), ('b'), ('c');
+
+CREATE TABLE t2(a, b);
+INSERT INTO t2 VALUES('X', 1), ('X', 2), ('Y', 2), ('Y', 3);
+
+SELECT x, (SELECT sum(b)
+            OVER (PARTITION BY a ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)
+            FROM t2 WHERE b<x ) FROM t1;
+
