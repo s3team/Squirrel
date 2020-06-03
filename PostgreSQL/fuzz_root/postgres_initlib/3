@@ -1,0 +1,3 @@
+create table v1(v2 INT ,v3 INT);
+select * from v1 where v2 = 1;
+drop table v1;

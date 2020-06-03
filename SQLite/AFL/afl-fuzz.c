@@ -94,7 +94,7 @@
 /* Lots of globals, but mostly for the status UI and other things where it
    really makes no sense to haul them around as function parameters. */
 
-
+#define INIT_LIB_PATH "./init_lib"
 double min_stab_radio;
 char * save_file_name = NULL;
 Mutator g_mutator;
@@ -6403,8 +6403,7 @@ int run_testcase()
 
 
 static void do_libary_initialize(){
-  //assert(g_libary_path != NULL);
-  if(g_libary_path == NULL) g_libary_path = "./init_lib" ;
+  if(g_libary_path == NULL) g_libary_path = INIT_LIB_PATH;
   cerr <<"We should initialize the fucking libary" << endl;
   vector<IR*> ir_set;
   vector<string> file_list = get_all_files_in_dir(g_libary_path);

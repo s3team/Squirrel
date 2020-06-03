@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS t1 ;
+CREATE TABLE v0 ( v1 varchar(80)) ;
+INSERT INTO v0 ( v1 ) VALUES ( '' ) , ( NULL ) , ( 'X' ) , ( NULL ) ;
+SELECT bool_and ( covar_pop ( array_agg ( v1 ) ) , 10 ) FROM v0 GROUP BY v1 ;

@@ -103,6 +103,9 @@ using namespace std;
 
 int crash_fd = -1;
 
+#define INIT_LIB_PATH "./mysql_initlib""
+#define SAFE_GENERATE_PATH "./safe_generate_type_mysql"
+#define GLOBAL_TYPE_PATH "./global_data_lib_mysql"
 #define COUNT_ERROR
 
 enum SQLSTATUS{
@@ -130,7 +133,6 @@ class MysqlClient{
       if(mysql_init(&m_) == NULL) return false;
 
       dbname = "test" + std::to_string(database_id);
-      //cout << "connect to database: " << dbname << endl;
       if(mysql_real_connect(&m_, host_, user_name_, passwd_, dbname.c_str(), 0, NULL, CLIENT_MULTI_STATEMENTS)== NULL){
         fprintf(stderr, "Connection error1 \n", mysql_errno(&m_), mysql_error(&m_));
         disconnect();
@@ -149,7 +151,6 @@ class MysqlClient{
       MYSQL tmp_m;
 
       database_id += 1;
-      //cout << "FIXING " << database_id << endl;
       if(mysql_init(&tmp_m) == NULL) {mysql_close(&tmp_m); return false;}
       if(mysql_real_connect(&tmp_m, host_, user_name_, passwd_, "fuck", 0, NULL, CLIENT_MULTI_STATEMENTS)== NULL){
         fprintf(stderr, "Connection error3 \n", mysql_errno(&tmp_m), mysql_error(&tmp_m));
@@ -6405,19 +6406,15 @@ static void save_cmdline(u32 argc, char** argv) {
 }
 
 static void do_libary_initialize(){
-  //assert(g_libary_path != NULL);
-  if(g_libary_path == NULL) g_libary_path = "./mysql_initlib" ;
-  //cerr <<"We should initialize the fucking libary" << endl;
+  if(g_libary_path == NULL) g_libary_path = INIT_LIB_PATH ;
   vector<IR*> ir_set;
   vector<string> file_list = get_all_files_in_dir(g_libary_path);
   for(auto &f : file_list){
     cerr << "init filename: " << string(g_libary_path) + "/" +f << endl;
     g_mutator.init(string(g_libary_path) + "/" +f);
   }
-  //g_mutator.init_data_library("/mnt/raidssd/SQLFuzzer/fuzz_src/global_data_lib_mysql");
-  //g_mutator.init_safe_generate_type("/mnt/raidssd/SQLFuzzer/fuzz_src/safe_generate_type_mysql");
-  g_mutator.init_data_library("./global_data_lib_mysql");
-  g_mutator.init_safe_generate_type("./safe_generate_type_mysql");
+  g_mutator.init_data_library(GLOBAL_TYPE_PATH);
+  g_mutator.init_safe_generate_type(SAFE_GENERATE_PATH);
   cout << "init_lib done" << endl;
 }
 

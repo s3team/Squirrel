@@ -1,0 +1,2 @@
+CREATE TABLE v0 ( v1 TEXT , v2 INT );
+SELECT * FROM v0 , v0 , v0 , v0 ;

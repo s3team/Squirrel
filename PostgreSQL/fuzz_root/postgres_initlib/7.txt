@@ -1,0 +1,6 @@
+CREATE TABLE v0 ( v1 INT , v2 INT ) ;
+CREATE INDEX title_idx_nulls_low ON films (title ASC);
+CREATE FUNCTION v3 ( ) RETURN TRIGGER AS $$ BEGIN SELECT v2 FROM v4 WHERE v1 = 1 ;END $$ LANGUAGE PLPGSQL ;
+CREATE TRIGGER v5 BEFORE UPDATE OF v1 ON v0 FOR EACH ROW EXECUTE PROCEDURE v3 ( ) ;
+insert into v4 values (1,1);
+select * from b;

@@ -1,0 +1,2 @@
+CREATE TABLE v0 ( v1 INT , v2 INT ) ;
+SELECT v1 , v1 , v1 , v1 FROM ( SELECT v2 , v1 , v1 , v2 , regr_r2 ( ) OVER ( PARTITION BY v2 ORDER BY v1 DESC , v1 ) AS v4 FROM v0 ) AS v3 WHERE v1 < 3 ;

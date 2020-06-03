@@ -98,6 +98,9 @@ using namespace std;
 /* Lots of globals, but mostly for the status UI and other things where it
    really makes no sense to haul them around as function parameters. */
 
+#define INIT_LIB_PATH "./postgres_initlib""
+#define SAFE_GENERATE_PATH "./safe_generate_type"
+#define GLOBAL_TYPE_PATH "./global_data_lib"
 
 enum SQLSTATUS{
   kConnectFailed, kExecuteError, kServerCrash, kNormal, kTimeout, kSyntaxError, kSemanticError
@@ -6240,18 +6243,16 @@ static void save_cmdline(u32 argc, char** argv) {
 }
 
 static void do_libary_initialize(){
-  //assert(g_libary_path != NULL);
 
-  if(g_libary_path == NULL) g_libary_path = "./postgre_initlib" ;
-  cerr <<"We should initialize the fucking libary" << endl;
+  if(g_libary_path == NULL) g_libary_path = INIT_LIB_PATH ;
   vector<IR*> ir_set;
   vector<string> file_list = get_all_files_in_dir(g_libary_path);
   for(auto &f : file_list){
     cerr << "init filename: " << string(g_libary_path) + "/" +f << endl;
     g_mutator.init(string(g_libary_path) + "/" +f);
   }
-  g_mutator.init_data_library("./global_data_lib");
-  g_mutator.init_safe_generate_type("./safe_generate_type");
+  g_mutator.init_data_library(GLOBAL_TYPE_PATH);
+  g_mutator.init_safe_generate_type(SAFE_GENERATE_PATH);
   cout << "init_lib done" << endl;
 }
 

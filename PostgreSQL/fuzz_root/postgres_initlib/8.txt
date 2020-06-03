@@ -1,0 +1,5 @@
+CREATE TABLE v0 ( v1 INT , v2 CHAR ) ;
+CREATE VIEW v5 AS SELECT * , stddev_samp ( v1 ) AS v4 , ( SELECT max ( v1 ) FROM v0 , v0 WHERE v1 = v2 ) AS v3 FROM v0 , v0 WHERE v1 = 'Comedy' ;
+CREATE RECURSIVE VIEW v6 AS SELECT v2 + 1 FROM v5 WHERE v1 < 100 ;
+drop table v4;
+Insert into v6 values (44);

@@ -1,0 +1,2 @@
+CREATE TABLE hobbies_r (name text, person INT);
+select * from hobbies_r;
