@@ -14,10 +14,14 @@ This repo is imcomplete yet.
 ## Build Instruction
 `Requirements:` Headers and libary of `MySQL`, `PostgreSQL` and `MariaDB` if you want to test them.
 
+Download `AFL` and instrument the DBMS you want to test with it. Remember to change the map size of afl to `2^18`.
+
+
+`Squirrel:`
 ```
 git clone 
 cd Squirrel/DBNAME/AFL
-make
+make afl-fuzz
 ```
 
 ## RUN
