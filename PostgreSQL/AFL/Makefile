@@ -31,8 +31,7 @@ SH_PROGS    = afl-plot afl-cmin afl-whatsup
 #CFLAGS     += -Wall -g -Wno-pointer-sign \
 
 CC         = g++
-CFLAGS     ?= -fpermissive --std=c++2a
-#CFLAGS     ?= -O3 -funroll-loops -fpermissive --std=c++11
+CFLAGS     ?= -fpermissive --std=c++17
 CFLAGS     += -g -w \
 	      -DAFL_PATH=\"$(HELPER_PATH)\" -DDOC_PATH=\"$(DOC_PATH)\" \
 	      -DBIN_PATH=\"$(BIN_PATH)\"

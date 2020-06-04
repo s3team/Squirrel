@@ -103,7 +103,7 @@ using namespace std;
 
 int crash_fd = -1;
 
-#define INIT_LIB_PATH "./mysql_initlib""
+#define INIT_LIB_PATH "./mysql_initlib"
 #define SAFE_GENERATE_PATH "./safe_generate_type_mysql"
 #define GLOBAL_TYPE_PATH "./global_data_lib_mysql"
 #define COUNT_ERROR

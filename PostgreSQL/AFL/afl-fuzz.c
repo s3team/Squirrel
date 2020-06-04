@@ -98,7 +98,7 @@ using namespace std;
 /* Lots of globals, but mostly for the status UI and other things where it
    really makes no sense to haul them around as function parameters. */
 
-#define INIT_LIB_PATH "./postgres_initlib""
+#define INIT_LIB_PATH "./postgres_initlib"
 #define SAFE_GENERATE_PATH "./safe_generate_type"
 #define GLOBAL_TYPE_PATH "./global_data_lib"
 
