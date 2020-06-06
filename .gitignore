@@ -1,3 +1,4 @@
 SQLite/AFL/afl-fuzz
 PostgreSQL/AFL/afl-fuzz
 MySQL/AFL/afl-fuzz
+.vscode
