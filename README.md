@@ -9,8 +9,6 @@ Currently supported DBMSs:
 3. MySQL
 4. MariaDB
 
-This repo is imcomplete yet.
-
 ## Build Instruction
 
 Currently we test `Squirrel` on `Ubuntu 16` and `Ubuntu 18`.
