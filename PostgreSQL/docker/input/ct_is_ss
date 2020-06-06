@@ -1,0 +1,3 @@
+create table v0(v1 INT, v2 STRING);
+insert into table v0(v1) values(10);
+select v1 from v0;

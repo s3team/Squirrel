@@ -1,0 +1,3 @@
+create table v0(v1 VARCHAR(10));
+select * from v0;
+drop table v0;

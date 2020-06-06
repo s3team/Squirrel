@@ -1,0 +1,5 @@
+CREATE TABLE v0 ( v1 INT , v2 INT , v3 INT CONSTRAINT xx CHECK ( v3 ) ) ;
+create index x on v0(v2, v3);
+insert into x(v3) values(1),(2);
+UPDATE v0 SET v3 = NULL ;
+select v3 from x;

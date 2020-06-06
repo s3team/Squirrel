@@ -1,0 +1,5 @@
+CREATE TABLE v0 ( v1 INT ) ;
+insert into v0(v1) values(1);
+update v0 set v1 = 1 where v1=20;
+insert into v0(v1) values(100), (100);
+SELECT percentile_cont ( v1 ) OVER w , json_object_agg ( v1 ) OVER w FROM v0 WINDOW v2 AS ( PARTITION BY v1 ORDER BY v1 DESC ) ;

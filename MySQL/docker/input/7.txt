@@ -1,0 +1,6 @@
+CREATE TABLE v0 ( v1 INT , v2 INT ) ;
+CREATE INDEX title_idx_nulls_low ON films (title ASC);
+CREATE TABLE v4 AS SELECT v1 , v2 FROM v0 ;
+CREATE TRIGGER v5 BEFORE INSERT ON v0 FOR EACH ROW insert into v3 values (1,1);
+insert into v4 values (1,1);
+select * from b;

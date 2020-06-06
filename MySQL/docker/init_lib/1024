@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v2 INT , v1 INT ) ; INSERT INTO v0 ( v2 , v2 ) VALUES ( 1 , 10 ) ; SELECT abs ( 10 + 10 ) IN ( SELECT 10 UNION SELECT 1 ) FROM v0 ; 

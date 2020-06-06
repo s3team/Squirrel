@@ -1,0 +1,3 @@
+create table v0(v1 int);
+insert into v0 values( 1 );
+drop table v0;

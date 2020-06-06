@@ -1,0 +1,1 @@
+SELECT CAST ( zeroblob ( 10 ) AS DOUBLE ) ; SELECT DISTINCT ( SELECT DISTINCT '%%green%%' , 0 , 1 , 10.100000 ) GROUP BY printf ( 'Ar' , 9 ) <= 'BUILDING' LIMIT 1 OFFSET 10 ; 

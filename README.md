@@ -31,19 +31,18 @@ cd llvm_mode/
 make
 ```
 
-2. `DBMS-specific requirements:` Headers and libary of `MySQL`, `PostgreSQL` and `MariaDB` if you want to test them.
-
+2. `DBMS-specific requirements:` Headers and libary of `MySQL`, `PostgreSQL` and `MariaDB` if you want to test them. The most direct way is to compile the DBMSs.
 
 3. `Compile Squirrel:`
 ```
 git clone 
-cd Squirrel/DBNAME/AFL # MariaDB shares the same code as MySQL
-make afl-fuzz
+cd Squirrel/DBNAME/AFL
+make afl-fuzz # You need to set the path in the Makefile
 ```
 
 4. `Instrument DBMS:`
 ```
-#SQLite:
+# SQLite:
 git clone https://github.com/sqlite/sqlite.git
 cd sqlite
 mkdir bld
@@ -51,17 +50,23 @@ cd bld
 CC=/path/to/afl-gcc CXX=/path/to/afl-g++ ../configure # You can also turn on debug flag if you want to find assertion
 make
 
-#Others: To do
+# MySQL/PostgreSQL/MariaDB
+cd Squirrel/DBNAME/docker/
+cp ../AFL/afl-fuzz .
+sudo docker build -t IMAGE_ID . 
 ```
 
 5. RUN
 ```
-#SQLite:
+# SQLite:
 
 cd Squirrel/SQLite/fuzz_root
 ./afl-fuzz -i input -o output -- /path/to/sqlite3 --bail
 
-#Others: to do
+#MySQL, PostgreSQL, MySQL, MariaDB
+docker run -it IMAGE_ID bash
+python run.py # wait for a few minutes
+tmux a -t fuzzing
 ```
 
 Since the `input` has been well-tested. It is more likely to find new bugs if you use your own seeds.

@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 INTEGER UNIQUE PRIMARY KEY , v2 INT ) ; INSERT INTO v0 ( v1 , v2 ) VALUES ( 0 , 1 ) ; UPDATE v0 SET v1 = ( SELECT 1 FROM v0 WHERE unlikely ( v1 <= '29' ) ) ; 
