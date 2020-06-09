@@ -1,7 +1,7 @@
 ## Squirrel
 
 
-Squirrel is a fuzzer that aims at finding memory corruption issues in database managment systems (DBMSs). It is built on [AFL](https://github.com/google/AFL). More details can be found in our [CCS 2020 paper](http://arxiv.org/abs/2006.02398).
+`Squirrel` is a fuzzer that aims at finding memory corruption issues in database managment systems (DBMSs). It is built on [AFL](https://github.com/google/AFL). More details can be found in our [CCS 2020 paper](http://arxiv.org/abs/2006.02398). And the bugs found by `Squirrel` can be found in [here](https://github.com/s3team/Squirrel/wiki/Bug-List).
 
 Currently supported DBMSs:
 1. SQLite
