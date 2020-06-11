@@ -54,17 +54,33 @@ cp ../AFL/afl-fuzz .
 sudo docker build -t IMAGE_ID . 
 ```
 
-5. RUN
+## Run
+
 ```
 # SQLite:
-
 cd Squirrel/SQLite/fuzz_root
 ./afl-fuzz -i input -o output -- /path/to/sqlite3 --bail
 
-#MySQL, PostgreSQL, MySQL, MariaDB
+# MySQL, PostgreSQL, MySQL, MariaDB
 docker run -it IMAGE_ID bash
 python run.py # wait for a few minutes
 tmux a -t fuzzing
 ```
 
 Since the `input` has been well-tested. It is more likely to find new bugs if you use your own seeds.
+
+
+## Publications
+
+```
+SQUIRREL: Testing Database Management Systems with Language Validity and Coverage Feedback
+
+@inproceedings{zhong:squirrel,
+  title        = {{SQUIRREL: Testing Database Management Systems with Language Validity and Coverage Feedback}},
+  author       = {Rui Zhong and Yongheng Chen and Hong Hu and Hangfan Zhang and Wenke Lee and Dinghao Wu},
+  booktitle    = {Proceedings of the 27th ACM Conference on Computer and Communications Security (CCS)},
+  month        = nov,
+  year         = 2020,
+  address      = {Orlando, USA},
+}
+```
