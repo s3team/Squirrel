@@ -1,6 +1,6 @@
 # Squirrel
 
-<a href="https://arxiv.org/pdf/2006.02398.pdf"><img src="https://www.cc.gatech.edu/~hhu86/images/squirrel.png" align="right" width="250"></a>
+<a href="https://arxiv.org/pdf/2006.02398.pdf"><img src="https://huhong789.github.io/images/squirrel.png" align="right" width="250"></a>
 
 `Squirrel` is a fuzzer that aims at finding memory corruption issues in database managment systems (DBMSs). It is built on [AFL](https://github.com/google/AFL). More details can be found in our [CCS 2020 paper](http://arxiv.org/abs/2006.02398). And the bugs found by `Squirrel` can be found in [here](https://github.com/s3team/Squirrel/wiki/Bug-List).
 
