@@ -5,7 +5,7 @@ RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get -y install gdb bison flex git make cmake build-essential gcc-multilib g++-multilib xinetd libreadline-dev zlib1g-dev 
 RUN useradd -ms /bin/bash mysql
 RUN apt-get -y install clang libssl-dev libncurses5-dev
-RUN apt install pkg-config
+RUN apt -y install pkg-config
 
 USER mysql
 WORKDIR /home/mysql
@@ -56,7 +56,6 @@ COPY init_lib/ /home/mysql/fuzzing/fuzz_root/mysql_initlib/
 COPY global_data_lib_mysql /home/mysql/fuzzing/fuzz_root/
 COPY safe_generate_type_mysql /home/mysql/fuzzing/fuzz_root/
 COPY run.py /home/mysql/fuzzing/fuzz_root/run.py
-COPY record_data.py /home/mysql/fuzzing/fuzz_root/record_data.py
 
 USER root
 RUN chown -R mysql:mysql /home/mysql/fuzzing/
