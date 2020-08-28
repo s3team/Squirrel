@@ -63,7 +63,6 @@ COPY init_lib/ /home/mysql/fuzzing/fuzz_root/mysql_initlib/
 COPY global_data_lib_mysql /home/mysql/fuzzing/fuzz_root/
 COPY safe_generate_type_mysql /home/mysql/fuzzing/fuzz_root/
 COPY run.py /home/mysql/fuzzing/fuzz_root/run.py
-COPY record_data.py /home/mysql/fuzzing/fuzz_root/record_data.py
 
 USER root
 RUN chown -R mysql:mysql /home/mysql/fuzzing/
