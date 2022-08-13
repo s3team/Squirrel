@@ -9,11 +9,11 @@ create_database_window = session.new_window(attach=False, window_name="create_da
 pane = create_database_window.attached_pane
 
 pane.send_keys("cd /usr/local/mysql/")
-pane.send_keys("/usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --log-error=fuckerr.err --pid-file=fuckpid.pid &")
+pane.send_keys("/usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --log-error=duckerr.err --pid-file=duckpid.pid &")
 time.sleep(10)
 create_database_window_client = session.new_window(attach=False, window_name="create_database_client")
 pane_client = create_database_window_client.attached_pane
-pane_client.send_keys("/usr/local/mysql/bin/mysql -u root -e \"create database if not exists test1; create database if not exists fuck;\"")
+pane_client.send_keys("/usr/local/mysql/bin/mysql -u root -e \"create database if not exists test1; create database if not exists duck;\"")
 time.sleep(5)
 #create_database_window.kill_window()
 #create_database_window_client.kill_window()
@@ -37,7 +37,7 @@ env_str = "export __AFL_SHM_ID=%s" % shm_str
 server_window = session.new_window(attach=False, window_name="mysqld")
 server_pane = server_window.attached_pane
 server_pane.send_keys(env_str)
-server_pane.send_keys("/usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --log-error=fuckerr.err --pid-file=fuckpid.pid --max_statement_time=1")
+server_pane.send_keys("/usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --log-error=duckerr.err --pid-file=duckpid.pid --max_statement_time=1")
 
 afl_pane.send_keys("")
 time.sleep(20)

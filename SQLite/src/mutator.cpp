@@ -128,9 +128,9 @@ void Mutator::init(string f_testcase, string f_common_string, string pragma){
     //init utils::m_tables
     vector<string> v_tmp = {"haha1", "haha2", "haha3"};
     v_table_names.insert(v_table_names.end(), v_tmp.begin(), v_tmp.end());
-    m_tables["haha1"] = {"fucking_column0_1", "fucking_column1_1", "fucking_column2_1"};
-    m_tables["haha2"] = {"fucking_column0_2", "fucking_column1_2", "fucking_column2_2"};
-    m_tables["haha3"] = {"fucking_column0_3", "fucking_column1_3", "fucking_column2_3"};
+    m_tables["haha1"] = {"ducking_column0_1", "ducking_column1_1", "ducking_column2_1"};
+    m_tables["haha2"] = {"ducking_column0_2", "ducking_column1_2", "ducking_column2_2"};
+    m_tables["haha3"] = {"ducking_column0_3", "ducking_column1_3", "ducking_column2_3"};
 
     //init value_libary
     vector<unsigned long> value_lib_init = {0, (unsigned long)LONG_MAX, (unsigned long)ULONG_MAX,
@@ -159,7 +159,7 @@ void Mutator::init(string f_testcase, string f_common_string, string pragma){
     
     ifstream input_pragma("./pragma");
     string s;
-    cout << "[fuck]start init pragma" << endl;
+    cout << "[duck]start init pragma" << endl;
     while(getline(input_pragma, s)){
         if(s.empty()) continue;
         auto pos = s.find('=');
@@ -766,7 +766,7 @@ map<IR*, set<IR*> > Mutator::build_dependency_graph(IR* root, map<IDTYPE, IDTYPE
 
 
             unsigned long Mutator::hash(string sql){ 
-                return fucking_hash(sql.c_str(), sql.size());
+                return ducking_hash(sql.c_str(), sql.size());
             }
 
             unsigned long Mutator::hash(IR * root){

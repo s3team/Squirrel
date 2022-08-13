@@ -480,7 +480,7 @@ unsigned long Mutator::get_a_val() {
 
 
 unsigned long Mutator::hash(string &sql){ 
-    return fucking_hash(sql.c_str(), sql.size());
+    return ducking_hash(sql.c_str(), sql.size());
 }
 
 unsigned long Mutator::hash(IR * root){

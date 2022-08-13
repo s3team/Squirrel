@@ -126,7 +126,7 @@ Program * parser(string sql){
 
 typedef unsigned long uint64_t;
 
-uint64_t fucking_hash ( const void * key, int len )
+uint64_t ducking_hash ( const void * key, int len )
 {
 	const uint64_t m = 0xc6a4a7935bd1e995;
 	const int r = 47;

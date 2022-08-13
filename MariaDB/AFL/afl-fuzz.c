@@ -153,7 +153,7 @@ class MysqlClient{
 
       database_id += 1;
       if(mysql_init(&tmp_m) == NULL) {mysql_close(&tmp_m); return false;}
-      if(mysql_real_connect(&tmp_m, host_, user_name_, passwd_, "fuck", 0, NULL, CLIENT_MULTI_STATEMENTS)== NULL){
+      if(mysql_real_connect(&tmp_m, host_, user_name_, passwd_, "duck", 0, NULL, CLIENT_MULTI_STATEMENTS)== NULL){
         fprintf(stderr, "Connection error3 \n", mysql_errno(&tmp_m), mysql_error(&tmp_m));
         mysql_close(&tmp_m);
         return false;
@@ -234,7 +234,7 @@ class MysqlClient{
       MYSQL tmp_m;
 
       if(mysql_init(&tmp_m) == NULL) {mysql_close(&tmp_m); return false;}
-      if(mysql_real_connect(&tmp_m, host_, user_name_, passwd_, "fuck", 0, NULL, CLIENT_MULTI_STATEMENTS)== NULL){
+      if(mysql_real_connect(&tmp_m, host_, user_name_, passwd_, "duck", 0, NULL, CLIENT_MULTI_STATEMENTS)== NULL){
         fprintf(stderr, "Connection error2 \n", mysql_errno(&tmp_m), mysql_error(&tmp_m));
         mysql_close(&tmp_m);
         return false;
@@ -1358,7 +1358,7 @@ static  u8 count_class_lookup8[256] = {0};
 
 static u16 count_class_lookup16[65536];
 
-void memset_fucking_array(){
+void memset_ducking_array(){
   simplify_lookup[0] = 1;
   memset(simplify_lookup+1, 128, 255);
 
@@ -6465,7 +6465,7 @@ int main(int argc, char** argv) {
 
   struct timeval tv;
   struct timezone tz;
-  memset_fucking_array();
+  memset_ducking_array();
   SAYF(cCYA "SQLFuzzer " cBRI VERSION cRST " by hackers\n");//string_lib he common_string_lib YOUSHENME QUBIE
 
   doc_path = access(DOC_PATH, F_OK) ? "docs" : DOC_PATH;

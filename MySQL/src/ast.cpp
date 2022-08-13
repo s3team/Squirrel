@@ -98,7 +98,7 @@ string IR::to_string_core(){
     
     if( op_!= NULL ){
         //if(op_->prefix_ == NULL)
-            ///cout << "FUCK NULL prefix" << endl;
+            ///cout << "duck NULL prefix" << endl;
          //cout << "OP_Prex: " << op_->prefix_ << endl;
         res += op_->prefix_ + " ";
     }
@@ -117,7 +117,7 @@ string IR::to_string_core(){
     if(op_!= NULL)
         res += op_->suffix_;
     
-    //cout << "FUCK" << endl;
+    //cout << "duck" << endl;
     //cout << "RETURN" << endl;
     return res;
 }

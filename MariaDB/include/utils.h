@@ -22,7 +22,7 @@ long gen_long();
 
 int gen_int();
 
-uint64_t fucking_hash ( const void * key, int len );
+uint64_t ducking_hash ( const void * key, int len );
 vector<string> get_all_files_in_dir(const char * dir_name);
 Program * parser(string sql);
 #endif

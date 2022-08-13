@@ -1137,7 +1137,7 @@ static  u8 count_class_lookup8[256] = {0};
 
 static u16 count_class_lookup16[65536];
 
-void memset_fucking_array(){
+void memset_ducking_array(){
   simplify_lookup[0] = 1;
   memset(simplify_lookup+1, 128, 255);
 
@@ -3998,7 +3998,7 @@ static void show_stats(void) {
   else
         stab_ratio = 100;
 
-        //cout << "fuck " << endl;
+        //cout << "duck " << endl;
       /* Roughly every minute, update fuzzer stats and save auto tokens. */
 
       if (cur_ms - last_stats_ms > STATS_UPDATE_SEC * 1000) {
@@ -4326,7 +4326,7 @@ static void show_stats(void) {
         min_stab_radio = stab_ratio;
         ofstream radio_file("/tmp/loss_stab", ios::app);
         if(radio_file.is_open() == false){
-            cout <<"WHAT THE FUCK??" << endl;
+            cout <<"WHAT THE duck??" << endl;
             cin >> lost;
         }
         radio_file << save_file_name << "\tlost: " << lost << endl;
@@ -6404,7 +6404,7 @@ int run_testcase()
 
 static void do_libary_initialize(){
   if(g_libary_path == NULL) g_libary_path = INIT_LIB_PATH;
-  cerr <<"We should initialize the fucking libary" << endl;
+  cerr <<"We should initialize the ducking libary" << endl;
   vector<IR*> ir_set;
   vector<string> file_list = get_all_files_in_dir(g_libary_path);
   for(auto &f : file_list){
@@ -6426,7 +6426,7 @@ int main(int argc, char** argv) {
 
   struct timeval tv;
   struct timezone tz;
-  memset_fucking_array();
+  memset_ducking_array();
 
   SAYF(cCYA "afl-fuzz " cBRI VERSION cRST " by <lcamtuf@google.com>\n");
 

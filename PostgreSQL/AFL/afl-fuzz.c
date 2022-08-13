@@ -1269,7 +1269,7 @@ static  u8 count_class_lookup8[256] = {0};
 
 static u16 count_class_lookup16[65536];
 
-void memset_fucking_array(){
+void memset_ducking_array(){
   simplify_lookup[0] = 1;
   memset(simplify_lookup+1, 128, 255);
 
@@ -6302,7 +6302,7 @@ int main(int argc, char** argv) {
 
   struct timeval tv;
   struct timezone tz;
-  memset_fucking_array();
+  memset_ducking_array();
   SAYF(cCYA "SQLFuzzer " cBRI VERSION cRST " by hackers\n");//string_lib he common_string_lib YOUSHENME QUBIE
 
   doc_path = access(DOC_PATH, F_OK) ? "docs" : DOC_PATH;

@@ -516,7 +516,7 @@ int yyerror(YYLTYPE* llocp, Program * result, yyscan_t scanner, const char *msg)
 
 
 %destructor{
-    cout << "FUCK here" << endl;
+    cout << "duck here" << endl;
     if($$ != NULL){
         delete($$->id_);
     }
@@ -524,7 +524,7 @@ int yyerror(YYLTYPE* llocp, Program * result, yyscan_t scanner, const char *msg)
 } <hint_t> <with_description_t> <prepare_statement_t> <execute_statement_t> <column_def_t> <drop_statement_t> <update_clause_t> <function_expr_t> <table_alias_t> <alias_t>
 
 %destructor{
-    cout << "FUCK me" << endl;
+    cout << "duck me" << endl;
     if($$ != NULL){
         for(auto &i: $$->v_expr_list_){
             delete(i);
