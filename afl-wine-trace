@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import pefile
+import shutil
+import subprocess
+
+if len(sys.argv) < 2:
+    print("[afl-wine-trace] usage: ./afl-wine-trace binary [args...]\n")
+    exit(1)
+
+if os.getenv("AFL_PATH"):
+    my_dir = os.getenv("AFL_PATH")
+else:
+    my_dir = os.path.dirname(os.path.abspath(__file__))
+
+os.environ["WINELOADERNOEXEC"] = "1"
+
+pe = pefile.PE(sys.argv[1])
+
+if "AFL_ENTRYPOINT" not in os.environ:
+    os.environ["AFL_ENTRYPOINT"] = "0x%x" % (pe.OPTIONAL_HEADER.ImageBase + pe.OPTIONAL_HEADER.AddressOfEntryPoint)
+if not os.getenv("AFL_INST_LIBS"):
+    if "AFL_CODE_START" not in os.environ:
+        os.environ["AFL_CODE_START"] = "0x%x" % (pe.OPTIONAL_HEADER.ImageBase + pe.OPTIONAL_HEADER.BaseOfCode)
+    if "AFL_CODE_END" not in os.environ:
+        os.environ["AFL_CODE_END"] = "0x%x" % (pe.OPTIONAL_HEADER.ImageBase + pe.OPTIONAL_HEADER.BaseOfCode + pe.OPTIONAL_HEADER.SizeOfCode)
+
+if pe.FILE_HEADER.Machine == pefile.MACHINE_TYPE["IMAGE_FILE_MACHINE_AMD64"] or pe.FILE_HEADER.Machine == pefile.MACHINE_TYPE["IMAGE_FILE_MACHINE_IA64"]:
+    os.environ["QEMU_SET_ENV"] = "LD_PRELOAD=" + os.path.join(my_dir, "qemu_mode/unsigaction/unsigaction64.so") + ",WINEARCH=win64"
+else:
+    os.environ["QEMU_SET_ENV"] = "LD_PRELOAD=" + os.path.join(my_dir, "qemu_mode/unsigaction/unsigaction32.so") + ",WINEARCH=win32"
+
+if os.getenv("WINECOV_QEMU_PATH"):
+    qemu_path = os.getenv("WINECOV_QEMU_PATH")
+elif os.path.exists(os.path.join(my_dir, "afl-qemu-trace")):
+    qemu_path = os.path.join(my_dir, "afl-qemu-trace")
+else:
+    qemu_path = "qemu-"
+    if pe.FILE_HEADER.Machine == pefile.MACHINE_TYPE["IMAGE_FILE_MACHINE_AMD64"] or pe.FILE_HEADER.Machine == pefile.MACHINE_TYPE["IMAGE_FILE_MACHINE_IA64"]:
+        qemu_path += "x86_64"
+    elif pe.FILE_HEADER.Machine == pefile.MACHINE_TYPE["IMAGE_FILE_MACHINE_I386"]:
+        qemu_path += "i386"
+    else:
+        print ("[afl-wine-trace] unsuppoted architecture\n")
+        exit(1)
+    qemu_path = shutil.which(qemu_path)
+
+wine_path = None
+if os.getenv("AFL_WINE_PATH"):
+    wine_path = os.getenv("AFL_WINE_PATH")
+else:
+    if not wine_path and shutil.which("wine"):
+        wine_path = shutil.which("wine")
+    if not wine_path and os.path.exists("/usr/bin/wine"):
+        wine_path = "/usr/bin/wine"
+    if not wine_path and os.path.exists("/usr/lib/wine/wine"):
+        wine_path = "/usr/lib/wine/wine"
+    if pe.FILE_HEADER.Machine == pefile.MACHINE_TYPE["IMAGE_FILE_MACHINE_AMD64"] or pe.FILE_HEADER.Machine == pefile.MACHINE_TYPE["IMAGE_FILE_MACHINE_IA64"]:
+        wine_path += "64"
+    elif pe.FILE_HEADER.Machine == pefile.MACHINE_TYPE["IMAGE_FILE_MACHINE_I386"]:
+        pass
+    else:
+        print ("[afl-wine-trace] unsopported architecture\n")
+        exit(1)
+
+argv = sys.argv[1:]
+for i in range(len(argv)):
+    if ".cur_input" in argv[i]:
+        # Get the Wine translated path using the winepath tool
+        arg_translated = subprocess.run([os.path.join(os.path.dirname(wine_path), "winepath"), "--windows", argv[i]], universal_newlines=True, stdout=subprocess.PIPE).stdout
+        # Remove the spurious LF at the end of the path
+        if len(arg_translated) > 0 and arg_translated[-1] == '\n':
+            arg_translated = arg_translated[:-1]
+        argv[i] = arg_translated
+        break
+
+print("[afl-wine-trace] exec:", " ".join([qemu_path, wine_path] + argv))
+os.execve(qemu_path, [qemu_path, wine_path] + argv, os.environ)
