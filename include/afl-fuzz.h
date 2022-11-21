@@ -477,7 +477,8 @@ typedef struct afl_state {
       *in_bitmap,                       /* Input bitmap                     */
       *file_extension,                  /* File extension                   */
       *orig_cmdline,                    /* Original command line            */
-      *infoexec;                       /* Command to execute on a new crash */
+      *infoexec,                       /* Command to execute on a new crash */
+      *init_lib;                        /* Init library path for Squirrel   */
 
   u32 hang_tmout;                       /* Timeout used for hang det (ms)   */
 

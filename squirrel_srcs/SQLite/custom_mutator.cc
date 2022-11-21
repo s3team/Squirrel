@@ -33,8 +33,7 @@ extern "C" {
 void *afl_custom_init(afl_state_t *afl, unsigned int seed) {
   SQLMutator* mutator = new SQLMutator{};
 
-  const char* init_lib_path = nullptr;
-  //const char* init_lib_path = afl-> // TODO;
+  const char* init_lib_path = afl->init_lib;
   vector<string> file_list = get_all_files_in_dir(init_lib_path);
   for (auto& f : file_list) {
     mutator->init(f);

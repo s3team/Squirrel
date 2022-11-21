@@ -184,6 +184,9 @@ static void usage(u8 *argv0, int more_help) {
       "  -n            - fuzz without instrumentation (non-instrumented mode)\n"
       "  -x dict_file  - fuzzer dictionary (see README.md, specify up to 4 "
       "times)\n\n"
+      "  -I init_library_dir  - A dir containing test cases that serve as the "
+      "fuzzing dictionary. They should cover most, if not all, the grammar "
+      "structures\n\n"
 
       "Test settings:\n"
       "  -s seed       - use a fixed seed for the RNG\n"
@@ -549,13 +552,15 @@ int main(int argc, char **argv_orig, char **envp) {
 
   afl->shmem_testcase_mode = 1;  // we always try to perform shmem fuzzing
 
-  while (
-      (opt = getopt(
-           argc, argv,
-           "+Ab:B:c:CdDe:E:hi:I:f:F:g:G:l:L:m:M:nNOo:p:RQs:S:t:T:UV:WXx:YZ")) >
-      0) {
+  while ((opt = getopt(argc, argv,
+                       "+Ab:B:c:CdDe:E:hI:i:I:f:F:g:G:l:L:m:M:nNOo:p:RQs:S:t:T:"
+                       "UV:WXx:YZ")) > 0) {
 
     switch (opt) {
+
+      case 'I':
+        afl->init_lib = optarg;
+        break;
 
       case 'g':
         afl->min_length = atoi(optarg);
@@ -1296,7 +1301,8 @@ int main(int argc, char **argv_orig, char **envp) {
 
   }
 
-  if (optind == argc || !afl->in_dir || !afl->out_dir || show_help) {
+  if (optind == argc || !afl->in_dir || !afl->out_dir || !afl->init_lib ||
+      show_help) {
 
     usage(argv[0], show_help);
 
