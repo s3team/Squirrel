@@ -158,19 +158,24 @@ void Mutator::init(string f_testcase, string f_common_string, string pragma){
     string_libary.push_back("v1");
     
     ifstream input_pragma("./pragma");
+    assert(input_pragma.is_open());
     string s;
     cout << "[duck]start init pragma" << endl;
     while(getline(input_pragma, s)){
         if(s.empty()) continue;
+
         auto pos = s.find('=');
         if(pos == string::npos) continue;
-
         string k = s.substr(0, pos-1);
         string v = s.substr(pos+2);
-        if(find(cmds_.begin(), cmds_.end(), k) == cmds_.end()) cmds_.push_back(k);
+        if(find(cmds_.begin(), cmds_.end(), k) == cmds_.end()){
+            cmds_.push_back(k);
+            cout << "Pushing: " << s << std::endl;
+        }
         m_cmd_value_lib_[k].push_back(v);
     }
-
+    
+    assert(!cmds_.empty());
     relationmap[id_column_name] = id_top_table_name;
     relationmap[id_table_name] = id_top_table_name;
     relationmap[id_index_name] = id_top_table_name;
@@ -895,7 +900,6 @@ map<IR*, set<IR*> > Mutator::build_dependency_graph(IR* root, map<IDTYPE, IDTYPE
 
             /* tranverse ir in the order: _right ==> root ==> left_ */
             string Mutator::fix(IR * root){
-
                 string res;
                 auto * right_ = root->right_, * left_ = root->left_;
                 auto * op_ = root->op_;
