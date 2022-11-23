@@ -31,7 +31,7 @@ void print_ir(IR * ir);
 void print_v_ir(vector<IR *> &v_ir_collector);
 uint64_t ducking_hash ( const void * key, int len );
 void trim_string(string &);
-vector<string> get_all_files_in_dir( const char * dir_name );
+vector<string> get_all_files_in_dir( const char * dir_name, bool absolute=false);
 string magic_string_generator(string& s);
 
 

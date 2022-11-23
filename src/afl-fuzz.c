@@ -553,12 +553,12 @@ int main(int argc, char **argv_orig, char **envp) {
   afl->shmem_testcase_mode = 1;  // we always try to perform shmem fuzzing
 
   while ((opt = getopt(argc, argv,
-                       "+Ab:B:c:CdDe:E:hI:i:I:f:F:g:G:l:L:m:M:nNOo:p:RQs:S:t:T:"
+                       "+Ab:B:c:CdDe:E:hH:I:i:f:F:g:G:l:L:m:M:nNOo:p:RQs:S:t:T:"
                        "UV:WXx:YZ")) > 0) {
 
     switch (opt) {
 
-      case 'I':
+      case 'H':
         afl->init_lib = optarg;
         break;
 

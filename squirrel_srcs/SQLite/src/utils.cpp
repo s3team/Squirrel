@@ -191,7 +191,7 @@ void trim_string(string &res){
 }
 
 
-vector<string> get_all_files_in_dir( const char * dir_name )
+vector<string> get_all_files_in_dir( const char * dir_name, bool absolute)
 {
     vector<string> file_list;
 	// check the parameter !
@@ -228,7 +228,11 @@ vector<string> get_all_files_in_dir( const char * dir_name )
 			strcmp( filename->d_name , "..") == 0    )
 			continue;
 		cout<<filename->d_name <<endl;
-        file_list.push_back(string(filename->d_name));
+    if(absolute){
+      file_list.push_back(string(dir_name) + "/" + string(filename->d_name));
+    }else{
+      file_list.push_back(string(filename->d_name));
+    }
 	}
 	closedir(dir);
     	return file_list;
