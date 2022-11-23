@@ -53,7 +53,7 @@ class SQLMutator {
   void add_to_library(IR *ir) {
     mutator_.add_to_library(ir);
   }
-
+  
  private:
   Mutator                                   mutator_;
   std::stack<pair<unsigned char *, size_t>> validated_test_cases_;
@@ -62,15 +62,20 @@ class SQLMutator {
 extern "C" {
 
 void *afl_custom_init(afl_state_t *afl, unsigned int seed) {
+  std::cerr << "Init me!" << std::endl;
   SQLMutator *mutator = new SQLMutator{};
 
   const char *   init_lib_path = (const char *)(afl->init_lib);
   vector<string> file_list = get_all_files_in_dir(init_lib_path, true);
   for (auto &f : file_list) {
-    std::cerr << "init lib: " << f << std::endl;
-    mutator->init(f);
+    std::cerr << "init lib: " << f << ", status ";
+    if(mutator->init(f)){
+        std::cerr << "Success" << std::endl; 
+    }else{
+        std::cerr << "Failed" << std::endl; 
+    }
   }
-  return new SQLMutator{};
+  return mutator;
 }
 
 void afl_custom_deinit(void *data) {
