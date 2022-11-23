@@ -1,12 +1,12 @@
 #include <fstream>
-#include <memory>
-#include <string>
-#include <stack>
 #include <iostream>
+#include <memory>
+#include <stack>
+#include <string>
 
 #include "./include/ast.h"
-#include "./include/mutator.h"
 #include "./include/define.h"
+#include "./include/mutator.h"
 #include "./include/utils.h"
 #include "afl-fuzz.h"
 
@@ -21,23 +21,21 @@ class SQLMutator {
     return mutator_.mutate_all(ir_set);
   }
 
-  std::string validate(IR *ir) {
-    return mutator_.validate(ir);
-  }
+  std::string validate(IR *ir) { return mutator_.validate(ir); }
 
   size_t validate_all(const std::vector<IR *> &ir_set) {
     for (IR *ir : ir_set) {
       std::string validated_ir = mutator_.validate(ir);
-      if (validated_ir.empty()) { continue; }
+      if (validated_ir.empty()) {
+        continue;
+      }
       unsigned char *buf = (unsigned char *)(strdup(validated_ir.c_str()));
       validated_test_cases_.push(std::make_pair(buf, validated_ir.size()));
     }
     return validated_test_cases_.size();
   }
 
-  bool has_validated_test_cases() {
-    return !validated_test_cases_.empty();
-  }
+  bool has_validated_test_cases() { return !validated_test_cases_.empty(); }
 
   std::pair<unsigned char *, size_t> get_next_validated_test_case() {
     assert(has_validated_test_cases());
@@ -46,16 +44,12 @@ class SQLMutator {
     return result;
   }
 
-  std::string extract_struct(IR *ir) {
-    return mutator_.extract_struct(ir);
-  }
+  std::string extract_struct(IR *ir) { return mutator_.extract_struct(ir); }
 
-  void add_to_library(IR *ir) {
-    mutator_.add_to_library(ir);
-  }
-  
+  void add_to_library(IR *ir) { mutator_.add_to_library(ir); }
+
  private:
-  Mutator                                   mutator_;
+  Mutator mutator_;
   std::stack<pair<unsigned char *, size_t>> validated_test_cases_;
 };
 
@@ -65,38 +59,36 @@ void *afl_custom_init(afl_state_t *afl, unsigned int seed) {
   std::cerr << "Init me!" << std::endl;
   SQLMutator *mutator = new SQLMutator{};
 
-  const char *   init_lib_path = (const char *)(afl->init_lib);
+  const char *init_lib_path = (const char *)(afl->init_lib);
   vector<string> file_list = get_all_files_in_dir(init_lib_path, true);
   for (auto &f : file_list) {
     std::cerr << "init lib: " << f << ", status ";
-    if(mutator->init(f)){
-        std::cerr << "Success" << std::endl; 
-    }else{
-        std::cerr << "Failed" << std::endl; 
+    if (mutator->init(f)) {
+      std::cerr << "Success" << std::endl;
+    } else {
+      std::cerr << "Failed" << std::endl;
     }
   }
   return mutator;
 }
 
-void afl_custom_deinit(void *data) {
-  delete (SQLMutator *)data;
-}
+void afl_custom_deinit(void *data) { delete (SQLMutator *)data; }
 
-u8 afl_custom_queue_new_entry(void *               data,
+u8 afl_custom_queue_new_entry(void *data,
                               const unsigned char *filename_new_queue,
                               const unsigned char *filename_orig_queue) {
   SQLMutator *mutator = static_cast<SQLMutator *>(data);
 
   // read a file by file name
   std::ifstream ifs((const char *)filename_new_queue);
-  std::string   content((std::istreambuf_iterator<char>(ifs)),
+  std::string content((std::istreambuf_iterator<char>(ifs)),
                       (std::istreambuf_iterator<char>()));
   if (Program *program = parser(content)) {
     std::vector<IR *> ir_set;
-    IR *              ir = program->translate(ir_set);
+    IR *ir = program->translate(ir_set);
     ir_set.clear();
     string strip_sql = mutator->extract_struct(ir);
-    auto   p_strip_sql = parser(strip_sql);
+    auto p_strip_sql = parser(strip_sql);
     if (p_strip_sql) {
       auto root_ir = p_strip_sql->translate(ir_set);
       p_strip_sql->deep_delete();
@@ -104,13 +96,13 @@ u8 afl_custom_queue_new_entry(void *               data,
       deep_delete(root_ir);
     }
   }
-  //std::cerr << "add to library: " << filename_new_queue << std::endl;
+  // std::cerr << "add to library: " << filename_new_queue << std::endl;
   return false;
 }
 
 unsigned int afl_custom_fuzz_count(void *data, const unsigned char *buf,
                                    size_t buf_size) {
-  SQLMutator *      mutator = static_cast<SQLMutator *>(data);
+  SQLMutator *mutator = static_cast<SQLMutator *>(data);
   std::vector<IR *> ir_set, mutated_tree;
   /*
   std::cerr << "buf_size: " << buf_size << std::endl;
@@ -119,8 +111,10 @@ unsigned int afl_custom_fuzz_count(void *data, const unsigned char *buf,
             << std::endl;
             */
   std::string sql((const char *)buf, buf_size);
-  Program *   program_root = parser(sql.c_str());
-  if (program_root == nullptr) { return 0; }
+  Program *program_root = parser(sql.c_str());
+  if (program_root == nullptr) {
+    return 0;
+  }
 
   // TODO: Remove this uncessary try.
   // Or we will have exception from the parser?
@@ -142,24 +136,24 @@ unsigned int afl_custom_fuzz_count(void *data, const unsigned char *buf,
     deep_delete(ir);
   }
 
-  //std::cerr << "validated ir size: " << validated_ir_size << std::endl;
+  // std::cerr << "validated ir size: " << validated_ir_size << std::endl;
 
   return validated_ir_size;
 }
 
 size_t afl_custom_fuzz(void *data, uint8_t *buf, size_t buf_size, u8 **out_buf,
                        uint8_t *add_buf,
-                       size_t   add_buf_size,  // add_buf can be NULL
-                       size_t   max_size) {
+                       size_t add_buf_size,  // add_buf can be NULL
+                       size_t max_size) {
   SQLMutator *mutator = static_cast<SQLMutator *>(data);
   assert(mutator->has_validated_test_cases());
   auto test_case = mutator->get_next_validated_test_case();
   *out_buf = test_case.first;
   return test_case.second;
-
 }
 
-//size_t afl_custom_post_process(void *data, unsigned char *buf, size_t buf_size,
+// size_t afl_custom_post_process(void *data, unsigned char *buf, size_t
+// buf_size,
 //                               unsigned char **out_buf) {
 //  std::cerr << "post process" << std::endl;
 
