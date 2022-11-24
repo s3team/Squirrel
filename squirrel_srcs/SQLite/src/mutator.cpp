@@ -179,7 +179,7 @@ void Mutator::init(string f_testcase, string f_common_string, string pragma) {
   string_libary.push_back("v0");
   string_libary.push_back("v1");
 
-  ifstream input_pragma("./pragma");
+  ifstream input_pragma(pragma);
   assert(input_pragma.is_open());
   string s;
   cout << "[duck]start init pragma" << endl;
