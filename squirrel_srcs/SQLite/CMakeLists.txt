@@ -3,6 +3,7 @@ project(Squirrel)
 
 # GoogleTest requires at least C++14
 set(CMAKE_CXX_STANDARD 17)
+set(BUILD_SHARED_LIBS ON)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -18,8 +19,6 @@ FetchContent_Declare(
   yaml-cpp
   URL https://github.com/jbeder/yaml-cpp/archive/refs/tags/yaml-cpp-0.7.0.zip)
 FetchContent_MakeAvailable(yaml-cpp)
-target_compile_definitions(yaml-cpp PRIVATE "YAML_BUILD_SHARED_LIBS=ON")
-
 
 enable_testing()
 

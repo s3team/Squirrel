@@ -1,0 +1,4 @@
+PRAGMA encoding = 'UTF-16';
+CREATE VIRTUAL TABLE vt0 USING fts5(c0);
+INSERT INTO vt0 VALUES (x'3078');
+INSERT INTO vt0(vt0) VALUES('integrity-check');
