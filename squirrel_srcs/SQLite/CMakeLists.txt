@@ -39,3 +39,5 @@ target_compile_options(custom_mutator PRIVATE -O3 -fsanitize=address -g -fPIC)
 
 include(GoogleTest)
 # gtest_discover_tests(variable_check_test)
+
+include(clang-format.cmake)
