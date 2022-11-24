@@ -1,20 +1,16 @@
 #include "mysql.h"
 
+#include <string>
+#include <vector>
+
 #include "ast.h"
 #include "define.h"
 #include "mutator.h"
 #include "utils.h"
 
-#include <string>
-#include <vector>
+MySQLDB *create_mysql() { return new MySQLDB; }
 
-MySQLDB* create_mysql(){
-    return new MySQLDB;
-}
-
-MySQLDB::MySQLDB(){
-  mutator_ = std::make_unique<Mutator>();    
-}
+MySQLDB::MySQLDB() { mutator_ = std::make_unique<Mutator>(); }
 
 bool MySQLDB::initialize(YAML::Node config) {
   const std::string init_lib_path = config["init_lib"].as<std::string>();

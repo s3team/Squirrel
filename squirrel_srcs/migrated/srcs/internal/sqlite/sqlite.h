@@ -27,5 +27,5 @@ class SQLiteDB : public DataBase {
   std::stack<std::pair<char *, size_t>> validated_test_cases_;
 };
 
-SQLiteDB* create_sqlite();
+SQLiteDB *create_sqlite();
 #endif

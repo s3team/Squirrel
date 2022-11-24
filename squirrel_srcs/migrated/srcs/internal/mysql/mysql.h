@@ -1,7 +1,8 @@
 #ifndef __MYSQL_H__
 #define __MYSQL_H__
-#include <stack>
 #include <memory>
+#include <stack>
+
 #include "db.h"
 
 class Mutator;
@@ -27,5 +28,5 @@ class MySQLDB : public DataBase {
   std::stack<std::pair<unsigned char *, size_t>> validated_test_cases_;
 };
 
-MySQLDB* create_mysql();
+MySQLDB *create_mysql();
 #endif

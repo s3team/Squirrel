@@ -5,6 +5,9 @@ project(Squirrel)
 set(CMAKE_CXX_STANDARD 17)
 set(BUILD_SHARED_LIBS ON)
 
+find_package(PkgConfig)
+pkg_check_modules(MySQL REQUIRED mysqlclient>=5.7)
+
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -22,36 +25,36 @@ FetchContent_MakeAvailable(yaml-cpp)
 
 enable_testing()
 
-set(HEADER_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../include
-               )
+set(HEADER_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../include)
 
 include_directories(${HEADER_DIR})
 
-add_library(
-  sqlite_mutator SHARED
-  srcs/custom_mutator.cc
-  srcs/db.cc)
+add_library(sqlite_mutator SHARED srcs/custom_mutator.cc srcs/db.cc)
+
+add_library(mysql_mutator SHARED srcs/custom_mutator.cc srcs/db.cc)
 
 add_library(
-  mysql_mutator SHARED
-  srcs/custom_mutator.cc
-  srcs/db.cc)
+  sqlite_impl OBJECT
+  srcs/internal/sqlite/sqlite.cc
+  srcs/internal/sqlite/sqlite.h
+  srcs/internal/sqlite/srcs/ast.cpp
+  srcs/internal/sqlite/srcs/mutator.cpp
+  srcs/internal/sqlite/srcs/utils.cpp
+  srcs/internal/sqlite/parser/bison_parser.cpp
+  srcs/internal/sqlite/parser/flex_lexer.cpp)
 
-add_library(sqlite_impl
-    OBJECT
-    srcs/internal/sqlite/sqlite.cc
-    srcs/internal/sqlite/sqlite.h
-    srcs/internal/sqlite/srcs/ast.cpp srcs/internal/sqlite/srcs/mutator.cpp srcs/internal/sqlite/srcs/utils.cpp
-    srcs/internal/sqlite/parser/bison_parser.cpp srcs/internal/sqlite/parser/flex_lexer.cpp)
+add_library(
+  mysql_impl OBJECT
+  srcs/internal/mysql/mysql.cc
+  srcs/internal/mysql/mysql.h
+  srcs/internal/mysql/srcs/ast.cpp
+  srcs/internal/mysql/srcs/mutator.cpp
+  srcs/internal/mysql/srcs/utils.cpp
+  srcs/internal/mysql/parser/bison_parser.cpp
+  srcs/internal/mysql/parser/flex_lexer.cpp)
 
-add_library(mysql_impl
-    OBJECT
-    srcs/internal/mysql/mysql.cc
-    srcs/internal/mysql/mysql.h
-    srcs/internal/mysql/srcs/ast.cpp srcs/internal/mysql/srcs/mutator.cpp srcs/internal/mysql/srcs/utils.cpp
-    srcs/internal/mysql/parser/bison_parser.cpp srcs/internal/mysql/parser/flex_lexer.cpp)
-
-target_include_directories(sqlite_impl PRIVATE srcs/internal/sqlite/include srcs)
+target_include_directories(sqlite_impl PRIVATE srcs/internal/sqlite/include
+                                               srcs)
 target_compile_options(sqlite_impl PRIVATE -O3 -fsanitize=address -g -fPIC)
 target_link_libraries(sqlite_impl yaml-cpp)
 
@@ -69,18 +72,13 @@ target_include_directories(mysql_mutator PRIVATE srcs/internal/mysql srcs)
 target_compile_options(mysql_mutator PRIVATE -O3 -fsanitize=address -g -fPIC)
 target_compile_definitions(mysql_mutator PRIVATE __SQUIRREL_MYSQL__)
 
-#add_library(
-#  mysql_mutator SHARED
-#  srcs/custom_mutator.cc
-#  srcs/mysql.cc
-#   src/ast.cpp src/mutator.cpp src/utils.cpp
-#  parser/bison_parser.cpp parser/flex_lexer.cpp)
 
-#target_link_libraries(mysql_mutator yaml-cpp)
-#target_compile_options(mysql_mutator PRIVATE -O3 -fsanitize=address -g -fPIC)
-
+# MySQL client
+add_library(mysql_client SHARED client.cc)
+target_include_directories(mysql_client PUBLIC ${MySQL_INCLUDE_DIRS})
+target_link_libraries(mysql_client PUBLIC ${MySQL_LIBRARIES})
 
 include(GoogleTest)
 # gtest_discover_tests(variable_check_test)
 
-#include(clang-format.cmake)
+include(clang-format.cmake)
