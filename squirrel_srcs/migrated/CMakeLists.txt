@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 project(Squirrel)
 
-# GoogleTest requires at least C++14
+#GoogleTest requires at least C++ 14
 set(CMAKE_CXX_STANDARD 17)
 set(BUILD_SHARED_LIBS ON)
 
@@ -13,7 +13,7 @@ FetchContent_Declare(
   googletest
   URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
 )
-# For Windows: Prevent overriding the parent project's compiler/linker settings
+#For Windows : Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt
     ON
     CACHE BOOL "" FORCE)
@@ -73,12 +73,21 @@ target_compile_options(mysql_mutator PRIVATE -O3 -fsanitize=address -g -fPIC)
 target_compile_definitions(mysql_mutator PRIVATE __SQUIRREL_MYSQL__)
 
 
-# MySQL client
-add_library(mysql_client SHARED client.cc)
-target_include_directories(mysql_client PUBLIC ${MySQL_INCLUDE_DIRS})
-target_link_libraries(mysql_client PUBLIC ${MySQL_LIBRARIES})
+add_executable(db_driver srcs/db_driver.cc)
+target_link_libraries(db_driver yaml-cpp)
+
+add_library(all_client SHARED srcs/internal/client/client.cc)
+target_include_directories(all_client PUBLIC ${MySQL_INCLUDE_DIRS} srcs/internal/client)
+target_link_libraries(all_client PUBLIC yaml-cpp mysql_client)
+target_compile_options(all_client PRIVATE -O3 -fsanitize=address -g -fPIC)
+
+#MySQL client
+add_library(mysql_client OBJECT srcs/internal/client/client_mysql.cc)
+target_include_directories(mysql_client PUBLIC ${MySQL_INCLUDE_DIRS} srcs/internal/client)
+target_link_libraries(mysql_client PUBLIC ${MySQL_LIBRARIES} yaml-cpp)
+target_compile_options(mysql_client PRIVATE -O3 -fsanitize=address -g -fPIC)
 
 include(GoogleTest)
-# gtest_discover_tests(variable_check_test)
+#gtest_discover_tests(variable_check_test)
 
 include(clang-format.cmake)

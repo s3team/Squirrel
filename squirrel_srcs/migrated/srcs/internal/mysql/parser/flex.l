@@ -220,9 +220,7 @@ return SQL_STRINGLITERAL;
   return SQL_IDENTIFIER;
 }
 
-\' { BEGIN singlequotedstring;
-strbuf = std::stringstream{};
-strbuf << '\'';
+\' { BEGIN singlequotedstring; strbuf = std::stringstream{}; strbuf << '\'';
 }
 
 <singlequotedstring>\'\' { strbuf << '\'';
@@ -232,8 +230,7 @@ strbuf << '\'';
 	strbuf << yytext;
 }
 
-<singlequotedstring>\' { BEGIN 0;
-strbuf << '\'';
+<singlequotedstring>\' { BEGIN 0; strbuf << '\'';
 yylval->sval = strdup(strbuf.str().c_str());
 return SQL_STRINGLITERAL;
 }

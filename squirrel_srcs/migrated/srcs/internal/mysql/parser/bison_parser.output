@@ -1126,7 +1126,7 @@ Grammar
 
           State 30
 
-      112 cte_table_list : cte_table.113 |
+      112 cte_table_list : cte_table .113 |
         cte_table.OP_COMMA cte_table_list
 
         OP_COMMA shift,
@@ -1414,7 +1414,7 @@ Grammar
 
         State 59
 
-        24 select_clause_list : select_clause.25 |
+        24 select_clause_list : select_clause .25 |
         select_clause.combine_clause select_clause_list
 
         EXCEPT shift,
@@ -1815,14 +1815,13 @@ Grammar
 
         State 99
 
-        350 column_name : identifier
-                              .
+        350 column_name : identifier.
 
                           $default reduce using rule 350(column_name)
 
                               State 100
 
-                          77 column_name_list : column_name.78 |
+                          77 column_name_list : column_name .78 |
         column_name.OP_COMMA column_name_list
 
         OP_COMMA shift,
@@ -2389,7 +2388,7 @@ Grammar
 
         State 154
 
-        258 expr : operand.279 unary_expr : operand.ISNULL 280 |
+        258 expr : operand .279 unary_expr : operand.ISNULL 280 |
         operand.IS NULL 281 |
         operand.IS NOT NULL 285 binary_expr : operand.binary_op operand 286 |
         operand.LIKE operand 287 |
@@ -2564,7 +2563,7 @@ Grammar
 
           State 175
 
-      350 column_name : identifier.356 function_name
+      350 column_name : identifier .356 function_name
     : identifier.
 
       OP_LP reduce using rule 356(function_name)$default reduce using rule
@@ -2759,7 +2758,7 @@ Grammar
 
         State 191
 
-        252 set_clause_list : set_clause.253 |
+        252 set_clause_list : set_clause .253 |
         set_clause.OP_COMMA set_clause_list
 
         OP_COMMA shift,
@@ -3046,7 +3045,7 @@ Grammar
 
         State 222
 
-        277 unary_expr : OP_SUB operand.279 |
+        277 unary_expr : OP_SUB operand .279 |
         operand.ISNULL 280 | operand.IS NULL 281 |
         operand.IS NOT NULL 285 binary_expr : operand.binary_op operand 286 |
         operand.LIKE operand 287 |
@@ -3067,7 +3066,7 @@ Grammar
 
         State 223
 
-        278 unary_expr : NOT operand.279 |
+        278 unary_expr : NOT operand .279 |
         operand.ISNULL 280 | operand.IS NULL 281 |
         operand.IS NOT NULL 285 binary_expr : operand.binary_op operand 286 |
         operand.LIKE operand 287 |
@@ -3148,7 +3147,7 @@ Grammar
 
         State 227
 
-        309 case_list : case_clause.310 |
+        309 case_list : case_clause .310 |
         case_clause.case_list
 
         WHEN shift,
@@ -3708,14 +3707,13 @@ Grammar
 
         State 262
 
-        98 opt_order_clause : ORDER BY order_item_list
-                                  .
+        98 opt_order_clause : ORDER BY order_item_list.
 
                               $default reduce using rule 98(opt_order_clause)
 
                                   State 263
 
-                              103 order_item_list : order_item.104 |
+                              103 order_item_list : order_item .104 |
         order_item.OP_COMMA order_item_list
 
         OP_COMMA shift,
@@ -3740,7 +3738,7 @@ Grammar
 
         State 265
 
-        93 limit_clause : LIMIT expr.94 |
+        93 limit_clause : LIMIT expr .94 |
         LIMIT expr.OFFSET expr 95 |
         LIMIT expr.OP_COMMA expr 288 logic_expr : expr.AND expr 289 |
         expr.OR expr
@@ -4036,15 +4034,14 @@ Grammar
 
         State 291
 
-        125 opt_table_option_list : table_option_list
-                                        .
+        125 opt_table_option_list : table_option_list.
 
                                     $default reduce using rule
                                     125(opt_table_option_list)
 
                                         State 292
 
-                                    127 table_option_list : table_option.128 |
+                                    127 table_option_list : table_option .128 |
         table_option.opt_op_comma table_option_list
 
         OP_COMMA shift,
@@ -4278,9 +4275,9 @@ Grammar
 
         State 317
 
-        65 from_clause : FROM table_ref.79 opt_table_prefix : table_ref.join_op
+        65 from_clause : FROM table_ref .79 opt_table_prefix : table_ref.join_op
 
-                                                              NATURAL shift,
+                                                               NATURAL shift,
     and go to state 407 OP_COMMA shift, and go to state 408 JOIN shift,
     and go to state 409
 
@@ -4332,7 +4329,7 @@ Grammar
             State 321
 
         288 logic_expr : expr.AND expr 288 |
-        expr AND expr.289 |
+        expr AND expr .289 |
         expr.OR expr
 
         $default reduce using rule 288(logic_expr)
@@ -4376,7 +4373,7 @@ Grammar
         operand.IS NOT NULL 285 binary_expr : operand.binary_op operand 286 |
         operand.LIKE operand 287 |
         operand.NOT LIKE operand 312 comp_expr : operand.OP_EQUAL operand 313 |
-        operand.OP_NOTEQUAL operand 313 | operand OP_NOTEQUAL operand.314 |
+        operand.OP_NOTEQUAL operand 313 | operand OP_NOTEQUAL operand .314 |
         operand.OP_GREATERTHAN operand 315 | operand.OP_LESSTHAN operand 316 |
         operand.OP_LESSEQ operand 317 |
         operand.OP_GREATEREQ operand 326 array_index
@@ -4407,7 +4404,7 @@ Grammar
         operand.LIKE operand 287 |
         operand.NOT LIKE operand 312 comp_expr : operand.OP_EQUAL operand 313 |
         operand.OP_NOTEQUAL operand 314 | operand.OP_GREATERTHAN operand 314 |
-        operand OP_GREATERTHAN operand.315 | operand.OP_LESSTHAN operand 316 |
+        operand OP_GREATERTHAN operand .315 | operand.OP_LESSTHAN operand 316 |
         operand.OP_LESSEQ operand 317 |
         operand.OP_GREATEREQ operand 326 array_index
     : operand.OP_LBRACKET int_literal OP_RBRACKET
@@ -4435,7 +4432,7 @@ Grammar
         operand.LIKE operand 287 |
         operand.NOT LIKE operand 312 comp_expr : operand.OP_EQUAL operand 313 |
         operand.OP_NOTEQUAL operand 314 | operand.OP_GREATERTHAN operand 315 |
-        operand.OP_LESSTHAN operand 315 | operand OP_LESSTHAN operand.316 |
+        operand.OP_LESSTHAN operand 315 | operand OP_LESSTHAN operand .316 |
         operand.OP_LESSEQ operand 317 |
         operand.OP_GREATEREQ operand 326 array_index
     : operand.OP_LBRACKET int_literal OP_RBRACKET
@@ -4465,7 +4462,7 @@ Grammar
         operand.OP_NOTEQUAL operand 314 | operand.OP_GREATERTHAN operand 315 |
         operand.OP_LESSTHAN operand 316 | operand.OP_LESSEQ operand 317 |
         operand.OP_GREATEREQ operand 317 |
-        operand OP_GREATEREQ operand.326 array_index
+        operand OP_GREATEREQ operand .326 array_index
     : operand.OP_LBRACKET int_literal OP_RBRACKET
 
       OP_ADD shift,
@@ -4588,7 +4585,7 @@ Grammar
         operand.NOT LIKE operand 312 comp_expr : operand.OP_EQUAL operand 313 |
         operand.OP_NOTEQUAL operand 314 | operand.OP_GREATERTHAN operand 315 |
         operand.OP_LESSTHAN operand 316 | operand.OP_LESSEQ operand 316 |
-        operand OP_LESSEQ operand.317 |
+        operand OP_LESSEQ operand .317 |
         operand.OP_GREATEREQ operand 326 array_index
     : operand.OP_LBRACKET int_literal OP_RBRACKET
 
@@ -4612,7 +4609,7 @@ Grammar
         279 unary_expr : operand.ISNULL 280 |
         operand.IS NULL 281 |
         operand.IS NOT NULL 285 binary_expr : operand.binary_op operand 286 |
-        operand.LIKE operand 286 | operand LIKE operand.287 |
+        operand.LIKE operand 286 | operand LIKE operand .287 |
         operand.NOT LIKE operand 312 comp_expr : operand.OP_EQUAL operand 313 |
         operand.OP_NOTEQUAL operand 314 | operand.OP_GREATERTHAN operand 315 |
         operand.OP_LESSTHAN operand 316 | operand.OP_LESSEQ operand 317 |
@@ -4650,7 +4647,7 @@ Grammar
         operand.IS NOT NULL 285 binary_expr : operand.binary_op operand 286 |
         operand.LIKE operand 287 |
         operand.NOT LIKE operand 312 comp_expr : operand.OP_EQUAL operand 312 |
-        operand OP_EQUAL operand.313 | operand.OP_NOTEQUAL operand 314 |
+        operand OP_EQUAL operand .313 | operand.OP_NOTEQUAL operand 314 |
         operand.OP_GREATERTHAN operand 315 | operand.OP_LESSTHAN operand 316 |
         operand.OP_LESSEQ operand 317 |
         operand.OP_GREATEREQ operand 326 array_index
@@ -4678,7 +4675,7 @@ Grammar
         279 unary_expr : operand.ISNULL 280 |
         operand.IS NULL 281 |
         operand.IS NOT NULL 285 binary_expr : operand.binary_op operand 285 |
-        operand binary_op operand.286 | operand.LIKE operand 287 |
+        operand binary_op operand .286 | operand.LIKE operand 287 |
         operand.NOT LIKE operand 312 comp_expr : operand.OP_EQUAL operand 313 |
         operand.OP_NOTEQUAL operand 314 | operand.OP_GREATERTHAN operand 315 |
         operand.OP_LESSTHAN operand 316 | operand.OP_LESSEQ operand 317 |
@@ -4939,7 +4936,7 @@ Grammar
 
         State 352
 
-        64 where_clause : WHERE expr.288 logic_expr : expr.AND expr 289 |
+        64 where_clause : WHERE expr .288 logic_expr : expr.AND expr 289 |
         expr.OR expr
 
         OR shift,
@@ -4970,7 +4967,7 @@ Grammar
                                   State 355
 
                               254 set_clause
-    : column_name OP_EQUAL expr.288 logic_expr : expr.AND expr 289 |
+    : column_name OP_EQUAL expr .288 logic_expr : expr.AND expr 289 |
         expr.OR expr
 
         OR shift,
@@ -5044,7 +5041,7 @@ Grammar
 
         State 361
 
-        207 column_def_list : column_def.208 |
+        207 column_def_list : column_def .208 |
         column_def.OP_COMMA column_def_list
 
         OP_COMMA shift,
@@ -5190,7 +5187,7 @@ Grammar
 
                                            State 375
 
-                                       392 numeric_type : DOUBLE.393 |
+                                       392 numeric_type : DOUBLE .393 |
         DOUBLE.PRECISION
 
         PRECISION shift,
@@ -5569,7 +5566,7 @@ Grammar
 
         State 412
 
-        349 table_name : identifier.356 function_name
+        349 table_name : identifier .356 function_name
     : identifier
           .
 
@@ -5665,7 +5662,7 @@ Grammar
         operand.IS NULL 281 |
         operand.IS NOT NULL 285 binary_expr : operand.binary_op operand 286 |
         operand.LIKE operand 287 | operand.NOT LIKE operand 287 |
-        operand NOT LIKE operand.312 comp_expr : operand.OP_EQUAL operand 313 |
+        operand NOT LIKE operand .312 comp_expr : operand.OP_EQUAL operand 313 |
         operand.OP_NOTEQUAL operand 314 | operand.OP_GREATERTHAN operand 315 |
         operand.OP_LESSTHAN operand 316 | operand.OP_LESSEQ operand 317 |
         operand.OP_GREATEREQ operand 326 array_index
@@ -5865,8 +5862,8 @@ Grammar
 
                              State 437
 
-                         94 limit_clause
-    : LIMIT expr OFFSET expr.288 logic_expr : expr.AND expr 289 |
+                         94 limit_clause : LIMIT expr OFFSET expr
+                                           .288 logic_expr : expr.AND expr 289 |
         expr.OR expr
 
         OR shift,
@@ -5877,7 +5874,7 @@ Grammar
 
             State 438
 
-        95 limit_clause : LIMIT expr OP_COMMA expr.288 logic_expr
+        95 limit_clause : LIMIT expr OP_COMMA expr .288 logic_expr
     : expr.AND expr 289 |
         expr.OR expr
 
@@ -6061,14 +6058,13 @@ Grammar
         State 452
 
         398 opt_table_constraint_list
-    : table_constraint_list
-          .
+    : table_constraint_list.
 
       $default reduce using rule 398(opt_table_constraint_list)
 
           State 453
 
-      400 table_constraint_list : table_constraint.401 |
+      400 table_constraint_list : table_constraint .401 |
         table_constraint.OP_COMMA table_constraint_list
 
         OP_COMMA shift,
@@ -6167,7 +6163,7 @@ Grammar
 
         State 464
 
-        190 indexed_column_list : indexed_column.191 |
+        190 indexed_column_list : indexed_column .191 |
         indexed_column.OP_COMMA indexed_column_list
 
         OP_COMMA shift,
@@ -6253,7 +6249,7 @@ Grammar
 
         State 474
 
-        212 column_constraint_list : column_constraint.213 |
+        212 column_constraint_list : column_constraint .213 |
         column_constraint.column_constraint_list
 
         UNIQUE shift,
@@ -6335,14 +6331,13 @@ Grammar
 
         State 483
 
-        87 opt_join_type : CROSS
-                               .
+        87 opt_join_type : CROSS.
 
                            $default reduce using rule 87(opt_join_type)
 
                                State 484
 
-                           84 opt_join_type : LEFT.85 |
+                           84 opt_join_type : LEFT .85 |
         LEFT.OUTER
 
         OUTER shift,
@@ -6524,7 +6519,7 @@ Grammar
         operand.LIKE operand 287 |
         operand
             .NOT LIKE operand 297 between_expr
-    : operand BETWEEN operand AND operand.312 comp_expr
+    : operand BETWEEN operand AND operand .312 comp_expr
     : operand.OP_EQUAL operand 313 |
         operand.OP_NOTEQUAL operand 314 | operand.OP_GREATERTHAN operand 315 |
         operand.OP_LESSTHAN operand 316 | operand.OP_LESSEQ operand 317 |
@@ -6654,14 +6649,13 @@ Grammar
 
         State 506
 
-        181 insert_rest : opt_column_name_list_p VALUES super_values_list
-                              .
+        181 insert_rest : opt_column_name_list_p VALUES super_values_list.
 
                           $default reduce using rule 181(insert_rest)
 
                               State 507
 
-                          182 super_values_list : values_list.183 |
+                          182 super_values_list : values_list .183 |
         values_list.OP_COMMA super_values_list
 
         OP_COMMA shift,
@@ -6701,9 +6695,8 @@ Grammar
 
           State 512
 
-      255 set_clause
-    : OP_LP column_name_list OP_RP OP_EQUAL expr.288 logic_expr : expr.AND expr
-                                                                  289 |
+      255 set_clause : OP_LP column_name_list OP_RP OP_EQUAL expr
+                       .288 logic_expr : expr.AND expr 289 |
         expr.OR expr
 
         OR shift,
@@ -6714,7 +6707,8 @@ Grammar
 
             State 513
 
-        96 opt_limit_row_count : LIMIT expr.288 logic_expr : expr.AND expr 289 |
+        96 opt_limit_row_count : LIMIT expr .288 logic_expr : expr.AND expr
+                                                              289 |
         expr.OR expr
 
         OR shift,
@@ -7065,14 +7059,13 @@ Grammar
 
         State 549
 
-        35 window_clause : WINDOW window_def_list
-                               .
+        35 window_clause : WINDOW window_def_list.
 
                            $default reduce using rule 35(window_clause)
 
                                State 550
 
-                           36 window_def_list : window_def.37 |
+                           36 window_def_list : window_def .37 |
         window_def.OP_COMMA window_def_list
 
         OP_COMMA shift,
@@ -7102,7 +7095,7 @@ Grammar
         operand.LIKE operand 287 |
         operand
             .NOT LIKE operand 298 between_expr
-    : operand NOT BETWEEN operand AND operand.312 comp_expr
+    : operand NOT BETWEEN operand AND operand .312 comp_expr
     : operand.OP_EQUAL operand 313 |
         operand.OP_NOTEQUAL operand 314 | operand.OP_GREATERTHAN operand 315 |
         operand.OP_LESSTHAN operand 316 | operand.OP_LESSEQ operand 317 |
@@ -7969,7 +7962,7 @@ Grammar
 
                            State 627
 
-                       73 opt_on : ON expr.288 logic_expr : expr.AND expr 289 |
+                       73 opt_on : ON expr .288 logic_expr : expr.AND expr 289 |
         expr.OR expr
 
         OR shift,
@@ -8007,7 +8000,7 @@ Grammar
 
         State 631
 
-        60 opt_having_clause : HAVING expr.288 logic_expr : expr.AND expr 289 |
+        60 opt_having_clause : HAVING expr .288 logic_expr : expr.AND expr 289 |
         expr.OR expr
 
         OR shift,
