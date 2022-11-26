@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 CHAR(25) PRIMARY KEY ) ; INSERT INTO v0 VALUES ( 0 ) ; SELECT count ( * ) , substr ( lower ( '%%BRASS' ) , 9223372036854775807 ) AS mx FROM v0 ; 

@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 INTEGER PRIMARY KEY ) ; SELECT sqlite_compileoption_used ( 'bbbbbbbbaaaaaaaaaaaaaaaaaaaabbbbbbbbaaaaaaaaaaaaaaaaaaaa' ) ; CREATE TABLE v2 ( v4 INTEGER PRIMARY KEY UNIQUE NOT NULL , v3 INT ) ; INSERT INTO v2 ( v3 ) VALUES ( 10 ) ,( 10 ) ; SELECT * FROM v0 , v2 WHERE LIKELY ( v3 ) <= '199419' = v4 AND v4 = 10 ; 

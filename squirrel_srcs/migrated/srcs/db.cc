@@ -14,14 +14,14 @@ DataBase* create_database(YAML::Node config) {
   const std::string db_name = config["db"].as<std::string>();
   DataBase* result = nullptr;
   if (db_name == "sqlite") {
-    #ifdef __SQUIRREL_SQLITE__
+#ifdef __SQUIRREL_SQLITE__
     result = create_sqlite();
-    #endif
-  } else if(db_name == "mysql") {
-    #ifdef __SQUIRREL_MYSQL__
+#endif
+  } else if (db_name == "mysql") {
+#ifdef __SQUIRREL_MYSQL__
     result = create_mysql();
-    #endif
-  }else{
+#endif
+  } else {
     assert(false && "Unreachable");
   }
   assert(result && "Unreachable");

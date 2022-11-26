@@ -1,32 +1,27 @@
 #include "mysql.h"
 
+#include <cassert>
+#include <string>
+#include <vector>
+
 #include "ast.h"
 #include "define.h"
 #include "mutator.h"
 #include "utils.h"
 
-#include <string>
-#include <vector>
+MySQLDB *create_mysql() { return new MySQLDB; }
 
-MySQLDB* create_mysql(){
-    return new MySQLDB;
-}
-
-MySQLDB::MySQLDB(){
-  mutator_ = std::make_unique<Mutator>();    
-}
+MySQLDB::MySQLDB() { mutator_ = std::make_unique<Mutator>(); }
 
 bool MySQLDB::initialize(YAML::Node config) {
   const std::string init_lib_path = config["init_lib"].as<std::string>();
-  std::cerr << "Init path" << init_lib_path << std::endl;
-  const std::string pragma_path = config["pragma"].as<std::string>();
-  std::cerr << "pragma path" << pragma_path << std::endl;
+  std::string data_lib = config["data_lib"].as<std::string>();
   std::vector<std::string> file_list =
       get_all_files_in_dir(init_lib_path.c_str());
   for (auto &f : file_list) {
-    std::cerr << "init lib: " << f << ", status ";
-    mutator_->init(f, "", pragma_path);
+    mutator_->init(init_lib_path + "/" + f);
   }
+  mutator_->init_data_library(data_lib);
   return true;
 }
 
@@ -49,14 +44,14 @@ bool MySQLDB::save_interesting_query(const std::string &query) {
   return false;
 }
 
-size_t MySQLDB::validate_all(const std::vector<IR *> &ir_set) {
-  for (IR *ir : ir_set) {
+size_t MySQLDB::validate_all(std::vector<IR *> &ir_set) {
+  for (IR *&ir : ir_set) {
     bool result = mutator_->validate(ir);
     if (!result) {
       continue;
     }
     std::string validated_ir = ir->to_string();
-    unsigned char *buf = (unsigned char *)(strdup(validated_ir.c_str()));
+    char *buf = strdup(validated_ir.c_str());
     validated_test_cases_.push(std::make_pair(buf, validated_ir.size()));
   }
   return validated_test_cases_.size();
@@ -96,4 +91,12 @@ size_t MySQLDB::mutate(const std::string &query) {
   // std::cerr << "validated ir size: " << validated_ir_size << std::endl;
 
   return validated_ir_size;
+}
+
+std::pair<char * /*buffer*/, size_t /*size*/>
+MySQLDB::get_next_mutated_query() {
+  assert(has_mutated_test_cases());
+  auto result = validated_test_cases_.top();
+  validated_test_cases_.pop();
+  return result;
 }

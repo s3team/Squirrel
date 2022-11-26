@@ -1,0 +1,1 @@
+SELECT CAST ( zeroblob ( 1 ) AS TEXT ) ; SELECT DISTINCT count () LIMIT 10 OFFSET 10 ; 

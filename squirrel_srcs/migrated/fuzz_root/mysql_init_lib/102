@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 INTEGER PRIMARY KEY ) ; CREATE VIEW v2 ( v3 , v4 , v5 , v6 ) AS WITH y AS ( SELECT Row_Number () OVER( x ) FROM v0 ) SELECT * FROM v0 ; SELECT v6 , rank () OVER( ORDER BY v4 DESC ) FROM v2 ; 

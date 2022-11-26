@@ -1,18 +1,15 @@
 #include "sqlite.h"
+
+#include <string>
+#include <vector>
+
 #include "ast.h"
 #include "define.h"
 #include "mutator.h"
 #include "utils.h"
 
-#include <string>
-#include <vector>
-
-SQLiteDB* create_sqlite(){
-    return new SQLiteDB;
-}
-SQLiteDB::SQLiteDB() {
-    mutator_ = std::make_unique<Mutator>();
-}
+SQLiteDB *create_sqlite() { return new SQLiteDB; }
+SQLiteDB::SQLiteDB() { mutator_ = std::make_unique<Mutator>(); }
 
 bool SQLiteDB::initialize(YAML::Node config) {
   const std::string init_lib_path = config["init_lib"].as<std::string>();

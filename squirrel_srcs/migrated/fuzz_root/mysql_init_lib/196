@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 TEXT , v2 INT , v3 INT , v4 INT ) ; CREATE INDEX v5 ON v0 ( v3 , v2 , v2 , v1 , v4 , v1 , v3 , v1 , v3 , v2 , v1 , v4 , v3 , v1 ) ; SELECT * FROM v0 WHERE v1 = ( SELECT 10 ) ; SELECT * , 'DELIVER IN PERSON' FROM v0 WHERE v2 = 2 AND ( v2 = 10 OR v3 = 0 ) ORDER BY v2 DESC ; 

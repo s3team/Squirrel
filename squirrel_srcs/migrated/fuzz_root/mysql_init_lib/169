@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 INTEGER PRIMARY KEY CHECK( v1 ) ) ; INSERT INTO v0 VALUES ( 1 ) ; SELECT printf ( 's%' , 10 , 10 , 10 ) ; 

@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 INTEGER PRIMARY KEY CHECK( v1 ) ) ; INSERT INTO v0 VALUES ( 127 ) ; SELECT min ( v1 NOT LIKE abs ( v1 ) ) , max ( typeof ( v1 ) ) FROM v0 ; 

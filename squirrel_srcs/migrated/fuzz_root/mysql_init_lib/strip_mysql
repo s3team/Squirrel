@@ -1,0 +1,2697 @@
+CREATE VIEW x AS SELECT 1 ;
+ 
+SELECT x , x FROM x WHERE x = 'x' ;
+ 
+DROP TABLE x ;
+ 
+CREATE TABLE x ( x INT ) ;
+ 
+DROP VIEW x ;
+ 
+SELECT 'x' AS x , x ( x ) AS x FROM x ;
+ 
+SELECT x , x ( x ) FROM x ;
+ 
+SELECT 'x' AS x , x ( x ) AS x , x AS x FROM x ;
+ 
+SELECT 'x' AS x , x ( x ) FROM x ;
+ 
+SELECT 'x' AS x , x ( x ) FROM x WHERE x ( x ) ;
+ 
+SELECT 'x' AS x , x AS x , x ( x ( x ) ) AS x FROM x WHERE x ( x ) ;
+ 
+SELECT 'x' AS x , x ( x , 1.000000 ) FROM x ;
+ 
+SELECT x , x ( 1 , x ) FROM x WHERE x >= 'x' ;
+ 
+SELECT x , x ( 1 , x ) FROM x WHERE x < 'x' ;
+ 
+INSERT INTO x ( x , x ) SELECT x , x ( x * 1 , x * 1 ) FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x ( x , x ) SELECT x + 1 , x ( x * 1 + 1 , x * 1 + 1 ) FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x ( x ) SELECT x ( x ( x , x ) , x ( x + x , x + x ) ) FROM x ( 1 , 1 , 1 ) x , x ( 1 , 1 , 1 ) x , x ( 1 , 1 ) x ;
+ 
+SELECT x , x , x ( 'x' ) FROM x ORDER BY x LIMIT 1 ;
+ 
+SELECT x ( 'x' ) ;
+ 
+SELECT x , x , x ( 1 , 1 ) FROM x ORDER BY x LIMIT 1 ;
+ 
+SELECT x ( x ) AS x , x ( x ) + x ( ) * 1 AS x FROM x GROUP BY x ORDER BY x LIMIT 1 ;
+ 
+SELECT x ( 'x' , 'x' , 'x' ) ;
+ 
+SELECT * FROM x ( 'x' , 'x' , 'x' ) ;
+ 
+DROP TABLE IF EXISTS x ;
+ 
+CREATE TABLE x ( x INT , x TEXT ) ;
+ 
+DROP VIEW IF EXISTS x ;
+ 
+CREATE VIEW x AS SELECT * FROM x ;
+ 
+DROP INDEX x ;
+ 
+CREATE INDEX x ON x ( x ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 'x' ) ;
+ 
+INSERT INTO x ( x ) VALUES ( 'x' ) ;
+ 
+SELECT * FROM x ;
+ 
+SELECT * FROM x WHERE x = 1 ;
+ 
+SELECT * FROM x WHERE x < 1 ;
+ 
+SELECT * FROM x WHERE x > 1 ;
+ 
+SELECT * FROM x WHERE x <= 1 ;
+ 
+SELECT * FROM x WHERE x >= 1 ;
+ 
+SELECT * FROM x WHERE 1 = x ;
+ 
+SELECT * FROM x WHERE 1 < x ;
+ 
+SELECT * FROM x WHERE 1 > x ;
+ 
+SELECT * FROM x WHERE 1 <= x ;
+ 
+SELECT * FROM x WHERE 1 >= x ;
+ 
+SELECT 'x' AS x , x AS x , - x AS x FROM x ;
+ 
+SELECT 'x' AS x , x , x , x + x AS x FROM x ;
+ 
+SELECT 'x' AS x , x , x , x - x AS x FROM x ;
+ 
+SELECT 'x' AS x , x , x , x * x AS x FROM x ;
+ 
+SELECT 'x' AS x , x , x , x * x AS x FROM x WHERE x < 1 OR ( x > 1 AND x < 1 ) ;
+ 
+SELECT 'x' AS x , x , x , x / x AS x , x % x AS x FROM x ;
+ 
+SELECT 'x' AS x , x , x ( x ) FROM x ;
+ 
+SELECT 1 + x AS x FROM x ;
+ 
+SELECT 1 - x AS x FROM x ;
+ 
+SELECT x ( x ) , x ( x ) FROM x ;
+ 
+SELECT 'x' AS x , x ( x , 'x' ) , x ( x , 'x' ) FROM x ;
+ 
+SELECT 'x' AS x , x ( ( x * 1 ) , 'x' ) , x ( ( x * 1 ) , 'x' ) FROM x ;
+ 
+SELECT 'x' AS x , x ( x , 'x' ) FROM x ;
+ 
+SELECT x , EXTRACT ( YEAR FROM x ) , x ( * ) FROM x GROUP BY 1 , 1 ORDER BY 1 , 1 ;
+ 
+CREATE TABLE x ( x INT , x INT , x TEXT ) ;
+ 
+INSERT INTO x VALUES ( 1 , ( ( 1.000000 , 1.000000 ) , ( 1.000000 , 1.000000 ) ) ) ;
+ 
+INSERT INTO x VALUES ( 1 , ( ( NULL , 1.000000 ) , ( 1.000000 , 1.000000 ) ) ) ;
+ 
+INSERT INTO x VALUES ( x ( 'x' , 1 ) ) ;
+ 
+INSERT INTO x SELECT 'x' , NULL FROM x ( 1 , 1 ) ;
+ 
+SELECT x , x FROM x WHERE ( x , x ) > ( 'x' , 'x' ) ORDER BY x , x ;
+ 
+INSERT INTO x VALUES ( 'x' ) ;
+ 
+INSERT INTO x VALUES ( 1 , FALSE , 1 ) , ( 1 , FALSE , 1 ) , ( 1 , TRUE , 1.000000 ) ;
+ 
+SELECT CAST ( x AS TEXT ) FROM x ;
+ 
+SELECT x ( x ) FROM x x ;
+ 
+ALTER TABLE x ADD COLUMN x TEXT ;
+ 
+SELECT x ( x ) FROM ( SELECT x , x FROM x ) AS x ;
+ 
+SELECT x ( x ) FROM ( SELECT x AS x , x AS x FROM x ) AS x ;
+ 
+INSERT INTO x VALUES ( 1 , 1 ) ;
+ 
+CREATE TABLE x ( x TEXT , x TEXT ) ;
+ 
+INSERT INTO x ( x , x ) VALUES ( 'x' , 'x' ) ;
+ 
+SELECT x ( * ) AS x FROM x ;
+ 
+SELECT x ( ) ;
+ 
+SELECT x , x , x , x , x x WHERE x = 'x' ;
+ 
+SELECT x ( x ( ) ) ;
+ 
+CREATE TABLE x ( x INTEGER PRIMARY KEY ) ;
+ 
+INSERT INTO x VALUES ( 1 ) ;
+ 
+SELECT x ( 'x' , 'x' ) ;
+ 
+SELECT * FROM x ( 'x' , 'x' ) ;
+ 
+CREATE TABLE x ( x TEXT ) ;
+ 
+SELECT 'x' AS x , * FROM x ;
+ 
+SELECT x ( 1 ) ;
+ 
+SELECT x ( 1 , 1 , 1 , 'x' , TRUE , FALSE , x ( 'x' , 'x' ) ) ;
+ 
+SELECT x ( 'x' , 1 , 1 , 1 , 'x' , TRUE , FALSE , x ( 'x' , 'x' ) ) ;
+ 
+SELECT x ( 'x' , 1 , 1 , NULL , 1 ) ;
+ 
+SELECT x ( NULL , 1 , 1 , NULL , 1 ) IS NULL ;
+ 
+SELECT x ( 'x' , 1 ) ;
+ 
+SELECT x ( 'x' , 'x' , 1 , 'x' ) ;
+ 
+SELECT x ( 'x' , 'x' , NULL , 'x' ) ;
+ 
+SELECT x ( 'x' , 'x' , 1 , NULL ) ;
+ 
+SELECT x ( 'x' , NULL , 1 , 'x' ) ;
+ 
+SELECT x ( 'x' , 1 , 1 , 1 ) ;
+ 
+SELECT x ( 'x' , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ) ;
+ 
+SELECT x ( 'x' , NULL ) ;
+ 
+SELECT x ( 'x' , 1 , 'x' ) ;
+ 
+SELECT x ( 'x' , 1 , NULL ) ;
+ 
+SELECT x ( 'x' , NULL , 'x' ) ;
+ 
+INSERT INTO x DEFAULT VALUES ;
+ 
+INSERT INTO x VALUES ( 'x' ) , ( 'x' ) ;
+ 
+INSERT INTO x VALUES ( NULL , 'x' ) ;
+ 
+SELECT * FROM x WHERE x IS NULL ;
+ 
+INSERT INTO x VALUES ( ARRAY [ 1 ] ) ;
+ 
+SELECT x ( x ) FROM x ;
+ 
+SELECT x ( x [ 1 ] ) FROM x ;
+ 
+SELECT x ( x [ 1 ] [ 1 ] ) FROM x ;
+ 
+SELECT x ( ( x [ 1 ] ) [ 1 ] ) FROM x ;
+ 
+SELECT x , x [ 1 ] , ( x [ 1 ] ) [ 1 ] FROM x ;
+ 
+INSERT INTO x VALUES ( 'x' , 'x' , 'x' , 'x' , 'x' ) ;
+ 
+INSERT INTO x VALUES ( NULL , 'x' , 'x' , 'x' , 'x' ) ;
+ 
+INSERT INTO x VALUES ( 'x' , NULL , 'x' , 'x' , 'x' ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 'x' , NULL , 'x' , 'x' ) ;
+ 
+DROP TABLE x CASCADE ;
+ 
+UPDATE x SET x = NULL ;
+ 
+INSERT INTO x ( x ) VALUES ( 1 ) ;
+ 
+UPDATE x SET x = 1 ;
+ 
+CREATE TABLE x ( x INTEGER ) ;
+ 
+INSERT INTO x ( x ) VALUES ( NULL ) ;
+ 
+CREATE TABLE x ( x INT , x INT ) ;
+ 
+SELECT x ( 1.000000 ) ;
+ 
+INSERT INTO x VALUES ( NULL ) ;
+ 
+INSERT INTO x VALUES ( x ) ;
+ 
+SELECT x ( * ) > 1 FROM x ;
+ 
+SELECT x ( x ) AS x FROM x x ;
+ 
+SELECT 1 ^ 1 + 1 ^ 1 + 1 ^ 1.000000 + 1 ^ 1.000000 ;
+ 
+CREATE TABLE x ( x INT NOT NULL PRIMARY KEY , x TEXT NOT NULL , x NUMERIC NOT NULL ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , 1 ) , ( 1 , 'x' , 1 ) , ( 1 , 'x' , 1 ) , ( 1 , 'x' , 1 ) , ( 1 , 'x' , 1 ) ;
+ 
+CREATE VIEW x AS SELECT x , x ( x ) AS x FROM x GROUP BY x ;
+ 
+SELECT * FROM x ORDER BY x ;
+ 
+CREATE UNIQUE INDEX x ON x ( x ) ;
+ 
+CREATE UNIQUE INDEX x ON x ( ( x > 1 ) ) ;
+ 
+CREATE VIEW x AS SELECT x ( x ) AS x FROM x ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , 1 ) ;
+ 
+CREATE VIEW x AS SELECT 1 x ;
+ 
+DROP VIEW x CASCADE ;
+ 
+INSERT INTO x SELECT * FROM x ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 1 ) ;
+ 
+INSERT INTO x ( x ) VALUES ( 'x' ) , ( 'x' ) , ( 'x' ) ;
+ 
+UPDATE x SET x = 'x' WHERE x = 1 ;
+ 
+UPDATE x SET x = 1 WHERE x = 1 ;
+ 
+CREATE TABLE x AS SELECT x ( 1 , 1 ) AS x ;
+ 
+SELECT x ( * ) FROM x ;
+ 
+INSERT INTO x VALUES ( 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' ) ;
+ 
+UPDATE x SET x = 'x' ;
+ 
+INSERT INTO x ( x , x ) VALUES ( 'x' , 1 ) ;
+ 
+INSERT INTO x ( x ) SELECT x FROM x WHERE x BETWEEN 'x' AND 'x' OR x BETWEEN 'x' AND 'x' ;
+ 
+SELECT x ( * ) AS x FROM x WHERE x = 'x' ;
+ 
+INSERT INTO x VALUES ( 1.000000 ) ;
+ 
+INSERT INTO x VALUES ( 1 ) , ( 1 ) ;
+ 
+SELECT x FROM x ;
+ 
+CREATE TABLE x ( x INT PRIMARY KEY , x TEXT ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 'x' ) ;
+ 
+INSERT INTO x ( x , x ) VALUES ( 1 , 1 ) ;
+ 
+INSERT INTO x SELECT x , x + 1 , x FROM x ;
+ 
+UPDATE x SET ( x , x ) = ( 'x' , x + x ) , x = x + 1 WHERE x = 1 ;
+ 
+UPDATE x SET ( x , x ) = ( SELECT x , x FROM x WHERE x = 1 AND x = 'x' ) WHERE x = 1 AND x = 1 ;
+ 
+UPDATE x SET ( x , x ) = ( SELECT x + 1 , x FROM x ) ;
+ 
+UPDATE x SET ( x , x ) = ( SELECT x + 1 , x FROM x WHERE x = 1 ) WHERE x = 1 ;
+ 
+UPDATE x SET x = x ( 'x' , 1 ) WHERE x = 'x' ;
+ 
+SELECT x , x , x ( x ) FROM x ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' ) ;
+ 
+CREATE TABLE x ( x VARCHAR , x NUMERIC , x TEXT , x BIGINT , x INT ) ;
+ 
+UPDATE x SET x = x - 1 ;
+ 
+ALTER TABLE x DROP COLUMN x ;
+ 
+ALTER TABLE x ADD COLUMN x BIGINT ;
+ 
+CREATE TABLE x ( x VARCHAR , x INT , x NUMERIC , x BIGINT , x TEXT ) ;
+ 
+UPDATE x SET x = x - 1 , x = x WHERE x = 1 ;
+ 
+UPDATE x SET x = x - 1 WHERE x > 1 ;
+ 
+UPDATE x SET x = x ;
+ 
+UPDATE x SET x = x + 1 WHERE x = 1 ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE ( SELECT x > x FROM x ) WITH CHECK OPTION ;
+ 
+UPDATE x SET x = 'x' , x = 1 , x = 1 WHERE x = 1 ;
+ 
+UPDATE x SET x = 'x' , x = 1 WHERE x = 1 ;
+ 
+UPDATE x SET x = ( CASE WHEN x = 1 THEN 1 ELSE x + 1 END ) WHERE x = 'x' AND x > 1 AND x >= 1 ;
+ 
+UPDATE x SET x = x + 1 WHERE x = 'x' AND x > 1 AND x >= 1 ;
+ 
+UPDATE x SET x = 'x' , x = 1 WHERE x = 'x' AND x = 1 ;
+ 
+INSERT INTO x VALUES ( 'x' , 1 ) ;
+ 
+UPDATE x SET x = 'x' WHERE x = 'x' ;
+ 
+UPDATE x SET x = x + x WHERE x = 1 ;
+ 
+INSERT INTO x VALUES ( 1 ) , ( 1 ) , ( 1 ) , ( 1 ) , ( 1 ) , ( 1 ) , ( 1 ) , ( 1 ) , ( 1 ) ;
+ 
+UPDATE x SET x = 1 , x = 1 WHERE x = 1 ;
+ 
+UPDATE x SET x = x - 1 WHERE x = 1 ;
+ 
+CREATE UNIQUE INDEX x ON x ( x ( x ) ) ;
+ 
+CREATE TABLE x ( x BIGINT , x BIGINT ) ;
+ 
+CREATE UNIQUE INDEX x ON x ( x ( x , 1 ) ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 ) ON CONFLICT ( x ) WHERE x ( x , 1 ) > 1 DO NOTHING ;
+ 
+CREATE VIEW x AS SELECT * FROM x WITH CASCADED CHECK OPTION ;
+ 
+INSERT INTO x VALUES ( 'x' , 1 , 1 ) ;
+ 
+CREATE TABLE x ( x INT PRIMARY KEY , x INT ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 ) , ( 1 , 1 ) ON CONFLICT DO NOTHING ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' ) ON CONFLICT DO NOTHING ;
+ 
+CREATE TABLE x ( x CHAR , x INT UNIQUE ) ;
+ 
+CREATE TABLE x ( x TEXT , x INT , x INT , x TEXT ) ;
+ 
+SELECT FALSE <= 1 BETWEEN 1 AND 1 ;
+ 
+SELECT FALSE >= 1 BETWEEN 1 AND 1 ;
+ 
+SELECT x ( * ) FROM x WHERE x = ( SELECT x FROM x WHERE x = 'x' ) ;
+ 
+ALTER TABLE x ADD COLUMN x CHAR ;
+ 
+ALTER TABLE x ADD COLUMN x BOOLEAN ;
+ 
+INSERT INTO x ( x , x , x , x , x , x , x , x , x , x , x , x , x , x , x , x , x , x , x , x , x , x ) VALUES ( 1 , 'x' , 'x' , 1.000000 , 1.000000 , 1 , 'x' , 'x' , 1 , 'x' , 'x' , 'x' , TRUE , 'x' , 'x' , 'x' , 'x' , 'x' , 'x' , 'x' , 'x' , 'x' ) ;
+ 
+CREATE INDEX x ON x ( x , ( x + x ) , x ) ;
+ 
+ALTER TABLE x RENAME TO x ;
+ 
+CREATE VIEW x ( x ) AS SELECT x FROM x ;
+ 
+SELECT x FROM x WHERE x < 1 ;
+ 
+CREATE TABLE x ( x INT PRIMARY KEY ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 ) , ( 1 , 1 ) ;
+ 
+CREATE TABLE x ( x INT , x INT , x INT ) ;
+ 
+INSERT INTO x ( x , x , x ) VALUES ( 1 , 1 , 1 ) ;
+ 
+ALTER TABLE x RENAME x TO x ;
+ 
+ALTER TABLE x DROP x ;
+ 
+ALTER TABLE x ADD x INT ;
+ 
+UPDATE x SET x = 1 WHERE x IS NULL ;
+ 
+ALTER TABLE x ADD COLUMN x INT PRIMARY KEY ;
+ 
+INSERT INTO x ( x , x ) VALUES ( NULL , 1 ) ;
+ 
+INSERT INTO x ( x , x ) VALUES ( 1 , NULL ) ;
+ 
+INSERT INTO x ( x , x ) VALUES ( NULL , NULL ) ;
+ 
+CREATE TABLE x ( x INT NOT NULL ) ;
+ 
+INSERT INTO x VALUES ( NULL , 1 ) ;
+ 
+INSERT INTO x VALUES ( 1 , NULL ) ;
+ 
+INSERT INTO x ( x , x ) VALUES ( NULL , 'x' ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 1 , 1 ) ;
+ 
+SELECT * FROM x ORDER BY 'x' ;
+ 
+SELECT * FROM x GROUP BY x ;
+ 
+SELECT * FROM x GROUP BY 'x' ;
+ 
+SELECT x , x , x FROM x ;
+ 
+SELECT x , x , x , x FROM x ;
+ 
+SELECT 'x' FROM x ;
+ 
+SELECT 'x' , x , x , x FROM x ;
+ 
+SELECT * FROM x WHERE 'x' = 1 ;
+ 
+UPDATE x SET x = 1 WHERE 'x' = 1 ;
+ 
+INSERT INTO x ( x , x , x , x ) VALUES ( 1 , 1 , 1 , 1 ) ;
+ 
+CREATE TABLE x AS SELECT * FROM x ;
+ 
+ALTER TABLE x RENAME COLUMN x TO x ;
+ 
+ALTER TABLE x ADD COLUMN x INT ;
+ 
+CREATE TABLE x ( x INT , x TEXT , x INT ) ;
+ 
+ALTER TABLE x ADD x TEXT ;
+ 
+UPDATE x SET x = x + 1 , x = x ( x ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 'x' , 'x' ) ;
+ 
+SELECT x , x ( x ) FROM x GROUP BY x ;
+ 
+CREATE TABLE x ( x INT PRIMARY KEY , x INT UNIQUE , x INT , x INT , x INT ) ;
+ 
+CREATE TABLE x ( x TEXT , x INT ) ;
+ 
+CREATE VIEW x AS SELECT * FROM x x ;
+ 
+CREATE VIEW x AS SELECT * , x ( x ) AS x FROM x x ;
+ 
+CREATE OR REPLACE VIEW x AS SELECT * , 1 + 1 AS x FROM x x ;
+ 
+SELECT * FROM x ORDER BY 1 ;
+ 
+SELECT x ( NULL ) ;
+ 
+INSERT INTO x ( x ) VALUES ( 'x' ) , ( 'x' ) ;
+ 
+UPDATE x SET x = - x ;
+ 
+ALTER TABLE x ADD COLUMN x INTEGER ;
+ 
+CREATE TABLE x ( x CHAR ( 1 ) , x INT NOT NULL ) ;
+ 
+CREATE TABLE x ( x INT NOT NULL CHECK ( x = 1 ) , x INT NOT NULL CHECK ( x >= 1 AND x <= 1 ) ) ;
+ 
+CREATE TABLE x ( x INT NOT NULL CHECK ( x = 1 ) , x INT NOT NULL CHECK ( x >= 1 AND x < 1 ) ) ;
+ 
+INSERT INTO x ( x , x ) VALUES ( 1 , 'x' ) ;
+ 
+ALTER TABLE x ADD x INT NOT NULL ;
+ 
+SELECT x ( x ( x ) , FALSE ) FROM ( SELECT x AS x , x * 1 AS x FROM x ( 1 , 1 ) x ) x ;
+ 
+SELECT x ( x ( x ) , TRUE ) FROM ( SELECT x AS x , x * 1 AS x FROM x ( 1 , 1 ) x ) x ;
+ 
+SELECT x ( x ( x ) , FALSE ) FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x VALUES ( 'x' , 'x' ) , ( 'x' , 'x' ) , ( 'x' , 'x' ) ;
+ 
+SELECT * FROM x ( 'x' ) x ;
+ 
+SELECT x ( 'x' , 'x' , 'x' ) IS NULL AS x ;
+ 
+SELECT x ( 1 , 1 ) ;
+ 
+SELECT x ( NULL , 1 ) ;
+ 
+SELECT x ( x , 1 ) FROM ( SELECT 1 AS x , 1 AS x ) x ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , 'x' ) ;
+ 
+SELECT x ( 'x' , x ( x , x ( 'x' , x , 'x' , x ) ) ) FROM x ;
+ 
+SELECT x ( x , x ) FROM x ;
+ 
+INSERT INTO x VALUES ( 1 , NULL , 'x' ) ;
+ 
+SELECT x , x , x ( x ) FROM x ORDER BY 1 , 1 ;
+ 
+SELECT * FROM x ( 1 ) ;
+ 
+SELECT x ( x ) AS x FROM x ;
+ 
+SELECT x ( x ) AS x FROM x WHERE x < 1 ;
+ 
+SELECT x ( 1.000000 ) , x ( 1.000000 ) ;
+ 
+SELECT x ( x , x ) , x ( x , x ) FROM x ;
+ 
+INSERT INTO x VALUES ( 1 , 1 ) , ( 1 , 1 ) , ( 1 , 1 ) , ( 1 , 1 ) , ( 1 , 1 ) ;
+ 
+SELECT x ( * ) , x ( x ) , x ( x , x ) , x ( x ) , x ( x , x ) , x ( x , x ) FROM x WHERE x IN ( 1 , 1 , 1 , 1 ) ;
+ 
+SELECT x ( * ) , x ( x ) , x ( x , x ) , x ( x ) , x ( x , x ) , x ( x , x ) FROM x ;
+ 
+SELECT x ( * ) , x ( x ) , x ( x , x ) , x ( x ) , x ( x , x ) , x ( x , x ) FROM x WHERE x IN ( 1 , 1 , 1 ) ;
+ 
+SELECT x ( * ) , x ( x ) , x ( x , x ) , x ( x ) , x ( x , x ) , x ( x , x ) FROM x WHERE x IN ( 1 , 1 ) ;
+ 
+SELECT x ( DISTINCT x ) AS x FROM x ;
+ 
+SELECT x ( x ) FROM x WHERE x < 1 ;
+ 
+SELECT x ( x ) FROM x WHERE x > 1 ;
+ 
+SELECT x ( x ) FROM x WHERE x = 1 ;
+ 
+SELECT x , ( SELECT x ( x ) FROM x WHERE x > x ) AS x FROM x ;
+ 
+SELECT DISTINCT x ( x ) FROM x ;
+ 
+SELECT x ( x ) FROM x ORDER BY 1 ;
+ 
+SELECT x ( x ) FROM x ORDER BY x ( x ) ;
+ 
+SELECT x ( x ) FROM x ORDER BY x ( x ) + 1 ;
+ 
+SELECT x ( x ) , x ( 1 , 1 ) AS x FROM x ORDER BY x DESC ;
+ 
+SELECT x ( 1 ) FROM x ;
+ 
+CREATE INDEX x ON x ( x DESC ) ;
+ 
+SELECT DISTINCT x ( x ) , x ( x ) FROM x ;
+ 
+SELECT x ( x ( x ) ) FROM x ;
+ 
+SELECT ( SELECT x ( x ( x ) ) FROM x ) FROM x ;
+ 
+SELECT x ( x , 'x' ) FROM x ;
+ 
+INSERT INTO x VALUES ( x ( 'x' , 'x' ) ) ;
+ 
+SELECT x ( x , NULL ) FROM x ;
+ 
+SELECT x ( x , x ( 'x' , 'x' ) ) FROM x ;
+ 
+SELECT x ( x ) FILTER ( WHERE x > 1 ) FROM x ;
+ 
+SELECT x ( 1 / x ) FILTER ( WHERE x > 1 ) FROM x ;
+ 
+INSERT INTO x ( x , x ) VALUES ( 1 , x ( 'x' , 1 ) ) ;
+ 
+SELECT x ( 1 , 1 , 1 ) ;
+ 
+SELECT x ( 1 , 1 , 1.000000 ) ;
+ 
+CREATE TABLE x ( x INT , x INT , x CHAR ( 1 ) , x CHAR ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 'x' , 'x' ) ;
+ 
+SELECT x ( * ) FROM x GROUP BY x ORDER BY x ;
+ 
+SELECT x FROM x ORDER BY x ;
+ 
+SELECT x ( * ) FROM x GROUP BY x ORDER BY x DESC ;
+ 
+SELECT x ( * ) FROM x ORDER BY 1 DESC ;
+ 
+SELECT x , x ( * ) FROM x GROUP BY 1 ORDER BY 1 ;
+ 
+SELECT x , x ( * ) FROM x GROUP BY 1 ;
+ 
+SELECT x , x FROM x ORDER BY x ;
+ 
+SELECT x / 1 , x / 1 FROM x ORDER BY x / 1 ;
+ 
+SELECT x / 1 , x / 1 FROM x GROUP BY x / 1 ORDER BY x / 1 ;
+ 
+SELECT x ( x ) FROM x GROUP BY x ORDER BY x ;
+ 
+SELECT x ( x ) FROM x GROUP BY x / 1 ORDER BY x / 1 ;
+ 
+SELECT x FROM x ORDER BY x ( x ) ;
+ 
+SELECT x ( x ) FROM x GROUP BY ( x + 1 ) / 1 ORDER BY ( x + 1 ) / 1 DESC ;
+ 
+CREATE TABLE x ( x INTEGER , x INTEGER , x TEXT ) ;
+ 
+CREATE TABLE x ( x INTEGER , x INTEGER ) ;
+ 
+INSERT INTO x VALUES ( NULL , NULL , 'x' ) ;
+ 
+INSERT INTO x VALUES ( NULL , 1 , 'x' ) ;
+ 
+INSERT INTO x VALUES ( NULL , NULL ) ;
+ 
+CREATE TABLE x ( x TEXT , x INTEGER ) ;
+ 
+SELECT x , x , x , x FROM x x JOIN x ON x = x WHERE x < x AND x IS NULL ;
+ 
+INSERT INTO x SELECT x , x ( 'x' , 1 ) FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x VALUES ( 1 ) , ( 1 ) , ( 1 ) ;
+ 
+INSERT INTO x ( x , x ) VALUES ( 'x' , NULL ) ;
+ 
+INSERT INTO x VALUES ( 1 , TRUE , TRUE ) ;
+ 
+INSERT INTO x VALUES ( 1 , TRUE , FALSE ) ;
+ 
+INSERT INTO x VALUES ( 1 , FALSE , FALSE ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , TRUE , TRUE ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , TRUE , FALSE ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , FALSE , FALSE ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , TRUE ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , FALSE ) ;
+ 
+SELECT * FROM x ( 1 , 1 ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 ) , ( 1 , NULL ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 ) , ( 1 , 1 ) , ( 1 , 1 ) ;
+ 
+SELECT * , ( SELECT x FROM ( SELECT x AS x ) x , ( SELECT x AS x ) x ) FROM x ;
+ 
+SELECT x , x FROM x x , ( SELECT x AS x ) x ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 'x' ) , ( 1 , 1 , 'x' ) ;
+ 
+CREATE TABLE x ( x INT , x INT , x VARCHAR ) ;
+ 
+INSERT INTO x SELECT x / 1 , x % 1 , x FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x SELECT x / 1 , x % 1 FROM x ( 1 , 1 ) x ;
+ 
+CREATE TABLE x AS SELECT x , x FROM x ;
+ 
+SELECT * FROM x ( NULL ) ;
+ 
+SELECT x , x , x , x FROM x ( 'x' ) ;
+ 
+SELECT * FROM x ( 'x' ) ;
+ 
+CREATE VIEW x AS SELECT x , x , x , 1 * x AS x FROM x ;
+ 
+CREATE OR REPLACE VIEW x AS SELECT * FROM x WHERE x > 1 ;
+ 
+CREATE OR REPLACE VIEW x AS SELECT x , x FROM x WHERE x > 1 ORDER BY x DESC ;
+ 
+CREATE OR REPLACE VIEW x AS SELECT 1 , * FROM x ;
+ 
+CREATE OR REPLACE VIEW x AS SELECT x , x , 1 AS x FROM x ;
+ 
+CREATE TEMPORARY TABLE x ( x INT , x INT ) ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE x IN ( SELECT x FROM x ) ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE EXISTS ( SELECT 1 FROM x ) ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE NOT EXISTS ( SELECT 1 FROM x ) ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE EXISTS ( SELECT 1 ) ;
+ 
+CREATE VIEW x AS SELECT TRUE FROM x ;
+ 
+SELECT x FROM x WHERE x LIKE 'x' AND x = ( SELECT x FROM x WHERE x = 'x' ) ORDER BY x ;
+ 
+SELECT x FROM x WHERE x LIKE 'x' AND x IN ( SELECT x FROM x WHERE x LIKE 'x' ) ORDER BY x ;
+ 
+SELECT x ( * ) FROM x WHERE x = 'x' AND x IN ( SELECT x FROM x WHERE x = 'x' ) ;
+ 
+SELECT x ( * ) FROM x WHERE x LIKE 'x' AND x IN ( SELECT x FROM x WHERE x LIKE 'x' ) ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE x = 1 ;
+ 
+CREATE OR REPLACE VIEW x AS SELECT * FROM x WHERE x = 1 ;
+ 
+CREATE VIEW x AS SELECT * FROM x NATURAL JOIN x ;
+ 
+CREATE VIEW x AS SELECT * FROM ( x NATURAL JOIN x ) x ;
+ 
+CREATE VIEW x AS SELECT * FROM x JOIN x USING ( x , x ) JOIN x USING ( x ) ;
+ 
+CREATE VIEW x AS SELECT * FROM ( x JOIN x USING ( x , x ) JOIN x USING ( x ) ) x ;
+ 
+SELECT x ( 'x' , TRUE ) ;
+ 
+CREATE VIEW x AS SELECT x , x , x FROM x JOIN x USING ( x ) ;
+ 
+CREATE VIEW x AS SELECT x , x , x , x FROM ( x JOIN x USING ( x ) ) JOIN x USING ( x ) ;
+ 
+CREATE TABLE x ( x TEXT , x TEXT , x TEXT , x TEXT ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 'x' , 'x' , 'x' ) ;
+ 
+SELECT x , x FROM x ;
+ 
+SELECT x ( x ( 'x' ) , x ( x x , 'x' ) , x ( 'x' ) ) ;
+ 
+SELECT x ( NULL , NULL ) ;
+ 
+SELECT x ( x x , x ( 1 AS x , 'x' AS x ) , 'x' ) ;
+ 
+SELECT x ( x x , x ( 'x' ) ) ;
+ 
+SELECT x ( x x , x ( x x , 'x' ) ) ;
+ 
+SELECT x ( x x , x ( x , x , x AS x ) ) FROM x ;
+ 
+SELECT x ( x x , x ( 1 AS x , 1 AS x , 1 AS x ) ) ;
+ 
+SELECT x ( x x , 1 ) ;
+ 
+SELECT x ( x x , ARRAY [ 1 , 1 , 1 ] ) ;
+ 
+SELECT x ( x x , x ( TRUE AS x ) ) ;
+ 
+SELECT x ( x x ) ;
+ 
+SELECT x ( x x , 'x' ) ;
+ 
+SELECT x ( x x , NULL ) ;
+ 
+SELECT x ( x x , x ( x ( x x , x ) ) ) FROM x ;
+ 
+CREATE VIEW x AS SELECT x ( 'x' ) ;
+ 
+CREATE VIEW x AS SELECT x ( 'x' , 'x' ) ;
+ 
+CREATE VIEW x AS SELECT x ( x x , x ( x , x , x AS x ) ) FROM x ;
+ 
+CREATE VIEW x AS SELECT x ( x x , 'x' ) ;
+ 
+SELECT x ( 'x' , x ) FROM x ;
+ 
+SELECT x ( NULL , NULL ) IS NULL FROM x ;
+ 
+SELECT x ( 'x' , 'x' , ARRAY [ ARRAY [ 'x' , 'x' ] ] ) ;
+ 
+SELECT x ( x ) FROM x WHERE x ( 'x' , x ) ;
+ 
+SELECT x ( x ) FROM x WHERE x ( 'x' , x , ARRAY [ ARRAY [ 'x' , 'x' ] ] ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , 1 , 1 ) ;
+ 
+UPDATE x SET x = x + 1 WHERE x = 'x' ;
+ 
+UPDATE x SET x = NULL WHERE x > 1 ;
+ 
+CREATE TEMPORARY TABLE x ( x INTEGER ) ;
+ 
+INSERT INTO x ( x , x , x ) VALUES ( 'x' , 1 , 1 ) ;
+ 
+SELECT x ( * ) >= 1 AS x FROM x ;
+ 
+SELECT x ( * ) > 1 AS x FROM x ;
+ 
+SELECT x ( * ) = 1 AS x FROM x ;
+ 
+SELECT x , x FROM x WHERE x LIKE 'x' ;
+ 
+SELECT x ( DISTINCT x ) >= 1 AS x FROM x ;
+ 
+SELECT x ( 'x' , ( SELECT x FROM x WHERE x = 'x' ) , 'x' ) ;
+ 
+SELECT x ( ( SELECT x FROM x WHERE x = 'x' ) , ( SELECT x FROM x WHERE x = 'x' ) , 'x' ) ;
+ 
+SELECT x ( ( SELECT x FROM x WHERE x = 'x' ) , 'x' ) ;
+ 
+SELECT x ( ( SELECT x FROM x WHERE x = 'x' ) , 'x' , 'x' ) ;
+ 
+ALTER TABLE x ADD COLUMN x INTEGER NOT NULL ;
+ 
+ALTER TABLE x ADD x CHAR ;
+ 
+INSERT INTO x VALUES ( 1 ) , ( 1 ) , ( 1 ) , ( 1 ) , ( NULL ) , ( NULL ) , ( 1 ) ;
+ 
+SELECT * FROM x ORDER BY x DESC ;
+ 
+SELECT * FROM x ORDER BY x DESC NULLS LAST ;
+ 
+SELECT * FROM x ORDER BY x NULLS FIRST ;
+ 
+SELECT * FROM x WHERE x = 1 AND x = 'x' ;
+ 
+SELECT x FROM x WHERE x = 1 AND x = 'x' ;
+ 
+SELECT * FROM x WHERE x = 1 AND x < 'x' ;
+ 
+SELECT x FROM x WHERE x = 1 AND x < 'x' ;
+ 
+SELECT x , x FROM x WHERE ( x = 1 OR x = 1 ) AND x < 'x' ;
+ 
+SELECT x , x FROM x WHERE ( x = 1 AND x < 'x' ) OR x = 1 ;
+ 
+SELECT 1 AS x ORDER BY x ;
+ 
+SELECT x ( 1 ) ORDER BY 1 ;
+ 
+SELECT x , x , x , x , x FROM x ORDER BY 1 ;
+ 
+SELECT x , x , x , x , x FROM x ;
+ 
+SELECT x FROM x ORDER BY 1 ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) ;
+ 
+SELECT x FROM x WHERE x = 'x' ;
+ 
+INSERT INTO x SELECT x , x % 1 , x ( x , 'x' ) FROM x ( 1 , 1 ) x WHERE x % 1 = 1 ;
+ 
+INSERT INTO x SELECT x % 1 , x , x ( x , 'x' ) FROM x ( 1 , 1 ) x WHERE x % 1 = 1 ;
+ 
+INSERT INTO x SELECT x , x , x % 1 FROM x ( 1 , 1 , 1 ) x ;
+ 
+CREATE INDEX x ON x ( ( ( x + x ) / 1 ) ) ;
+ 
+INSERT INTO x SELECT x , x , x ( x / 1 , 'x' ) FROM x ( 1 , 1 , 1 ) x ;
+ 
+INSERT INTO x SELECT x , x % 1 , x ( x % 1 , 'x' ) FROM x ( 1 , 1 , 1 ) x ;
+ 
+INSERT INTO x SELECT x % 1 , x , x ( x % 1 , 'x' ) FROM x ( 1 , 1 , 1 ) x ;
+ 
+INSERT INTO x SELECT x , x , x ( x , 'x' ) FROM x ( 1 , 1 , 1 ) x ;
+ 
+UPDATE x SET x = x + 1 ;
+ 
+UPDATE x SET x = x ( x ) ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE x > 1 ;
+ 
+CREATE VIEW x AS SELECT x AS x , x AS x FROM x WHERE x > 1 ;
+ 
+CREATE VIEW x AS SELECT x AS x , x AS x FROM x WHERE x < 1 ;
+ 
+CREATE VIEW x AS SELECT x AS x , x AS x FROM x ;
+ 
+CREATE TABLE x ( x INT , x TEXT , x FLOAT ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , 1.000000 ) ;
+ 
+CREATE VIEW x AS SELECT x AS x , x AS x , x AS x FROM x ;
+ 
+INSERT INTO x VALUES ( 'x' , 1.000000 , 1 ) ;
+ 
+CREATE VIEW x AS SELECT * FROM x ORDER BY x + x ;
+ 
+INSERT INTO x VALUES ( 1 , ARRAY [ 1 ] ) , ( 1 , ARRAY [ 1 ] ) ;
+ 
+CREATE TABLE x ( x FLOAT ) ;
+ 
+CREATE VIEW x AS SELECT x , x ( x ) x , x , x ( x ) x FROM x WHERE x != 1 ORDER BY x ( x ) ;
+ 
+INSERT INTO x SELECT * FROM x ( 1 , 1 ) ;
+ 
+SELECT * FROM x x ORDER BY x ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE x < x WITH LOCAL CHECK OPTION ;
+ 
+CREATE VIEW x AS SELECT * FROM x WITH CHECK OPTION ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE x = x ( x ) WITH CHECK OPTION ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE x < x WITH CHECK OPTION ;
+ 
+CREATE VIEW x AS SELECT x FROM x WHERE x < x ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE x > 1 WITH LOCAL CHECK OPTION ;
+ 
+CREATE VIEW x AS SELECT x , 1 AS x FROM x ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE x > x WITH LOCAL CHECK OPTION ;
+ 
+CREATE VIEW x AS SELECT x FROM x WHERE x = 'x' ;
+ 
+SELECT * FROM x WHERE x ( x ) ;
+ 
+UPDATE x SET x = x WHERE x ( x ) ;
+ 
+CREATE TABLE x ( x INT PRIMARY KEY , x TEXT , x BOOLEAN ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , FALSE ) , ( 1 , 'x' , TRUE ) ;
+ 
+CREATE TABLE x ( x INT , x FLOAT , x TEXT ) ;
+ 
+UPDATE x SET x = 1 WHERE x ( x ) AND x ( x ) AND x < 1 AND x != 1 ;
+ 
+UPDATE x SET x = x + 1 WHERE x ( x ) AND x ( x ) AND x = 1 ;
+ 
+CREATE VIEW x AS SELECT x FROM x WHERE EXISTS ( SELECT 1 FROM x JOIN x ON x = x ) ;
+ 
+CREATE OR REPLACE VIEW x AS SELECT * FROM x WHERE x > 1 WITH CHECK OPTION ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE x = 1 WITH CHECK OPTION ;
+ 
+CREATE TABLE x ( x TEXT , x INT , x INT ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' ) , ( 1 , 'x' ) ;
+ 
+CREATE TABLE x ( x TEXT UNIQUE , x FLOAT ) ;
+ 
+CREATE TABLE x ( x INT UNIQUE , x TEXT ) ;
+ 
+CREATE TABLE x ( x INT UNIQUE , x TEXT , x FLOAT ) ;
+ 
+CREATE VIEW x AS SELECT x , x , x FROM x ;
+ 
+SELECT * FROM x ORDER BY x , x NULLS LAST ;
+ 
+INSERT INTO x ( x , x ) VALUES ( x ( 'x' ) , 'x' ) ;
+ 
+SELECT 'x' AS x , x AS x , x AS x FROM x ;
+ 
+SELECT 'x' AS x , x AS x , x ( x ) , x AS x , x ( x ) FROM x ;
+ 
+SELECT 'x' AS x , x AS x , x AS x FROM x WHERE x = x ;
+ 
+SELECT x ( x ) AS x , x ( x ) AS x FROM x ;
+ 
+SELECT x ( x , x ) FROM x WHERE x ( x , x ) ;
+ 
+SELECT x FROM x ORDER BY x ASC ;
+ 
+SELECT x FROM x ORDER BY x DESC ;
+ 
+SELECT x ( * ) FROM x WHERE x = 'x' ;
+ 
+SELECT x ( * ) FROM x WHERE x < 'x' ;
+ 
+SELECT x ( * ) FROM x WHERE x <= 'x' ;
+ 
+SELECT x ( * ) FROM x WHERE x > 'x' ;
+ 
+SELECT x ( * ) FROM x WHERE x >= 'x' ;
+ 
+SELECT x ( * ) FROM x WHERE x = 'x' AND x LIKE 'x' ;
+ 
+INSERT INTO x ( x ) VALUES ( x ( ) ) ;
+ 
+SELECT x ( DISTINCT x ) FROM x ;
+ 
+SELECT x , x , x ( x , x ) , x ( x ) , x ( * ) , x ( x ) FROM x GROUP BY x ( x , x ) ORDER BY x , x ;
+ 
+SELECT x , x , x ( x , x ) , x ( x ) , x ( * ) , x ( x ) FROM x GROUP BY x ( x , x ) ORDER BY x DESC , x ;
+ 
+SELECT x , x , x ( x , x ) , x ( x ) , x ( * ) , x ( x ) FROM x GROUP BY x ( x , x ) ORDER BY x ( x , 1 ) + x ( x , 1 ) ;
+ 
+SELECT x , x , x ( x ) , x ( x ( x ) ) OVER ( ORDER BY x , x ) AS x FROM x GROUP BY x ( x , x ) ORDER BY x , x , x ;
+ 
+SELECT x AS x , x AS x FROM x ( 1 , 1 ) x GROUP BY x , x ( x ) ;
+ 
+CREATE VIEW x AS SELECT x , x , x ( x , x ) , x ( x ) , x ( * ) , x ( x ) FROM x GROUP BY x ( ( x , x , x ) , ( x , x ) ) ;
+ 
+SELECT ( SELECT x ( x , x ) FROM x ) FROM x GROUP BY x , x ;
+ 
+SELECT x , x ( * ) FROM x GROUP BY x ( x ) ORDER BY x ;
+ 
+SELECT x ( * ) FROM x GROUP BY x ( x , x ) ;
+ 
+SELECT x , x , x ( x , x ) , x ( x ) , x ( * ) , x ( x ) FROM x GROUP BY x ( x , x ) ORDER BY 1 , 1 , 1 ;
+ 
+INSERT INTO x SELECT x % 1 , x % 1 , x ( x % 1 , 'x' ) , x % 1 FROM x ( 1 , 1 ) x ;
+ 
+SELECT x , x ( x ) , x ( x ) , x ( * ) , x ( x ) , x ( x ) FROM x GROUP BY x HAVING x ( x ) < 1 ORDER BY 1 , 1 , 1 ;
+ 
+SELECT x , x ( x ) FROM x WHERE 1 = 1 GROUP BY x ;
+ 
+SELECT x , x ( x ) FROM x WHERE x = 'x' GROUP BY x ;
+ 
+SELECT x , x ( x ) , x ( x ) , x ( * ) FROM x GROUP BY 1 HAVING x ( x ) < 1 ORDER BY 1 , 1 , 1 ;
+ 
+SELECT x FROM x GROUP BY x ORDER BY 1 ;
+ 
+SELECT x FROM x WHERE x < 1 GROUP BY x ORDER BY 1 ;
+ 
+INSERT INTO x SELECT x % 1 , x % 1 FROM x ( 1 , 1 , 1 ) x ;
+ 
+INSERT INTO x SELECT x % 1 , x % 1 , x % 1 FROM x ( 1 , 1 ) x ;
+ 
+SELECT x , x ( x ) , x ( x ) , x ( * ) FROM x GROUP BY x HAVING x ( x ) < 1 ORDER BY 1 , 1 , 1 ;
+ 
+SELECT x , x ( x ) , x ( x ) , x ( * ) FROM x GROUP BY x , ( x + x ) / 1 HAVING x ( x ) < 1 ORDER BY 1 , 1 , 1 ;
+ 
+SELECT x , x , x ( x ) , x ( x ) , x ( * ) FROM x GROUP BY ( x + x ) / 1 , 1 , 1 HAVING x ( x ) = 1 AND x ( x ) > 1 ORDER BY 1 , 1 , 1 ;
+ 
+INSERT INTO x SELECT x % 1 , x % 1 , x ( x % 1 , 'x' ) FROM x ( 1 , 1 ) x ;
+ 
+SELECT x , x ( x ) , x ( DISTINCT x ) , x ( * ) FROM x GROUP BY x HAVING x ( x ) < 1 ORDER BY 1 , 1 , 1 ;
+ 
+SELECT x , x ( x ) , x ( * ) FROM x GROUP BY x HAVING x ( x ) < 1 ORDER BY 1 , 1 , 1 ;
+ 
+SELECT x , x ( x ) , x ( * ) FROM x GROUP BY x , x , x HAVING x ( x ) > 1 ORDER BY 1 , 1 , 1 ;
+ 
+INSERT INTO x SELECT x % 1 , x % 1 FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x SELECT x , 1 * x , 1 * x , x ( 'x' ) FROM x ( 1 , 1 ) AS x ;
+ 
+INSERT INTO x SELECT 1 , 1 , 1 * x , x ( 'x' ) FROM x ( 1 , 1 ) AS x ;
+ 
+INSERT INTO x SELECT 1 , 1 * x , 1 * x , x ( 'x' ) FROM x ( 1 , 1 ) AS x ;
+ 
+INSERT INTO x SELECT 1 , NULL , 1 * x , x ( 'x' ) FROM x ( 1 , 1 ) AS x ;
+ 
+INSERT INTO x SELECT x , 1 * x , NULL , NULL FROM x ( 1 , 1 ) AS x ;
+ 
+SELECT * FROM x WHERE ( x , x , x ) < ( 1 , 1 , 1 ) ;
+ 
+SELECT * FROM x WHERE ( x , x , x ) < ( 1 , 1 , 1 ) LIMIT 1 ;
+ 
+SELECT x FROM x WHERE x = 'x' ORDER BY x ;
+ 
+CREATE INDEX x ON x ( x , x ) ;
+ 
+SELECT x ( * ) FROM x WHERE x IS NULL ;
+ 
+SELECT * FROM x WHERE x = 'x' ORDER BY x ;
+ 
+INSERT INTO x SELECT ARRAY [ 1 , x % 1 , x ] FROM x ( 1 , 1 ) x ;
+ 
+CREATE UNIQUE INDEX x ON x ( x ( x , x ) ) ;
+ 
+CREATE UNIQUE INDEX x ON x ( ( x + 1 ) , x ) ;
+ 
+CREATE TABLE x ( x INT , x VARCHAR ( 1 ) , x CHAR ) ;
+ 
+CREATE UNIQUE INDEX x ON x ( x , x ) ;
+ 
+INSERT INTO x ( x , x ) VALUES ( NULL , 1 ) , ( NULL , NULL ) ;
+ 
+SELECT x ( * ) FROM x WHERE x IS NULL AND x IS NULL ;
+ 
+SELECT x ( * ) FROM x WHERE x IS NOT NULL ;
+ 
+SELECT x ( * ) FROM x WHERE x IS NULL AND x IS NOT NULL ;
+ 
+SELECT x ( * ) FROM x WHERE x IS NOT NULL AND x > 1 ;
+ 
+SELECT x ( * ) FROM x WHERE x IS NULL AND x > 1 ;
+ 
+CREATE UNIQUE INDEX x ON x ( x DESC , x ) ;
+ 
+SELECT x , x FROM x ORDER BY x LIMIT 1 ;
+ 
+SELECT x , x FROM x WHERE x >= 1 ORDER BY x LIMIT 1 ;
+ 
+SELECT x , x FROM x ORDER BY x DESC LIMIT 1 ;
+ 
+SELECT x , x FROM x WHERE x >= 1 ORDER BY x DESC LIMIT 1 ;
+ 
+SELECT x , x FROM x WHERE x < 1 ORDER BY x DESC LIMIT 1 ;
+ 
+SELECT * FROM x WHERE x = 1 AND ( x = 1 OR x = 1 OR x = 1 ) ;
+ 
+SELECT x ( * ) FROM x WHERE x = 1 AND ( x = 1 OR x = 1 ) ;
+ 
+CREATE INDEX x ON x ( x , x , x ) ;
+ 
+SELECT x , x , x FROM x ( 'x' ) ORDER BY x , x ;
+ 
+CREATE TABLE x ( x INT , x BOOLEAN ) ;
+ 
+INSERT INTO x ( x , x ) VALUES ( 1 , FALSE ) , ( 1 , TRUE ) , ( 1 , FALSE ) ;
+ 
+INSERT INTO x SELECT x ( 1 , 1 ) ;
+ 
+INSERT INTO x SELECT x ( 1 , 1 ) , 'x' ;
+ 
+CREATE TABLE x AS SELECT x , x , x , x FROM x WHERE x = ( SELECT x FROM x WHERE x = 'x' ) ;
+ 
+SELECT x , x , x FROM x WHERE x = 'x' ORDER BY 1 , 1 ;
+ 
+INSERT INTO x VALUES ( 'x' , NULL ) ;
+ 
+SELECT x , x FROM x WHERE x = 1 ;
+ 
+INSERT INTO x VALUES ( 'x' ) , ( 'x' ) , ( 'x' ) , ( 'x' ) ;
+ 
+SELECT * FROM x WHERE x LIKE 'x' ;
+ 
+CREATE TABLE x ( x BIGINT , x BIGINT , x BIGINT , x BIGINT ) ;
+ 
+INSERT INTO x SELECT x , 1 , 1 , 1 FROM x ( 1 , 1 ) x ;
+ 
+SELECT * FROM x WHERE x = 'x' ;
+ 
+CREATE TABLE x ( x INT PRIMARY KEY , x TEXT NOT NULL , x TEXT , x TEXT ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , 'x' , 'x' ) , ( 1 , 'x' , 'x' , 'x' ) , ( 1 , 'x' , 'x' , 'x' ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , 1 ) , ( 1 , 'x' , 1 ) , ( 1 , 'x' , 1 ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , 1 ) , ( 1 , 'x' , 1 ) , ( 1 , 'x' , 1 ) , ( 1 , 'x' , 1 ) , ( 1 , 'x' , 1 ) , ( 1 , 'x' , 1 ) , ( 1 , 'x' , 1 ) , ( 1 , 'x' , 1 ) , ( 1 , 'x' , 1 ) ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE x = x ;
+ 
+CREATE VIEW x AS SELECT * FROM x x NATURAL JOIN x x ;
+ 
+SELECT * FROM x x WHERE x ( 'x' ) AND x ( x ) ;
+ 
+SELECT * FROM x WHERE x ( x ) AND x >= 'x' AND x < 'x' ;
+ 
+SELECT x ( 1 ) , x ( 1 ) , x ( 1 , 1 ) , x ( 1 , 1 ) ;
+ 
+SELECT x , x , x , x , x , x FROM x WHERE x = 'x' ORDER BY x , x , x ;
+ 
+SELECT x ( 1 ) , x ( 1 ) , x ( 1 ) , x ( 1 ) , x ( 1 , 1 ) , x ( 1 , 1 ) , x ( 1 , 1 ) , x ( 1 , 1 ) ;
+ 
+INSERT INTO x ( x , x , x ) VALUES ( 1 , 1 ) ;
+ 
+INSERT INTO x ( x ) VALUES ( 1 , 1 ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , x ( 'x' , 1 ) ) ;
+ 
+CREATE TABLE x ( x BIGINT , x TEXT ) ;
+ 
+INSERT INTO x VALUES ( x ( 1 , 1 ) ) ;
+ 
+CREATE TABLE x ( x INT NOT NULL , x INT NOT NULL ) ;
+ 
+CREATE TABLE x ( x INT NOT NULL , x TEXT , x INT NOT NULL ) ;
+ 
+INSERT INTO x ( x , x , x ) VALUES ( 1 , 1 , 'x' ) ;
+ 
+CREATE TABLE x ( x INT , x INT , x TEXT , x INT ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 'x' , 1 ) ;
+ 
+INSERT INTO x VALUES ( NULL , NULL , NULL ) ;
+ 
+CREATE TABLE x ( x TEXT , x TEXT , x INT ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 1 ) , ( 'x' , 1 ) , ( 'x' , 1 ) , ( 'x' , 1 ) , ( 'x' , 1 ) , ( 'x' , 1 ) , ( 'x' , 1 ) , ( 'x' , 1 ) , ( 'x' , 1 ) , ( 'x' , 1 ) , ( 'x' , 1 ) ;
+ 
+CREATE TABLE x AS SELECT x ( x , x ) AS x FROM x ;
+ 
+INSERT INTO x VALUES ( NULL ) , ( NULL ) , ( NULL ) ;
+ 
+INSERT INTO x SELECT 'x' FROM x ( 1 , 1 ) ;
+ 
+INSERT INTO x ( x , x ) VALUES ( 1 , 1.000000 ) ;
+ 
+INSERT INTO x VALUES ( 1 , NULL , 1.000000 ) ;
+ 
+SELECT 'x' AS x , x ( 'x' ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 'x' , FALSE , 1 ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 'x' , TRUE , 1 ) ;
+ 
+INSERT INTO x ( x , x , x , x ) VALUES ( 1 , 'x' , 1 , 1 ) ;
+ 
+INSERT INTO x VALUES ( NULL , 'x' , NULL ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , NULL ) ;
+ 
+INSERT INTO x ( x ) SELECT x FROM x ;
+ 
+INSERT INTO x SELECT * FROM x WHERE x = 'x' ;
+ 
+INSERT INTO x ( x , x ) SELECT x , 1 FROM x WHERE x = 'x' ;
+ 
+UPDATE x SET x = NULL WHERE x = 1 ;
+ 
+UPDATE x SET x = - x , x = - x ;
+ 
+UPDATE x SET x = x , x = x ;
+ 
+UPDATE x SET x = 1 WHERE x = 1 AND x = 'x' ;
+ 
+CREATE TABLE x ( x INT CONSTRAINT the_constraint CHECK ( x > 1 ) ) ;
+ 
+INSERT INTO x ( x ) SELECT x ( 1 ) ;
+ 
+SELECT x ( x , 1 , 1 ) FROM x ;
+ 
+SELECT x ( x , 1 ) FROM x ;
+ 
+INSERT INTO x ( x ) SELECT x ( 'x' ) ;
+ 
+INSERT INTO x SELECT ( x % 1 ) , ( x % 1 ) , 'x' FROM x ( 1 , 1 ) x ;
+ 
+SELECT x ( * ) FROM x WHERE x = 1 AND x = 1 ;
+ 
+SELECT x ( * ) FROM x WHERE x = 1 OR x = 1 ;
+ 
+INSERT INTO x VALUES ( 'x' , 'x' ) , ( 'x' , 'x' ) ;
+ 
+CREATE TABLE x ( x TEXT , x TEXT , x TEXT ) ;
+ 
+CREATE TABLE x ( x INTEGER , x TEXT ) ;
+ 
+SELECT 'x' AS x , x FROM x WHERE x ( x ) < 1 ;
+ 
+SELECT 'x' AS x , x FROM x WHERE x ( x ) >= 1 ;
+ 
+INSERT INTO x SELECT x , 1 * x , 1 * x , x ( x ( x , x + 1 ) , x ( 1 * x , 1 * x + 1 ) ) FROM x ( 1 , 1 ) AS x ;
+ 
+INSERT INTO x SELECT x , 1 * x , 1 * x , x ( x ( 1 * x , 1 * x ) , x ( 1 * x + 1 , 1 * x + 1 ) ) FROM x ( 1 , 1 ) AS x ;
+ 
+SELECT 1 AS x ;
+ 
+INSERT INTO x ( x , x , x ) VALUES ( 'x' , TRUE , 1 ) ;
+ 
+INSERT INTO x ( x , x , x ) VALUES ( 'x' , FALSE , 1 ) ;
+ 
+INSERT INTO x ( x , x , x ) VALUES ( 'x' , NULL , 1 ) ;
+ 
+INSERT INTO x VALUES ( FALSE , TRUE , NULL ) ;
+ 
+SELECT x AND x AND x FROM x ;
+ 
+SELECT x OR x OR x FROM x ;
+ 
+SELECT 'x' AS x , x ( x ) , x ( x ) FROM x ;
+ 
+INSERT INTO x SELECT x ( x ( x , x ) , x ( x * 1 , x * 1 ) ) FROM x ( 1 , 1 ) AS x ;
+ 
+INSERT INTO x VALUES ( NULL ) , ( 'x' ) , ( 'x' ) , ( 'x' ) , ( 'x' ) , ( 'x' ) ;
+ 
+INSERT INTO x SELECT ( x - 1 ) * 1 + x , x ( x ( x * 1 , x * 1 ) , x ( x * 1 + 1 , x * 1 + 1 ) ) FROM x ( 1 , 1 ) x , x ( 1 , 1 ) x ;
+ 
+INSERT INTO x SELECT x , 'x' FROM x ( 1 , 1 ) AS x ;
+ 
+SELECT x ( 'x' , 'x' ) IS NULL ;
+ 
+SELECT x , x FROM x WHERE NOT x ( x ) ;
+ 
+SELECT x , * FROM x ;
+ 
+SELECT x , * FROM x WHERE x = 'x' ;
+ 
+SELECT x , * FROM x WHERE 'x' = x ;
+ 
+SELECT x , * FROM x WHERE x = 'x' OR 'x' = x ;
+ 
+SELECT x FROM x WHERE x < 1 ORDER BY x ;
+ 
+SELECT 1 ;
+ 
+SELECT 1 / 1 ;
+ 
+SELECT 1 + 1 AS x ;
+ 
+SELECT 1 - 1 AS x ;
+ 
+SELECT 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 AS x ;
+ 
+SELECT 1 + 1 / 1 AS x ;
+ 
+SELECT ( 1 + 1 ) / 1 AS x ;
+ 
+SELECT x FROM x WHERE x LIKE 'x' ;
+ 
+INSERT INTO x SELECT x , 1 , x ( x ( x ) ) FROM x ;
+ 
+INSERT INTO x SELECT x , 1 , x ( x ( x ) ) FROM x WHERE x != 'x' ;
+ 
+CREATE TABLE x ( x CHAR ( 1 ) , x TEXT ) ;
+ 
+CREATE TABLE x ( x CHAR ( 1 ) , x CHAR ( 1 ) , x CHAR ( 1 ) , x CHAR ( 1 ) ) ;
+ 
+CREATE TABLE x ( x CHAR ( 1 ) , x TEXT , x CHAR ( 1 ) , x CHAR ( 1 ) ) ;
+ 
+CREATE TABLE x ( x CHAR ( 1 ) , x CHAR ( 1 ) , x TEXT , x CHAR ( 1 ) ) ;
+ 
+CREATE TABLE x ( x CHAR ( 1 ) , x TEXT , x INTEGER ) ;
+ 
+CREATE TABLE x ( x CHAR ( 1 ) , x CHAR ( 1 ) , x INTEGER , x CHAR ( 1 ) ) ;
+ 
+CREATE TABLE x ( x CHAR ( 1 ) , x TEXT , x TEXT , x CHAR ( 1 ) ) ;
+ 
+CREATE TABLE x ( x CHAR ( 1 ) , x TEXT , x CHAR ( 1 ) ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 'x' , 1 ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 'x' , 1 , 'x' ) ;
+ 
+INSERT INTO x ( x ) VALUES ( x ) ;
+ 
+SELECT x ( 1 , 'x' ) ;
+ 
+CREATE TABLE x ( x INT , x INT , x INT , x INT ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 1 , 1 ) , ( 1 , 1 , 1 , 1 ) ;
+ 
+SELECT x ( 1 , 1 , 1 , 1 , 1 ) ;
+ 
+SELECT x ( 1.000000 , 1.000000 , 1.000000 ) ;
+ 
+SELECT x ( 1.000000 , 1 , 1 ) ;
+ 
+SELECT * FROM x ( FALSE ) ;
+ 
+SELECT * FROM x ( TRUE ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , 1 , 1 ] ) ;
+ 
+SELECT x ( x ( 1 ) ) ;
+ 
+SELECT x ( x ) , x FROM x ( 1 ) x ;
+ 
+INSERT INTO x ( x ) SELECT x ( 1 , 1 ) ;
+ 
+INSERT INTO x ( x , x ) SELECT x , x / 1 + 1 AS x FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x ( x , x , x ) SELECT 1 , x , 1 FROM x ;
+ 
+SELECT * FROM x ( 1 ) AS x ;
+ 
+SELECT x ( 1 , 1 , 1 , NULL ) ;
+ 
+CREATE TABLE x ( x INT UNIQUE ) ;
+ 
+UPDATE x x SET x = 'x' WHERE x = 'x' ;
+ 
+UPDATE x SET x = 'x' WHERE x LIKE 'x' ;
+ 
+UPDATE x SET x = x + 1 WHERE FALSE ;
+ 
+UPDATE x SET x = x + 1 WHERE x IN ( SELECT x FROM x ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) ;
+ 
+SELECT * FROM x ORDER BY 1 , 1 ;
+ 
+INSERT INTO x SELECT x , x FROM x ( 1 , 1 ) x ;
+ 
+SELECT * FROM x JOIN ( SELECT x FROM x LIMIT 1 ) x ON x = x ;
+ 
+CREATE INDEX x ON x ( ( 1 - x ) ) ;
+ 
+SELECT * FROM x ORDER BY 1 - x ;
+ 
+SELECT x ( 1 - x ) FROM x ;
+ 
+SELECT x ( x ) , x ( x ) FROM x WHERE x = 'x' ;
+ 
+CREATE INDEX x ON x ( x , x ( x ) , x ) ;
+ 
+SELECT x ( 'x' , 'x' , 'x' , 'x' ) ;
+ 
+SELECT x , x ( x ) FROM x ( 'x' , 'x' ) AS x ;
+ 
+SELECT x , x ( x ) FROM x ( 'x' , 'x' , 'x' ) AS x ;
+ 
+SELECT 'x' LIKE 'x' AS x , 'x' LIKE 'x' AS x , 'x' LIKE 'x' AS x ;
+ 
+SELECT 'x' LIKE 'x' AS x ;
+ 
+CREATE TABLE x ( x TEXT PRIMARY KEY , x INT ) ;
+ 
+SELECT x ( x ) = 1 AS x FROM x WHERE x = 'x' ;
+ 
+INSERT INTO x VALUES ( x ( x ( 'x' , 1 ) , 'x' ) ) ;
+ 
+CREATE TABLE x ( x CHAR ( 1 ) ) ;
+ 
+SELECT 'x' AS x , 'x' AS x , 'x' AS x , 'x' AS x , 'x' AS x , 'x' AS x ;
+ 
+SELECT 1 AS x WHERE 1 IN ( SELECT 1 ) ;
+ 
+SELECT 1 AS x WHERE 1 NOT IN ( SELECT 1 ) ;
+ 
+SELECT * FROM ( SELECT 1 AS x ) x ;
+ 
+SELECT * FROM ( ( SELECT 1 AS x ) ) x ;
+ 
+SELECT ( SELECT ARRAY [ 1 , 1 , 1 ] ) [ 1 ] ;
+ 
+SELECT ( ( SELECT ARRAY [ 1 , 1 , 1 ] ) ) [ 1 ] ;
+ 
+SELECT ( ( ( SELECT ARRAY [ 1 , 1 , 1 ] ) ) ) [ 1 ] ;
+ 
+CREATE TABLE x ( x INTEGER , x INTEGER , x FLOAT ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , NULL ) ;
+ 
+SELECT x , x ( x ( * ) ) / ( SELECT x ( * ) FROM x ) FROM x GROUP BY x ORDER BY x ;
+ 
+SELECT * , x ( x ) FROM ( SELECT 'x' AS x FROM x ( 1 , 1 ) ) x ORDER BY 1 ;
+ 
+SELECT x ( * ) FROM ( SELECT 1 FROM x x WHERE x IN ( SELECT x FROM x x ) ) x ;
+ 
+SELECT x ( * ) FROM ( SELECT 1 FROM x x WHERE x IN ( SELECT DISTINCT x FROM x x ) ) x ;
+ 
+SELECT * FROM x WHERE x IN ( SELECT x FROM ( SELECT DISTINCT x , x FROM x ) AS x ) ;
+ 
+SELECT * FROM x WHERE x IN ( SELECT x FROM ( SELECT x , x FROM x GROUP BY x , x ) AS x ) ;
+ 
+SELECT * FROM x WHERE x IN ( SELECT x FROM ( SELECT x , x FROM x UNION SELECT x , x FROM x ) AS x ) ;
+ 
+SELECT * FROM x WHERE x IN ( SELECT x FROM ( SELECT x FROM x GROUP BY x ) AS x ) ;
+ 
+SELECT * FROM x WHERE x IN ( SELECT x FROM ( SELECT x FROM x UNION SELECT x FROM x ) AS x ) ;
+ 
+CREATE TABLE x ( x INTEGER , x INTEGER , x BOOLEAN ) ;
+ 
+INSERT INTO x ( x , x , x ) VALUES ( 1 , 1 , ( SELECT x FROM x WHERE x = 'x' ) ) ;
+ 
+INSERT INTO x VALUES ( 1 ) , ( 1.000000 ) , ( 1 ) , ( 1 ) ;
+ 
+SELECT * FROM x WHERE x IN ( SELECT x FROM x ) ;
+ 
+SELECT ( SELECT x ) FROM x ;
+ 
+SELECT ( SELECT ( SELECT x ) ) FROM x ;
+ 
+SELECT x FROM ( SELECT x ( x ) FROM x GROUP BY x ORDER BY x ) x ;
+ 
+WITH x AS ( SELECT x ( x ) FROM x GROUP BY x ORDER BY x ) SELECT x FROM x ;
+ 
+SELECT * FROM x WHERE ( x , x ) NOT IN ( SELECT * FROM x ) ;
+ 
+INSERT INTO x VALUES ( NULL ) , ( 1 ) ;
+ 
+SELECT * FROM x WHERE x NOT IN ( SELECT x FROM x ) ;
+ 
+SELECT EXISTS ( SELECT * FROM x ) ;
+ 
+SELECT * FROM x WHERE ( CASE WHEN x IN ( SELECT x FROM x x ) THEN x ELSE NULL END ) IN ( SELECT x FROM x x ) ;
+ 
+SELECT * FROM x x WHERE ( x , x ) IN ( SELECT x , x ( 1 , 1 ) / 1 x FROM x x GROUP BY x ) ;
+ 
+SELECT * FROM ( SELECT DISTINCT x FROM x ) x WHERE x < 1 + x ( 'x' ) ORDER BY 1 ;
+ 
+SELECT * FROM ( SELECT 1 AS x , x ( ARRAY [ 1 , 1 , 1 , 1 , 1 , 1 ] ) AS x ) x WHERE x ( x , 1 ) ;
+ 
+SELECT * FROM ( SELECT 1 AS x , x ( ARRAY [ 1 , 1 , 1 , 1 , 1 , 1 ] ) AS x ) x WHERE x ( x , x ) ;
+ 
+CREATE TABLE x ( x INT PRIMARY KEY , x INT , x INT ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 1 ) , ( 1 , 1 , 1 ) , ( 1 , 1 , 1 ) , ( 1 , 1 , 1 ) , ( 1 , 1 , 1 ) , ( 1 , 1 , 1 ) , ( 1 , 1 , 1 ) , ( 1 , 1 , 1 ) ;
+ 
+SELECT * FROM ( SELECT x , x FROM x ORDER BY x , x ) AS x LIMIT 1 ;
+ 
+INSERT INTO x ( x , x , x , x , x , x ) VALUES ( 'x' , 1 , 1 , 1 , 1 , 1 ) , ( 'x' , 1 , 1 , 1 , 1 , 1 ) ;
+ 
+SELECT * FROM x ORDER BY x ASC ;
+ 
+SELECT x , x IN ( 1 , 1 ) AS x , x FROM x ;
+ 
+INSERT INTO x VALUES ( 1 , NULL ) , ( NULL , NULL ) ;
+ 
+SELECT x ( 'x' ) > 1 ;
+ 
+SELECT x ( 'x' ) = 1 ;
+ 
+INSERT INTO x SELECT 1 LIMIT 1 ;
+ 
+SELECT x , x , * FROM x ;
+ 
+CREATE TABLE IF NOT EXISTS x ( x INT PRIMARY KEY , x NUMERIC ) ;
+ 
+UPDATE x SET x = x + 1 WHERE x IN ( 1 , 1 ) ;
+ 
+SELECT x ( * ) FROM x WHERE x = 1 ;
+ 
+SELECT x , x , x , x , x , x FROM x WHERE x LIKE 'x' ORDER BY x ;
+ 
+INSERT INTO x ( x ) VALUES ( 'x' ) , ( 'x' ) , ( 'x' ) , ( 'x' ) , ( 'x' ) ;
+ 
+SELECT x FROM x x ORDER BY x ;
+ 
+INSERT INTO x VALUES ( NULL , NULL , 1 ) ;
+ 
+INSERT INTO x VALUES ( NULL , 1 , 1 ) ;
+ 
+INSERT INTO x VALUES ( 1 , NULL , 1 ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 1 , 'x' ) ;
+ 
+INSERT INTO x VALUES ( NULL , 1 , 1 , 1 ) ;
+ 
+INSERT INTO x VALUES ( 1 , NULL , 1 , 1 ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , NULL , 'x' ) ;
+ 
+INSERT INTO x VALUES ( 1 , NULL , 1 , 'x' ) ;
+ 
+UPDATE x SET x = 1 WHERE x = 1 AND x = 1 ;
+ 
+UPDATE x SET x = 1 , x = 1 , x = 1 WHERE x = 1 ;
+ 
+CREATE TABLE x ( x NUMERIC PRIMARY KEY ) ;
+ 
+UPDATE x SET x = x * 1 ;
+ 
+UPDATE x SET x = x * 1 WHERE x < 1 ;
+ 
+CREATE TABLE x ( x INT NOT NULL , x INT ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , NULL , NULL ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 1 , NULL ) ;
+ 
+UPDATE x SET x = x WHERE x = 1 ;
+ 
+INSERT INTO x ( x , x ) VALUES ( 1 , 1 ) , ( 1 , 1 ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 1 , 1 , 1 ) ;
+ 
+CREATE TABLE x ( x INT , x INT , x INT , x INT , x INT ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 ) , ( 1 , 1 ) , ( 1 , 1 ) , ( 1 , 1 ) ;
+ 
+INSERT INTO x SELECT 1 , x FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x ( x , x ) SELECT 1 , x FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x VALUES ( 1 ) , ( 1 ) , ( 1 ) , ( 1 ) , ( 1 ) , ( 1 ) ;
+ 
+INSERT INTO x VALUES ( 1 ) , ( 1 ) , ( 1 ) , ( 1 ) ;
+ 
+CREATE TABLE x ( x INT , x INT NOT NULL ) ;
+ 
+CREATE TABLE IF NOT EXISTS x ( x TEXT ) ;
+ 
+CREATE TABLE x AS SELECT * FROM x WHERE x = 'x' ;
+ 
+CREATE TABLE IF NOT EXISTS x AS SELECT * FROM x WHERE x = 'x' ;
+ 
+CREATE INDEX x ON x ( ( x = 1 ) ) ;
+ 
+SELECT x , x , x FROM x WHERE x NOT IN ( 'x' , 'x' ) ;
+ 
+SELECT x , x , x * 1 AS x FROM x ORDER BY x ;
+ 
+SELECT x , x FROM x WHERE x = 1 ORDER BY x ;
+ 
+WITH x AS ( SELECT * FROM x ) SELECT * FROM x ;
+ 
+INSERT INTO x ( x ) VALUES ( 1 ) , ( 1 ) , ( 1 ) , ( NULL ) ;
+ 
+INSERT INTO x ( x ) VALUES ( 'x' ) , ( 'x' ) , ( 'x' ) , ( NULL ) ;
+ 
+INSERT INTO x ( x ) VALUES ( 1 ) , ( 1 ) ;
+ 
+CREATE INDEX x ON x ( ( x * 1 ) ) ;
+ 
+SELECT * FROM x WHERE x * 1 = 1 ;
+ 
+SELECT * FROM x WHERE x = 1 AND x > 1 ;
+ 
+INSERT INTO x ( x ) VALUES ( 1 ) , ( 1 ) , ( 1 ) ;
+ 
+CREATE TABLE x ( x BIGINT ) ;
+ 
+CREATE VIEW x ( x , x ) AS SELECT * FROM x , x ;
+ 
+CREATE VIEW x AS SELECT ( SELECT x FROM x LIMIT 1 ) FROM x ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE x IN ( SELECT * FROM x ) ;
+ 
+CREATE VIEW x AS SELECT * FROM ( SELECT * FROM x ) x ;
+ 
+CREATE OR REPLACE VIEW x AS SELECT * FROM x ;
+ 
+SELECT x = x ( ) ;
+ 
+SELECT x ;
+ 
+SELECT x ( * ) FROM x WHERE x BETWEEN 'x' AND 'x' ;
+ 
+SELECT x ( * ) FROM x WHERE x NOT BETWEEN 'x' AND 'x' ;
+ 
+SELECT 'x' ;
+ 
+SELECT x ( 'x' , 'x' , 1 ) ;
+ 
+SELECT x ( x ( 'x' , 'x' ) , 'x' ) ;
+ 
+SELECT x ( ARRAY [ 'x' , 'x' , 'x' , 'x' , 'x' ] ) ;
+ 
+SELECT x ( ARRAY [ 'x' , 'x' , 'x' , 'x' , NULL ] ) ;
+ 
+SELECT x ( ARRAY [ 'x' , 'x' , 'x' , 'x' ] ) ;
+ 
+CREATE TABLE x AS SELECT x ( x ) FROM x GROUP BY x ( x ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 1 , 1 , 'x' ) , ( 'x' , 1 , 1 , 'x' ) , ( 'x' , 1 , 1 , 'x' ) , ( 'x' , 1 , 1 , 'x' ) , ( 'x' , 1 , 1 , 'x' ) , ( 'x' , 1 , 1 , 'x' ) , ( 'x' , 1 , 1 , 'x' ) , ( 'x' , 1 , 1 , 'x' ) , ( 'x' , 1 , 1 , 'x' ) , ( 'x' , 1 , 1 , 'x' ) ;
+ 
+SELECT x , x , x , x ( x ) OVER ( PARTITION BY x ) FROM x ORDER BY x , x ;
+ 
+SELECT x , x , x , x ( ) OVER ( PARTITION BY x ORDER BY x ) FROM x ;
+ 
+SELECT x , x , x , x ( x ) OVER w FROM x WINDOW x AS ( PARTITION BY x ) ;
+ 
+SELECT x , x , x , x ( ) OVER w FROM x WINDOW x AS ( PARTITION BY x ORDER BY x ) ORDER BY x ( ) OVER w ;
+ 
+SELECT x ( * ) OVER ( ) FROM x WHERE x < 1 ;
+ 
+SELECT x ( * ) OVER w FROM x WHERE x < 1 WINDOW x AS ( ) ;
+ 
+SELECT x FROM x WHERE FALSE WINDOW x AS ( PARTITION BY x ) ;
+ 
+SELECT x ( x ) OVER ( PARTITION BY x ORDER BY x ) AS x , x , x FROM x WHERE x < 1 ;
+ 
+SELECT x ( ) OVER ( ORDER BY x ) FROM x WHERE x < 1 ;
+ 
+SELECT x ( ) OVER ( PARTITION BY x ORDER BY x ) AS x , x , x FROM x WHERE x < 1 ;
+ 
+SELECT x ( ) OVER ( PARTITION BY x ORDER BY x ) , x , x FROM x WHERE x < 1 ;
+ 
+SELECT x ( 1 ) OVER ( ORDER BY x , x ) , x , x FROM x WHERE x < 1 ;
+ 
+SELECT x ( NULL ) OVER ( ORDER BY x , x ) , x , x FROM x LIMIT 1 ;
+ 
+SELECT x ( x ) OVER ( PARTITION BY x ORDER BY x ) , x , x FROM x WHERE x < 1 ;
+ 
+SELECT x ( x , x ) OVER ( PARTITION BY x ORDER BY x ) , x , x FROM x WHERE x < 1 ;
+ 
+SELECT x ( x , x , 1 ) OVER ( PARTITION BY x ORDER BY x ) , x , x FROM x WHERE x < 1 ;
+ 
+SELECT x ( x * 1 , 1 ) OVER ( PARTITION BY x ORDER BY x ) , x , x FROM x WHERE x < 1 ;
+ 
+SELECT x ( x * 1 , 1 , 1 ) OVER ( PARTITION BY x ORDER BY x ) , x , x FROM x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x ) , x , x FROM x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( PARTITION BY x ) , x , x FROM ( SELECT * FROM x WHERE x < 1 ORDER BY x , x ) x ORDER BY x , x ;
+ 
+SELECT x ( x , x + 1 ) OVER ( PARTITION BY x ) , x , x FROM ( SELECT * FROM x WHERE x < 1 ORDER BY x , x ) x ;
+ 
+SELECT x ( * ) OVER ( PARTITION BY x ) , x FROM ( SELECT * FROM x WHERE x = 1 ) x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( PARTITION BY x ORDER BY x / 1 ) FROM x WHERE x < 1 ;
+ 
+SELECT x ( x ) , x ( ) OVER ( ORDER BY x ) , x ( x ( x ) ) OVER ( ORDER BY x DESC ) FROM x GROUP BY x ;
+ 
+SELECT x ( x ) OVER w1 , x ( * ) OVER w2FROM x WINDOW x AS ( ORDER BY x ) , x AS ( ORDER BY x ) ;
+ 
+SELECT x ( * ) OVER ( PARTITION BY x ) FROM ( SELECT * FROM x WHERE FALSE ) x ;
+ 
+SELECT x ( x ) OVER w , x ( ) OVER w FROM x WINDOW x AS ( PARTITION BY x ORDER BY x DESC ) ;
+ 
+SELECT x , x , x , x , x , x ( x ) OVER ( ORDER BY x ) , x ( x ) OVER ( ) FROM ( SELECT * , CASE WHEN x < 'x' THEN 1 - EXTRACT ( YEAR FROM x ) END * 1 AS x , CASE WHEN x ( x ) OVER ( PARTITION BY x ) < x THEN 1 END AS x FROM x ) x ;
+ 
+SELECT x ( x ( x ) ) OVER ( ) FROM x WHERE x = 1 ;
+ 
+SELECT x , x , x ( x ) OVER ( PARTITION BY x ORDER BY x ) , x ( x ) OVER ( PARTITION BY x ORDER BY x ) FROM ( SELECT DISTINCT x , x FROM x ) x ;
+ 
+SELECT x , x , x ( x ) OVER ( PARTITION BY x ORDER BY x RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW ) , x ( x ) OVER ( PARTITION BY x ORDER BY x RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW ) FROM ( SELECT DISTINCT x , x FROM x ) x ;
+ 
+SELECT x , x , x ( x ) OVER ( PARTITION BY x ORDER BY x RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING ) , x ( x ) OVER ( PARTITION BY x ORDER BY x RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING ) FROM ( SELECT DISTINCT x , x FROM x ) x ;
+ 
+SELECT x , x / 1 AS x , x ( x / 1 ) OVER ( PARTITION BY x ORDER BY x / 1 RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW ) , x ( x / 1 ) OVER ( PARTITION BY x ORDER BY x / 1 RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW ) FROM ( SELECT DISTINCT x , x FROM x ) x ;
+ 
+SELECT x , x / 1 AS x , x ( x / 1 ) OVER ( PARTITION BY x ORDER BY x / 1 ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW ) , x ( x / 1 ) OVER ( PARTITION BY x ORDER BY x / 1 ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW ) FROM ( SELECT DISTINCT x , x FROM x ) x ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x RANGE BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING ) , x , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING ) , x , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING ) , x , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( ROWS BETWEEN 1 PRECEDING AND 1 PRECEDING ) , x , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( ROWS BETWEEN 1 FOLLOWING AND 1 FOLLOWING ) , x , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( ROWS BETWEEN UNBOUNDED PRECEDING AND 1 FOLLOWING ) , x , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( x RANGE BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING ) , x , x x WHERE x < 1 WINDOW x AS ( ORDER BY x ) ;
+ 
+SELECT x ( x ) OVER w , x ( x , 1 ) OVER w AS x , x ( x ) OVER w , x , x x WHERE x < 1 WINDOW x AS ( ORDER BY x RANGE BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING ) ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x ROWS ( SELECT x FROM x ORDER BY x LIMIT 1 ) + 1 PRECEDING ) , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x RANGE BETWEEN 1 PRECEDING AND 1 FOLLOWING ) , x ( x ) OVER ( ORDER BY x RANGE BETWEEN 1 PRECEDING AND 1 FOLLOWING ) , x ( x , 1 ) OVER ( ORDER BY x RANGE BETWEEN 1 PRECEDING AND 1 FOLLOWING ) , x FROM x ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x RANGE BETWEEN 1 PRECEDING AND 1 FOLLOWING ) , x ( x ) OVER ( ORDER BY x RANGE BETWEEN 1 PRECEDING AND 1 FOLLOWING ) , x FROM x ;
+ 
+SELECT x , x ( x ) OVER ( ORDER BY x RANGE BETWEEN CURRENT ROW AND 1 FOLLOWING ) FROM x ( 1 , 1 ) x ;
+ 
+SELECT x , x ( x ) OVER ( ORDER BY x DESC RANGE BETWEEN CURRENT ROW AND 1 FOLLOWING ) FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 1 , 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 1 , 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 1 , 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 1 , 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 1 , 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 1 , 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 1 , 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 1 , 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 1 , 'x' , 'x' , 'x' , 'x' , 'x' ) ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x GROUPS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW ) , x , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x GROUPS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING ) , x , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x GROUPS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING ) , x , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x GROUPS BETWEEN 1 PRECEDING AND UNBOUNDED FOLLOWING ) , x , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x GROUPS BETWEEN 1 FOLLOWING AND UNBOUNDED FOLLOWING ) , x , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x GROUPS BETWEEN UNBOUNDED PRECEDING AND 1 FOLLOWING ) , x , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x GROUPS BETWEEN 1 PRECEDING AND 1 PRECEDING ) , x , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x GROUPS BETWEEN 1 PRECEDING AND 1 FOLLOWING ) , x , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( PARTITION BY x ORDER BY x GROUPS BETWEEN 1 PRECEDING AND 1 FOLLOWING ) , x , x , x x WHERE x < 1 ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x GROUPS BETWEEN 1 PRECEDING AND 1 FOLLOWING ) , x ( x ) OVER ( ORDER BY x GROUPS BETWEEN 1 PRECEDING AND 1 FOLLOWING ) , x ( x , 1 ) OVER ( ORDER BY x GROUPS BETWEEN 1 PRECEDING AND 1 FOLLOWING ) , x , x FROM x ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x GROUPS BETWEEN 1 PRECEDING AND 1 FOLLOWING ) , x ( x ) OVER ( ORDER BY x GROUPS BETWEEN 1 PRECEDING AND 1 FOLLOWING ) , x , x FROM x ;
+ 
+SELECT x , x ( x ) OVER ( PARTITION BY x ORDER BY x RANGE BETWEEN 1 PRECEDING AND 1 FOLLOWING ) FROM x WHERE x = x ;
+ 
+SELECT x , x ( x ) OVER ( PARTITION BY x , x ORDER BY x RANGE BETWEEN 1 PRECEDING AND 1 PRECEDING ) FROM x WHERE x = x ;
+ 
+SELECT x , x ( x ) OVER ( PARTITION BY x , x ORDER BY x RANGE BETWEEN 1 FOLLOWING AND 1 FOLLOWING ) FROM x WHERE x = x ;
+ 
+SELECT x , x ( x ) OVER ( PARTITION BY x ORDER BY x GROUPS BETWEEN 1 PRECEDING AND 1 FOLLOWING ) FROM x WHERE x = x ;
+ 
+SELECT x , x ( x ) OVER ( PARTITION BY x , x ORDER BY x GROUPS BETWEEN 1 PRECEDING AND 1 PRECEDING ) FROM x WHERE x = x ;
+ 
+SELECT x , x ( x ) OVER ( PARTITION BY x , x ORDER BY x GROUPS BETWEEN 1 FOLLOWING AND 1 FOLLOWING ) FROM x WHERE x = x ;
+ 
+SELECT x ( ) OVER ( ORDER BY x ( 'x' ) ) ;
+ 
+SELECT x ( ) OVER ( ORDER BY x ( ) OVER ( ORDER BY x ( ) ) ) ;
+ 
+SELECT * FROM x WHERE x ( ) OVER ( ORDER BY x ) < 1 ;
+ 
+SELECT x ( ) OVER ( ORDER BY 1 ) , x ( * ) FROM x GROUP BY 1 ;
+ 
+SELECT x ( * ) OVER w FROM x WINDOW x AS ( ORDER BY x ) , x AS ( ORDER BY x ) ;
+ 
+SELECT x ( ) OVER ( ) FROM x ;
+ 
+SELECT x ( 1 , 1 ) OVER ( ) FROM x ;
+ 
+SELECT x ( 1 ) OVER ( ORDER BY x ) , x , x FROM x ;
+ 
+SELECT x ( x , 1 ) OVER ( ORDER BY x ) , x , x FROM x ;
+ 
+SELECT x ( x ) OVER ( PARTITION BY x ) , x , x FROM ( SELECT * FROM x WHERE x < 1 ORDER BY x , x ) x ;
+ 
+SELECT 1 AS x UNION SELECT 1 ORDER BY 1 ;
+ 
+SELECT 1 AS x UNION SELECT 1 UNION SELECT 1 ORDER BY 1 ;
+ 
+SELECT 1.000000 AS x UNION SELECT 1.000000 ORDER BY 1 ;
+ 
+SELECT 1.000000 AS x UNION SELECT 1 ORDER BY 1 ;
+ 
+SELECT 1 AS x UNION SELECT 1.000000 ORDER BY 1 ;
+ 
+SELECT 1.000000 AS x UNION SELECT 1 UNION SELECT 1 ORDER BY 1 ;
+ 
+SELECT x FROM x INTERSECT SELECT x FROM x ORDER BY 1 ;
+ 
+SELECT x FROM x EXCEPT SELECT x FROM x ORDER BY 1 ;
+ 
+SELECT x ( * ) FROM ( SELECT x FROM x INTERSECT SELECT x FROM x ) x ;
+ 
+SELECT x FROM x EXCEPT SELECT x FROM x WHERE x != 1 ;
+ 
+SELECT x FROM x EXCEPT SELECT x FROM x ORDER BY x LIMIT 1 ;
+ 
+( ( ( ( ( SELECT * FROM x ) ) ) ) ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 'x' ) , ( 'x' , 'x' ) , ( 'x' , 'x' ) , ( 'x' , 'x' ) ;
+ 
+CREATE INDEX x ON x ( x ( x ) ) ;
+ 
+SELECT 'x' AS x , x AS x FROM x WHERE x ( x ) ;
+ 
+INSERT INTO x ( x , x , x ) VALUES ( 'x' , x ( 'x' , 1 ) , x ( 'x' , 1 ) ) ;
+ 
+INSERT INTO x ( x , x , x ) VALUES ( 'x' , NULL , x ( 'x' , 1 ) ) ;
+ 
+INSERT INTO x ( x , x , x ) VALUES ( 'x' , x ( 'x' , 1 ) , NULL ) ;
+ 
+SELECT * FROM x WHERE x > 'x' ORDER BY x ;
+ 
+SELECT * FROM x WHERE x >= 'x' ORDER BY x ;
+ 
+SELECT * FROM x WHERE x < 'x' ORDER BY x ;
+ 
+SELECT * FROM x WHERE x <= 'x' ORDER BY x ;
+ 
+SELECT x ( x ) FROM x WHERE x < 'x' ;
+ 
+SELECT x ( x ) FROM x WHERE x >= 1 AND x < 1 ORDER BY x ;
+ 
+SELECT x , x ;
+ 
+UPDATE x SET x = 1 WHERE x = 'x' ;
+ 
+CREATE TABLE x ( x VARCHAR ( 1 ) , x BOOLEAN ) ;
+ 
+SELECT * FROM x WHERE ( x IN ( SELECT x FROM x ) ) ;
+ 
+CREATE TABLE x AS SELECT x AS x , 1 - x AS x FROM x ( 1 , 1 ) x ;
+ 
+CREATE TABLE x ( x INT , x INT UNIQUE , x INT , x INT UNIQUE ) ;
+ 
+SELECT x ( 1 , 'x' , 'x' ) ;
+ 
+SELECT x ( x , 'x' , 'x' ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 1 ) , ( 'x' , 1 ) , ( 'x' , 1 ) , ( 'x' , 1 ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 1 , 'x' , 'x' ) , ( 1 , 1 , 1 , 'x' , 'x' ) , ( 1 , 1 , 1 , 'x' , 'x' ) , ( 1 , 1 , 1 , 'x' , 'x' ) , ( 1 , 1 , 1 , 'x' , 'x' ) , ( 1 , 1 , 1 , 'x' , 'x' ) , ( 1 , 1 , 1 , 'x' , 'x' ) , ( 1 , 1 , 1 , 'x' , 'x' ) , ( 1 , 1 , 1 , 'x' , 'x' ) , ( 1 , 1 , 1 , 'x' , 'x' ) ;
+ 
+SELECT * FROM x WHERE x = 'x' AND x = 'x' ORDER BY x ;
+ 
+SELECT * FROM x WHERE x ( x ) ORDER BY x ;
+ 
+SELECT * FROM x NATURAL JOIN x WHERE x ( x ) ORDER BY x ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 1 , x , 'x' ) ;
+ 
+CREATE TABLE x ( x INT NOT NULL PRIMARY KEY , x INT , x TEXT , x TEXT ) ;
+ 
+SELECT * , x FROM x ;
+ 
+SELECT * FROM x WHERE x = 'x' AND x LIKE 'x' ORDER BY x ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE x LIKE 'x' ;
+ 
+SELECT ( SELECT x FROM x LIMIT 1 ) x , * FROM x WHERE x LIKE 'x' ;
+ 
+SELECT * FROM x ORDER BY x , x ;
+ 
+UPDATE x SET x = 'x' WHERE x = 1 AND x ( x ) ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE x ( x ) ;
+ 
+CREATE TABLE x ( x INT , x TEXT , x TEXT ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) ;
+ 
+SELECT * FROM x WHERE x ( x ) ORDER BY x ASC ;
+ 
+SELECT * FROM x WHERE x ( 'x' ) ;
+ 
+SELECT * FROM x JOIN x ON ( x = x ) WHERE x ( x ) ;
+ 
+CREATE TABLE x ( x INTEGER , x TEXT , x TEXT ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) ;
+ 
+SELECT x , x , x FROM x JOIN x ON x = x ;
+ 
+INSERT INTO x VALUES ( 1 , x ( 'x' ) ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) ;
+ 
+SELECT x , x FROM x WHERE x = 'x' ORDER BY 1 ;
+ 
+SELECT x ( * ) = 1 FROM x WHERE x = ( SELECT x FROM x WHERE x = 'x' ) AND x = ( SELECT x FROM x WHERE x = 'x' ) ;
+ 
+INSERT INTO x SELECT x / 1 FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x SELECT 1 , 1 , 1 ;
+ 
+INSERT INTO x SELECT * FROM ( SELECT x , x FROM x ORDER BY x ) x ;
+ 
+INSERT INTO x SELECT 1 FROM x ( 1 , 1 ) ;
+ 
+INSERT INTO x VALUES ( 1 ) , ( 1 ) , ( 1 ) , ( 1 ) , ( 1 ) , ( 1 ) , ( 1 ) ;
+ 
+CREATE TABLE x ( x INT NOT NULL , x INT NOT NULL , x INT NOT NULL ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 1 ) , ( 1 , 1 , 1 ) , ( 1 , 1 , 1 ) ;
+ 
+INSERT INTO x VALUES ( 'x' ) , ( 'x' ) , ( 'x' ) ;
+ 
+SELECT x ( x ) , x ( x ) , x ( x ) FROM x ORDER BY x ;
+ 
+SELECT x ( ) >= x ( x ( ) ) ;
+ 
+SELECT x ( x ( ) , x ( ) ) ;
+ 
+SELECT x ( ) IS NULL ;
+ 
+SELECT x , x ( x ) AS x FROM x ;
+ 
+INSERT INTO x SELECT ARRAY [ 1 , 1 , x ] FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) ;
+ 
+SELECT x , x ( x ) , x ( x ) , x ( x ) , x ( x ) , x ( x ) , x ( x ) FROM x ;
+ 
+SELECT x , x , x FROM x ORDER BY x ( x ) , x ;
+ 
+SELECT x , x ( x , 'x' ) FROM x ORDER BY 1 ;
+ 
+SELECT x , x ( x ( x , 'x' ) ) , x ( x ( x , 'x' ) ) FROM x ;
+ 
+SELECT x , x , x ( x , 'x' ) FROM x ORDER BY 1 ;
+ 
+SELECT x , x , x , x ( x ( x , 'x' ) ) , x ( x ( x , 'x' ) ) FROM x ;
+ 
+SELECT x , CASE x WHEN 'x' THEN 'x' ELSE x END FROM x ORDER BY 1 ;
+ 
+SELECT x , x FROM x UNION SELECT x , x FROM x ORDER BY 1 ;
+ 
+SELECT x , x FROM x WHERE x < 1 INTERSECT SELECT x , x FROM x WHERE x > 1 ORDER BY 1 ;
+ 
+SELECT x , x FROM x EXCEPT SELECT x , x FROM x WHERE x < 1 ORDER BY 1 ;
+ 
+SELECT * FROM x WHERE ( x , x ) NOT IN ( SELECT x , x FROM x ) ;
+ 
+SELECT x , CAST ( x AS VARCHAR ) FROM x ORDER BY 1 ;
+ 
+SELECT x , x ( x ) FROM x ORDER BY 1 ;
+ 
+INSERT INTO x VALUES ( 1 , 1.000000 ) ;
+ 
+SELECT CASE WHEN 1 = 1 THEN 1 / 1 WHEN 1 = 1 THEN 1 ELSE 1 / 1 END ;
+ 
+SELECT CASE 1 WHEN 1 THEN 1 / 1 WHEN 1 THEN 1 ELSE 1 / 1 END ;
+ 
+SELECT CASE WHEN x > 1 THEN 1 / 1 ELSE 1 END FROM x ;
+ 
+SELECT CASE 'x' WHEN 'x' THEN 1 ELSE 1 END ;
+ 
+SELECT * FROM x WHERE x ( x , x ) = 1 ;
+ 
+UPDATE x SET x = CASE WHEN x >= 1 THEN ( - x ) ELSE ( 1 * x ) END ;
+ 
+UPDATE x SET x = CASE WHEN x >= 1 THEN ( 1 * x ) ELSE ( 1 * x ) END ;
+ 
+SELECT CASE ( CASE x ( 'x' ) WHEN 'x' THEN 'x' WHEN x ( NULL ) THEN 'x' WHEN 'x' THEN 'x' END ) WHEN 'x' THEN 'x' WHEN 'x' THEN 'x' ELSE 'x' END ;
+ 
+SELECT x , x FROM x WHERE x LIKE 'x' ORDER BY x , x ;
+ 
+SELECT x , x NOT LIKE 'x' AS x FROM x WHERE x LIKE 'x' ORDER BY x ;
+ 
+INSERT INTO x ( x , x ) VALUES ( x ( 1 , 1 ) , x ( 'x' , 1 ) ) ;
+ 
+SELECT x ( 1 , 1 , 1 , 1 , 1 , 1.000000 ) ;
+ 
+INSERT INTO x ( x , x , x ) VALUES ( 1 , 'x' , x ( 'x' , 1 ) ) ;
+ 
+CREATE INDEX x ON x ( ( - x ) , x ) ;
+ 
+CREATE INDEX x ON x ( ( x ( x ) ) ) ;
+ 
+SELECT * FROM x WHERE x ( x ) = 'x' ;
+ 
+SELECT * FROM x WHERE - x = 1 ORDER BY - x , x ;
+ 
+INSERT INTO x VALUES ( x ( x ( 1 , 1 ) , x ( 1 , 1 ) ) ) ;
+ 
+SELECT x ( NULL , 'x' ) ;
+ 
+INSERT INTO x SELECT ( x - 1 ) * 1 + x , x ( x ( x ( x * 1 , x * 1 ) , 1 + ( x + x ) % 1 ) ) FROM x ( 1 , 1 ) x , x ( 1 , 1 ) x ;
+ 
+INSERT INTO x VALUES ( 1 , NULL ) , ( 1 , NULL ) , ( 1 , NULL ) ;
+ 
+INSERT INTO x VALUES ( x , x ) ;
+ 
+SELECT * FROM x EXCEPT SELECT * FROM x ;
+ 
+INSERT INTO x SELECT x , 1 , 'x' FROM x ( 1 , 1 ) x ;
+ 
+SELECT x FROM x WHERE x > 1 ;
+ 
+CREATE TEMPORARY TABLE x ( x INT ) ;
+ 
+SELECT x FROM x WHERE x IN ( 1 , 1 , 1 ) ;
+ 
+SELECT x FROM x WHERE x BETWEEN 1 AND 1 ;
+ 
+UPDATE x SET x = x ( ) + 1 WHERE x > 1 ;
+ 
+INSERT INTO x VALUES ( x ( 1 ) ) ;
+ 
+SELECT x ( 'x' , FALSE , FALSE , 'x' ) ;
+ 
+SELECT x ( 'x' , TRUE , FALSE , 'x' ) ;
+ 
+SELECT x ( 'x' , FALSE , TRUE , 'x' ) ;
+ 
+SELECT x ( 'x' , TRUE , TRUE , 'x' ) ;
+ 
+SELECT x ( 1 , 1 ) , x ( 1 , 1 ) ;
+ 
+SELECT x ( 1 , x ( 1 , 1 ) ) ;
+ 
+SELECT * FROM x ( 1 , x ( 1 , 1 ) ) ;
+ 
+SELECT x ( x ( 1 , 1 ) , x ( 1 , 1 ) ) ;
+ 
+SELECT x ( 1 , x ( 1 , 1 ) ) , x ( 1 , 1 ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) , ( 1 , 'x' , 'x' ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 ] ) FROM x WHERE FALSE ;
+ 
+SELECT x , x ( 1 , 1 ) , x ( * ) FROM x GROUP BY 1 HAVING x ( * ) > 1 ;
+ 
+SELECT x , x ( 1 , 1 ) , x ( * ) FROM x GROUP BY 1 , 1 HAVING x ( * ) > 1 ;
+ 
+SELECT x , CASE WHEN x > 1 THEN x ( 1 , 1 ) ELSE 1 END FROM x ;
+ 
+SELECT x , x ( x ( 1 , 1 ) , 1 ) FROM x ;
+ 
+SELECT x ( x ( 1 , 1 ) ) FROM x ;
+ 
+SELECT x ( x ( 1 , 1 ) ) OVER ( ) FROM x ;
+ 
+SELECT x , x ( x ) OVER ( ) , x ( * ) OVER ( ) , x ( 1 , 1 ) FROM x ;
+ 
+SELECT x ( x ( * ) ) OVER ( PARTITION BY x ( 1 , 1 ) ORDER BY x ( 1 , 1 ) ) , x ( 1 , 1 ) x FROM x GROUP BY x ;
+ 
+SELECT x , x x , x ( 1 , 1 ) x , x ( * ) FROM x GROUP BY x ( x , x ) ;
+ 
+SELECT x , x x , x ( 1 , 1 ) x , x ( * ) FROM x GROUP BY x ( x , x ) ORDER BY x ;
+ 
+SELECT x , x x , x ( 1 , 1 ) x , x ( * ) FROM x GROUP BY x ( x , x , x ) ;
+ 
+SELECT x , x x , x ( 1 , 1 ) x , x ( * ) FROM x GROUP BY x ( x , x , x ) ORDER BY x ;
+ 
+SELECT 'x' AS x , x ( 1 , 1 ) AS x FROM x ORDER BY 1 ;
+ 
+UPDATE x SET x = x ( 1 , 1 ) ;
+ 
+SELECT x ( x ( 1 , 1 ) , 1 ) ;
+ 
+SELECT * FROM x ( x ( 1 , 1 ) , 1 ) ;
+ 
+SELECT 1 LIMIT x ( 1 , 1 ) ;
+ 
+SELECT x ( 1 , 1 ) AS x , x ( 1 , 1 ) + 1 AS x ;
+ 
+SELECT x ( 1 , 1 ) + 1 ORDER BY x ( 1 , 1 ) ;
+ 
+INSERT INTO x VALUES ( x , x , x , x [ 1 ] , x , x ) ;
+ 
+SELECT x = 'x' ;
+ 
+SELECT x ( FALSE ) ;
+ 
+SELECT x ( 'x' ) , x ( 'x' ) ;
+ 
+SELECT x ( 1 ) , x ( 'x' ) ;
+ 
+SELECT x ( 'x' , FALSE ) ;
+ 
+SELECT DISTINCT x FROM x ORDER BY 1 ;
+ 
+SELECT x ( * ) FROM ( SELECT DISTINCT x , x , x FROM x ) x ;
+ 
+SELECT x [ 1 ] , x [ 1 ] [ 1 ] [ 1 ] , x [ 1 ] , x [ 1 ] [ 1 ] , x [ 1 ] FROM x ;
+ 
+SELECT x ( x ) AS x , x ( x ) AS x , x ( x ) AS x FROM x ;
+ 
+SELECT x FROM x WHERE x [ 1 ] IS NULL ;
+ 
+INSERT INTO x VALUES ( ARRAY [ 1 , 1 , NULL , 1 ] , ARRAY [ 'x' , 'x' , NULL , 'x' ] ) ;
+ 
+SELECT ARRAY [ ARRAY [ 'x' ] , ARRAY [ 'x' ] ] ;
+ 
+SELECT ARRAY [ 1 , NULL , 1 ] ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , 1 , 1 , 1 ] , 1 ) ;
+ 
+SELECT x ( ARRAY [ 'x' , 'x' , 'x' , 'x' , 'x' , 'x' , 'x' ] , 'x' ) ;
+ 
+SELECT x ( ARRAY [ 'x' , 'x' , 'x' , 'x' , 'x' , 'x' , 'x' ] , NULL ) ;
+ 
+SELECT x ( ARRAY [ 'x' , 'x' , 'x' , 'x' , 'x' , NULL , 'x' , 'x' ] , NULL ) ;
+ 
+SELECT x ( ARRAY [ 'x' , 'x' , 'x' , 'x' , 'x' , NULL , 'x' , 'x' ] , 'x' ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ] , 1 ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ] , NULL ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , 1 , NULL , 1 , 1 , 1 , 1 , 1 , NULL , 1 , 1 ] , NULL ) ;
+ 
+SELECT 1 = x ( 'x' ) ;
+ 
+SELECT 1.000000 = x ( ARRAY [ 1 , 1 , 1 ] ) ;
+ 
+SELECT 1 * x ( 'x' ) ;
+ 
+SELECT 1 * x ( 1 ) ;
+ 
+SELECT * FROM x WHERE x > 'x' AND x <= 'x' ;
+ 
+SELECT * FROM x WHERE x >= 'x' AND x < 'x' ;
+ 
+INSERT INTO x ( x , x , x ) VALUES ( 'x' , 'x' , 'x' ) ;
+ 
+SELECT x ( x ) , x ( x ) , x ( x ) , x ( x ) , x ( x ) , x ( x ) FROM x ;
+ 
+INSERT INTO x ( x , x , x ) VALUES ( 'x' , 'x' , NULL ) ;
+ 
+SELECT * FROM x ( ARRAY [ 1 , 1 , 1 ] ) ;
+ 
+SELECT x ( 1 , ARRAY [ 1 , 1 ] , ARRAY [ 1 , 1 ] ) ;
+ 
+SELECT x ( 1 , ARRAY [ 1 , 1 ] ) ;
+ 
+SELECT x , x = 'x' AS x , x ( x ) FROM ( SELECT x ( 1 , ARRAY [ 1 ] ) AS x ) x ;
+ 
+SELECT x , x = 'x' AS x , x ( x ) FROM ( SELECT x ( 1 , 'x' ) AS x ) x ;
+ 
+SELECT x , x = 'x' AS x , x ( x ) FROM ( SELECT x ( 1 , 'x' , 'x' ) AS x ) x ;
+ 
+SELECT x ( 1 , NULL , ARRAY [ 1 , 1 ] ) ;
+ 
+SELECT x ( 1 , ARRAY [ 1 , 1 ] , NULL ) ;
+ 
+SELECT x ( 1 , ARRAY [ 1 , 1 ] , 'x' ) ;
+ 
+SELECT x ( 1 , ARRAY [ 1 , 1 ] , ARRAY [ 1 , 1 , 1 ] ) ;
+ 
+SELECT x ( 1 , ARRAY [ 1 , 1 , NULL ] ) ;
+ 
+SELECT x ( NULL , 'x' ) IS NULL ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , 1 , 1 , NULL , 1 ] , 'x' ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , 1 , 1 , NULL , 1 ] , 'x' , 'x' ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , 1 , 1 , NULL , 1 ] , NULL ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , 1 , 1 , NULL , 1 ] , 'x' , NULL ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , 1 ] , 1 ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , 1 ] ) ;
+ 
+SELECT x ( x ) FROM ( SELECT x FROM x WHERE x < 1 ORDER BY x ) x ;
+ 
+SELECT x ( x ( x , 1 ) ) FROM ( SELECT x FROM x WHERE x < 1 ORDER BY x ) x ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , 1 , NULL , 1 , NULL , NULL , 1 , 1 ] ) ;
+ 
+SELECT x ( x ( ARRAY [ 1 , 1 , NULL , 1 ] ) ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , 1 , 1 ] , 1 ) ;
+ 
+SELECT x ( ARRAY [ 1 , NULL , NULL , 1 ] , NULL ) ;
+ 
+SELECT x ( ARRAY [ 'x' , 'x' , 'x' , 'x' , 'x' ] , 'x' ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , 1 , 1 ] , 1 , 1 ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , 1 , 1 ] , 1 , NULL ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 , NULL , 1 , NULL ] , NULL , 1 ) ;
+ 
+SELECT x ( ARRAY [ 'x' , 'x' , 'x' , 'x' ] , 'x' , 'x' ) ;
+ 
+SELECT x ( ARRAY [ 1 , NULL , 1 ] , NULL , NULL ) ;
+ 
+SELECT x ( ARRAY [ 'x' , NULL , 'x' ] , NULL , 'x' ) ;
+ 
+SELECT x ( 1 , ARRAY [ 1 ] ) ;
+ 
+SELECT x ( 1 , ARRAY [ ARRAY [ 1 , 1 ] , ARRAY [ 1 , 1 ] ] ) ;
+ 
+CREATE TABLE x ( x VARCHAR ( 1 ) ) ;
+ 
+SELECT x , x , x , x , x , x , x , x , x , x , x FROM x WHERE x = 'x' ;
+ 
+SELECT x , x , x FROM x WHERE x NOT IN ( 'x' , 'x' , 'x' ) ;
+ 
+SELECT x ( x ( x ) ) , x ( x ) FROM x x ;
+ 
+SELECT x ( ) ORDER BY 1 ;
+ 
+SELECT x ( x ) FROM x GROUP BY x ( x ) ;
+ 
+SELECT x ( * ) FROM x WHERE ( x , x ) NOT IN ( SELECT x , x FROM x WHERE x > 1 ) ;
+ 
+SELECT x ( ( x ) ) FROM x WHERE x > 1 ;
+ 
+SELECT x ( * ) FROM x WHERE x > 1 ;
+ 
+INSERT INTO x SELECT x , 'x' FROM x ( 1 , 1 ) x ;
+ 
+SELECT x ( * ) FROM x GROUP BY x ;
+ 
+SELECT x ( * ) , x ( 1 , 1 ) FROM x GROUP BY x ;
+ 
+SELECT x FROM x ORDER BY x LIMIT 1 ;
+ 
+SELECT x ( x ) FROM ( SELECT x ( 1 , 1 ) x ) x ORDER BY x ;
+ 
+INSERT INTO x VALUES ( 'x' , ARRAY [ 1 , 1 ] , 'x' ) ;
+ 
+INSERT INTO x ( x , x , x , x ) SELECT x , x , x , x FROM x WHERE ( x < 1 OR x > 1 ) AND x % 1 = 1 AND x IS NOT NULL ;
+ 
+SELECT x , x FROM x ORDER BY x NULLS FIRST LIMIT 1 ;
+ 
+SELECT x , x , x FROM x ORDER BY x LIMIT 1 ;
+ 
+INSERT INTO x VALUES ( x ( 1.000000 , 1.000000 ) ) ;
+ 
+INSERT INTO x VALUES ( x ( 1.000000 , 1.000000 , 'x' ) ) ;
+ 
+SELECT x , x ( x ) , x ( x ) , x ( x ) FROM x ;
+ 
+SELECT x , x ( x ) , x ( x ) , x ( x ) , x ( x ) FROM x ;
+ 
+SELECT * FROM x WHERE x ( x , x ( 1.000000 , 1.000000 ) ) ;
+ 
+SELECT * FROM x WHERE x ( x ( 1 x , 1.000000 ) , x ) ;
+ 
+SELECT * FROM x WHERE x < 'x' ;
+ 
+SELECT * FROM x WHERE x < x ( 1.000000 , 1.000000 , 'x' ) ;
+ 
+SELECT * FROM x WHERE x <= 'x' ;
+ 
+SELECT * FROM x WHERE x >= 'x' ;
+ 
+SELECT * FROM x WHERE x > 'x' ;
+ 
+SELECT * FROM x WHERE x > x ( 1.000000 , 1.000000 , 'x' ) ;
+ 
+SELECT x ( 1.000000 , 1.000000 ) ;
+ 
+SELECT x ( x ( 1.000000 , 1.000000 ) , x ( 1.000000 , 1.000000 ) ) ;
+ 
+SELECT x ( x ( 1.000000 , 1.000000 ) , x ( 1.000000 , NULL ) ) ;
+ 
+SELECT x ( x ( 1.000000 , 1.000000 , 'x' ) , x ( 1.000000 , 1.000000 , 'x' ) ) ;
+ 
+SELECT x ( 1.000000 , 1.000000 ) - x ( 1.000000 , 1.000000 ) ;
+ 
+SELECT x ( 1.000000 , 1.000000 , 'x' ) - x ( 1.000000 , 1.000000 ) ;
+ 
+SELECT x ( 1.000000 , 1.000000 ) < x ( 1.000000 , 1.000000 ) ;
+ 
+SELECT x ( 1.000000 , 1.000000 ) + x ( 1.000000 , 1.000000 ) ;
+ 
+SELECT x ( 1.000000 , 1.000000 ) * x ( 1.000000 , 1.000000 ) ;
+ 
+SELECT * FROM x WHERE x = x ( 1.000000 , 1.000000 ) ;
+ 
+SELECT * FROM x NATURAL JOIN x ORDER BY x ;
+ 
+SELECT x ( 1 , 1 , 'x' ) ;
+ 
+INSERT INTO x SELECT x ( x , x + 1 ) FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x SELECT x ( NULL , x * 1 , 'x' ) FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x SELECT x ( x * 1 , NULL , 'x' ) FROM x ( 1 , 1 ) x ;
+ 
+SELECT x ( * ) FROM x WHERE x = x ( 1 , 1 ) ;
+ 
+INSERT INTO x SELECT x FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x VALUES ( x ( 1 , 1 , 'x' ) , x ( 1 , 1 , 'x' ) , 'x' ) ;
+ 
+INSERT INTO x VALUES ( x ( 1.000000 , 'x' ) , 1 ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 ] , x ( 1 , 1 ) ) ;
+ 
+SELECT x ( x ( 1 , 1 ) ) ;
+ 
+SELECT x ( x ( 1.000000 , 1.000000 ) ) ;
+ 
+SELECT x ( x ( 1 , 1 ) , ARRAY [ 1 , 1 ] ) ;
+ 
+INSERT INTO x VALUES ( 1 , ARRAY [ x ( 1 , 1 ) , x ( 1 , 1 ) ] ) ;
+ 
+SELECT x ( ARRAY [ 1 , 1 ] , ARRAY [ 1 , 1 ] ) ;
+ 
+SELECT * FROM x ( x ( 1 , 1 ) ) ;
+ 
+INSERT INTO x ( x , x , x ) SELECT x , x , x FROM x ( 1 , 1 ) x ;
+ 
+SELECT x , x FROM x JOIN x ON x = x WHERE x LIKE 'x' ORDER BY x ;
+ 
+SELECT x , x FROM x WHERE x LIKE 'x' ORDER BY x ;
+ 
+CREATE TABLE x ( x INT , x INT , x INT , x INT , x INT , x INT ) ;
+ 
+CREATE TABLE x ( x INT NOT NULL , x INT PRIMARY KEY ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 ^ 1 , 'x' ) ;
+ 
+INSERT INTO x SELECT 1 ^ x , x ( 'x' , x ) FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x ( x , x ) VALUES ( 'x' , 1 ) , ( 'x' , 1 ) ;
+ 
+SELECT x , x FROM x GROUP BY x , x HAVING x ( * ) = 1 ORDER BY x , x ;
+ 
+SELECT x , x FROM x GROUP BY x , x HAVING x = 1 ORDER BY x , x ;
+ 
+SELECT x ( x ) , x ( x ) FROM x GROUP BY x ( x ) HAVING x ( * ) > 1 OR x ( x ) = x ( x ) ORDER BY x ( x ) ;
+ 
+SELECT x , x ( x ) FROM x GROUP BY x HAVING x ( * ) > 1 OR x ( x ) = x ( x ) ORDER BY x ;
+ 
+CREATE TABLE x ( x CHAR ) ;
+ 
+INSERT INTO x ( x ) SELECT x ( * ) FROM x WHERE x ( ) < 1.000000 / 1 ;
+ 
+SELECT x , x ( x ) FROM x GROUP BY x HAVING x ( x ) > 1 ;
+ 
+CREATE TABLE x ( x NUMERIC ) ;
+ 
+SELECT x ( 1.000000 , 1.000000 , 1.000000 , 1 ) ;
+ 
+SELECT x ( 'x' , 1.000000 , 1.000000 , 1 ) ;
+ 
+SELECT x , x ( x , 1 , 1 , 1 ) AS x , x ( x , 1 , 1 , 1 ) AS x , x ( x , 1 , 1 , 1 ) AS x , x ( x , 1 , 1 , 1 ) AS x , x ( x , 1 , 1 , 1 ) AS x , x ( x , 1 , 1 , 1 ) AS x , x ( x , 1.000000 , 1.000000 , 1 ) AS x , x ( x , 1.000000 , 1.000000 , 1 ) AS x , x ( x , 1 , 1 , 1 ) AS x , x ( x , 1 , 1 , 1 ) AS x FROM x ;
+ 
+SELECT 'x' AS x , x ( 'x' , 'x' ) ;
+ 
+SELECT 1 * 1 ;
+ 
+SELECT x ( 1.000000 , 1 ) ;
+ 
+SELECT 1.000000 / 1 ;
+ 
+SELECT 1 % 1 ;
+ 
+SELECT x ( 1 , 1 ) * 1 + 1 % 1 ;
+ 
+SELECT 1.000000 ^ 1 AS x ;
+ 
+SELECT 1.000000 ^ 1 ;
+ 
+SELECT 1.000000 ^ ( 1 ) ;
+ 
+SELECT 1.000000 ^ 1.000000 ;
+ 
+SELECT ( 1.000000 ) ^ 1.000000 ;
+ 
+SELECT 1.000000 ^ ( 1.000000 ) ;
+ 
+SELECT x ( 1.000000 x ) ;
+ 
+SELECT x ( 1.000000 , 1.000000 x ) ;
+ 
+SELECT x , x , x FROM x ORDER BY x ;
+ 
+CREATE TABLE x ( x INTEGER , x INTEGER , x INTEGER ) ;
+ 
+SELECT x ( x ) FROM x WHERE x = 'x' ;
+ 
+INSERT INTO x SELECT x , x % 1 FROM x ( 1 , 1 ) x ;
+ 
+SELECT x ( x [ 1 ] ) , x ( x [ 1 ] ) FROM x ( 'x' ) AS x ;
+ 
+INSERT INTO x ( x , x ) SELECT x , x FROM x ;
+ 
+SELECT * FROM x WHERE x ISNULL ;
+ 
+UPDATE x SET x = x + 1 WHERE x ISNULL ;
+ 
+UPDATE x SET x = 1 WHERE x < 1 ;
+ 
+UPDATE x SET x = x + 1 WHERE x > 1 ;
+ 
+UPDATE x SET x = 'x' , x = 'x' WHERE x = 'x' ;
+ 
+UPDATE x SET x = x + 'x' ;
+ 
+INSERT INTO x SELECT * FROM x WHERE x < 1 ;
+ 
+INSERT INTO x SELECT x + 1 , x FROM x WHERE x IN ( 1 , 1 , 1 ) ;
+ 
+CREATE VIEW x AS SELECT x , x FROM x WHERE x ;
+ 
+CREATE VIEW x AS SELECT x , x , x ( x ) AS x FROM x ;
+ 
+INSERT INTO x SELECT * FROM x WHERE 1 > x ;
+ 
+INSERT INTO x SELECT * FROM x WHERE x > 1 AND x = 1 ;
+ 
+CREATE TABLE x ( x TEXT , x CHAR ( 1 ) , x FLOAT ) ;
+ 
+CREATE TABLE x ( x CHAR ( 1 ) , x FLOAT ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 1.000000 ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 'x' , 1.000000 ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 1 , 'x' , 1.000000 , 1.000000 , 'x' ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 1 , 'x' , 1.000000 , 'x' ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 1 , 'x' , 1 , 'x' ) ;
+ 
+SELECT * FROM x WHERE x >= 1 ORDER BY 1 ;
+ 
+CREATE TABLE x ( x CHAR ( 1 ) , x INTEGER ) ;
+ 
+CREATE VIEW x AS SELECT * FROM x WHERE NOT EXISTS ( SELECT x FROM x WHERE x = x ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 1 , 'x' , 1.000000 , 'x' , 1.000000 ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 1 , 'x' , 1.000000 , 'x' , 1.000000 ) ON CONFLICT DO NOTHING ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 1 , 'x' ) ON CONFLICT DO NOTHING ;
+ 
+CREATE VIEW x AS SELECT * FROM x ORDER BY x ;
+ 
+INSERT INTO x SELECT * FROM x ( 1 , 1 , 1 ) x ;
+ 
+SELECT * FROM x x ;
+ 
+UPDATE x SET x = x / 1 ;
+ 
+SELECT x , x , x FROM x WHERE x = 'x' ;
+ 
+SELECT * FROM x WHERE x IN ( 'x' , 'x' , 'x' ) ORDER BY x ;
+ 
+CREATE UNIQUE INDEX x ON x ( ( x + 1 ) ) ;
+ 
+CREATE UNIQUE INDEX x ON x ( ( x + 1 + 1 ) ) ;
+ 
+SELECT x ( 1 , 1 , 1 , 1 , 1 , 1.000000 , 'x' ) ;
+ 
+SELECT x ( 1 , 1 , 1 , 1 , 1 , 1 , 'x' ) ;
+ 
+CREATE TABLE x ( x INT NOT NULL PRIMARY KEY ) ;
+ 
+INSERT INTO x SELECT * FROM x ( 1 , 1 ) x ;
+ 
+SELECT x , x FROM x WHERE x = 1 LIMIT 1 ;
+ 
+SELECT x , x FROM x WHERE x = 'x' LIMIT 1 ;
+ 
+SELECT * FROM x ORDER BY x , x , x LIMIT 1 ;
+ 
+SELECT * FROM x WHERE x > 1 ORDER BY x , x , x LIMIT 1 ;
+ 
+SELECT * FROM x WHERE x LIKE 'x' ORDER BY x ;
+ 
+SELECT x FROM x WHERE x = 1 ;
+ 
+INSERT INTO x ( x , x , x ) VALUES ( 1 , 1 , NULL ) ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) ;
+ 
+SELECT x ( 'x' , 'x' ) AS x ;
+ 
+SELECT x FROM x WHERE x LIKE 'x' ORDER BY 1 ;
+ 
+SELECT x FROM x UNION SELECT x FROM x ORDER BY x ;
+ 
+SELECT x FROM x INTERSECT SELECT x FROM x ;
+ 
+SELECT x FROM x EXCEPT SELECT x FROM x ;
+ 
+SELECT DISTINCT x FROM x ORDER BY x ;
+ 
+SELECT x , x ( * ) FROM x GROUP BY x ORDER BY x ;
+ 
+SELECT x , x ( ) OVER ( ORDER BY x ) , x ( ) OVER ( ORDER BY x ) FROM x ORDER BY x ;
+ 
+SELECT x FROM x INTERSECT SELECT x FROM x ORDER BY x ;
+ 
+SELECT ( SELECT x ( * ) FROM x ) = ( SELECT x ( * ) FROM x ) ;
+ 
+CREATE UNIQUE INDEX x ON x ( x , x , ( 1 ) ) ;
+ 
+SELECT * FROM x ( 'x' ) ORDER BY x DESC , x DESC , x LIMIT 1 ;
+ 
+SELECT * FROM x ( 'x' , 'x' ) ORDER BY x DESC , x DESC , x ;
+ 
+SELECT x ( x ( 'x' , 'x' ) ) ;
+ 
+SELECT x ( x ( x ( 'x' ) ) , x ( 'x' ) ) ;
+ 
+UPDATE x SET x = x ( 'x' , x ) ;
+ 
+SELECT x ( x ( 'x' , 'x' , 'x' ) , 'x' , 'x' ) ;
+ 
+SELECT x ( x ( 'x' ) , x ( 'x' ) , x ( 'x' ) ) ;
+ 
+SELECT x ( x , 'x' ) FROM x ( 'x' , 'x' ) AS x ;
+ 
+SELECT x ( x ( 'x' , 'x' ) , 'x' , 'x' ) ;
+ 
+UPDATE x SET x = NULL WHERE x = 'x' ;
+ 
+INSERT INTO x VALUES ( x ( 'x' ) ) ;
+ 
+INSERT INTO x SELECT 1 FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x VALUES ( 1.000000 , 1 ) ;
+ 
+SELECT 'x' AS x ;
+ 
+INSERT INTO x VALUES ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) , ( 'x' , 'x' , 'x' , 'x' , 'x' ) ;
+ 
+UPDATE x SET x = 'x' WHERE x IS NOT NULL ;
+ 
+CREATE TABLE x AS SELECT x ( 1 , 1 ) AS x , 'x' ;
+ 
+INSERT INTO x SELECT 1 AS x , 'x' FROM x ( 1 , 1 ) ;
+ 
+UPDATE x SET x = 1 , x = x ( 'x' ) / 1 WHERE x = 'x' ;
+ 
+CREATE TABLE x AS SELECT x ( 1 , 1 ) AS x , x ( 'x' , 1 , 'x' ) AS x ;
+ 
+SELECT x + 'x' FROM x ;
+ 
+SELECT x - 'x' FROM x ;
+ 
+SELECT x * 1 FROM x ;
+ 
+SELECT 1 * x FROM x ;
+ 
+SELECT x / 1 FROM x ;
+ 
+SELECT x = 'x' FROM x ;
+ 
+SELECT x != 'x' FROM x ;
+ 
+SELECT x <= 'x' FROM x ;
+ 
+SELECT x >= 'x' FROM x ;
+ 
+SELECT x < 'x' FROM x ;
+ 
+SELECT x > 'x' FROM x ;
+ 
+SELECT x ( x + 'x' ) FROM x ;
+ 
+WITH x ( x , x ) AS ( SELECT 1 , 1 ) SELECT * FROM x , x AS x ;
+ 
+SELECT x ( * ) FROM ( WITH x ( x ) AS ( SELECT x ( ) FROM x ( 1 , 1 ) ) SELECT * FROM x UNION SELECT * FROM x ) x ;
+ 
+WITH RECURSIVE x ( x ) AS ( SELECT 1 UNION SELECT 1 - x FROM x ) SELECT * FROM x ;
+ 
+WITH RECURSIVE x ( x ) AS ( SELECT 1 UNION SELECT x + 1 FROM x ) SELECT * FROM x LIMIT 1 ;
+ 
+WITH x ( x , x ) AS ( SELECT x , x ( x ) FROM x GROUP BY x ) SELECT x ( * ) FROM x WHERE x > ( SELECT x ( x ) / 1 FROM x x ) ;
+ 
+INSERT INTO x VALUES ( 1 , 1 , 'x' ) , ( 1 , 1 , 'x' ) , ( 1 , 1 , 'x' ) , ( 1 , 1 , 'x' ) , ( 1 , 1 , 'x' ) , ( 1 , 1 , 'x' ) ;
+ 
+WITH RECURSIVE x ( x ) AS ( SELECT 1 INTERSECT SELECT x + 1 FROM x ) SELECT * FROM x ;
+ 
+WITH RECURSIVE x ( x ) AS ( SELECT 1 EXCEPT SELECT x + 1 FROM x ) SELECT * FROM x ;
+ 
+WITH RECURSIVE x ( x ) AS ( SELECT x FROM x ) SELECT * FROM x ;
+ 
+WITH x ( x ) AS ( SELECT 1 ) SELECT * FROM ( ( SELECT x FROM x ) ) x ;
+ 
+WITH x AS ( SELECT 1 ) INSERT INTO x VALUES ( 1 ) ;
+ 
+WITH x AS ( SELECT 1 ) INSERT INTO x SELECT * FROM x ;
+ 
+SELECT * FROM x ( ARRAY [ 1 , 1 ] , ARRAY [ 'x' , 'x' ] , ARRAY [ 1.000000 ] ) ;
+ 
+CREATE VIEW x AS SELECT * FROM x ( 1 ) ;
+ 
+SELECT x ( 'x' , 1 , FALSE ) , x ( 'x' , 1 , FALSE ) ;
+ 
+SELECT x , x ( x , x / 1 ) FROM x ;
+ 
+SELECT x ( 'x' , 'x' ) LIMIT 1 ;
+ 
+SELECT x ( ARRAY [ 'x' , 'x' ] ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 1 , 'x' , TRUE , 1 , TRUE ) ;
+ 
+INSERT INTO x VALUES ( 1 , ARRAY [ 1 ] , 'x' ) ;
+ 
+SELECT x , x ( x ) FROM x GROUP BY x ORDER BY x ;
+ 
+SELECT x ( x , x + 1 ) FROM x ;
+ 
+SELECT x , x ( x > 1 , x ( x ) , x ( x + 1 ) ) FROM x ;
+ 
+SELECT x , x ( x > 1 , x , x + 1 ) FROM x ;
+ 
+SELECT x ( x ) FROM x ( 1 , 1 ) x ;
+ 
+SELECT x ( x ) OVER ( ORDER BY x ) FROM x ( 1 , 1 ) x ;
+ 
+SELECT x ( 1 , 1 , 1 , 1 ) ;
+ 
+SELECT x ( 'x' , 1 , 1 , 1 , 1 , 1 ) ;
+ 
+SELECT * FROM x ( 'x' , 1 ) ;
+ 
+SELECT x ( 'x' , ARRAY [ 'x' , 'x' ] ) ;
+ 
+SELECT x ( 'x' ) AS x ;
+ 
+SELECT x ( 'x' , 'x' , 'x' , FALSE ) ;
+ 
+SELECT x ( 'x' , 'x' , 'x' , TRUE ) ;
+ 
+UPDATE x SET x = 1 , x = 'x' WHERE x = 1 AND x = 'x' ;
+ 
+SELECT * FROM x WHERE x <= 1 AND x > 1 AND x = 1 ;
+ 
+CREATE TABLE x ( x INT UNIQUE , x INT ) ;
+ 
+UPDATE x SET x = x + 1 WHERE x < 1 ;
+ 
+UPDATE x SET x = 1 , x = 1 ;
+ 
+CREATE TABLE x ( x BOOLEAN NOT NULL ) ;
+ 
+INSERT INTO x VALUES ( TRUE ) ;
+ 
+UPDATE x SET x = TRUE ;
+ 
+UPDATE x SET x = FALSE ;
+ 
+CREATE TABLE x ( x INT , x VARCHAR ) ;
+ 
+INSERT INTO x SELECT x , x ( 'x' , 1 ) , 'x' FROM x ( 1 , 1 ) x ;
+ 
+INSERT INTO x VALUES ( 'x' , 1 , 1 ) , ( 'x' , 'x' , NULL ) ;
+ 
+CREATE VIEW x AS SELECT x , x FROM x ;
+ 
+UPDATE x SET x = 1 WHERE FALSE ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' , 'x' , 'x' , 'x' , 1 ) ;
+ 
+SELECT * FROM x ;
+SELECT * FROM x ;
+ 
+INSERT INTO x VALUES ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) , ( 1 , 'x' ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 1 ) , ( 'x' , 1 ) , ( 'x' , 1 ) ;
+ 
+INSERT INTO x VALUES ( 'x' , 1 , 'x' ) ;
+ 
+INSERT INTO x VALUES ( 1 , NULL ) , ( 1 , 1 ) , ( 1 , 1 ) ;
+ 
+INSERT INTO x VALUES ( 1 , NULL ) , ( 1 , 1 ) , ( 1 , 1 ) , ( 1 , 1 ) ;
+ 
+INSERT INTO x ( x ) SELECT x ( x ) FROM x ;
+ 
+SELECT 'x' AS x , x FROM x ORDER BY x ;
+ 
+INSERT INTO x ( x ) SELECT x ( x ) FROM x WHERE ( x > 1 ) AND ( x < 1 ) ;
+ 
+INSERT INTO x ( x ) SELECT x ( x ) FROM x WHERE ( x >= 1 ) AND ( x <= 1 ) ;
+ 
+SELECT DISTINCT x AS x FROM x ORDER BY 1 ;
+ 
+SELECT x AS x , x ( x ) AS x , x ( x ) AS x FROM x GROUP BY x ORDER BY x , x , x ;
+ 
+SELECT x AS x , ( x ( x ) + 1 ) AS x , ( x ( x ) - 1 ) AS x FROM x GROUP BY x ORDER BY x , x ;
+ 
+SELECT x AS x , x ( x ) + x ( x ) AS x , x ( x ) - 1 AS x FROM x GROUP BY x ORDER BY x , x ;
+ 
