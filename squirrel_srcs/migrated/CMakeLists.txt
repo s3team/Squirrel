@@ -1,9 +1,13 @@
 cmake_minimum_required(VERSION 3.14)
 project(Squirrel)
 
-#GoogleTest requires at least C++ 14
+# GoogleTest requires at least C++ 14
 set(CMAKE_CXX_STANDARD 17)
 set(BUILD_SHARED_LIBS ON)
+
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -g -O2 -fsanitize=address")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O3")
+set(LINK_FLAGS "${LINK_FLAGS} -fsanitize=address")
 
 find_package(PkgConfig)
 pkg_check_modules(MySQL REQUIRED mysqlclient>=5.7)
@@ -13,7 +17,7 @@ FetchContent_Declare(
   googletest
   URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
 )
-#For Windows : Prevent overriding the parent project's compiler/linker settings
+# For Windows : Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt
     ON
     CACHE BOOL "" FORCE)
@@ -55,47 +59,45 @@ add_library(
 
 target_include_directories(sqlite_impl PRIVATE srcs/internal/sqlite/include
                                                srcs)
-target_compile_options(sqlite_impl PRIVATE -O3 -fsanitize=address -g -fPIC)
+target_compile_options(sqlite_impl PRIVATE -fPIC)
 target_link_libraries(sqlite_impl yaml-cpp)
 
 target_include_directories(mysql_impl PRIVATE srcs/internal/mysql/include srcs)
-target_compile_options(mysql_impl PRIVATE -O3 -fsanitize=address -g -fPIC)
+target_compile_options(mysql_impl PRIVATE -fPIC)
 target_link_libraries(mysql_impl yaml-cpp)
 
 target_link_libraries(sqlite_mutator yaml-cpp sqlite_impl)
 target_include_directories(sqlite_mutator PRIVATE srcs/internal/sqlite srcs)
-target_compile_options(sqlite_mutator PRIVATE -O3 -fsanitize=address -g -fPIC)
+target_compile_options(sqlite_mutator PRIVATE -fPIC)
 target_compile_definitions(sqlite_mutator PRIVATE __SQUIRREL_SQLITE__)
 
 target_link_libraries(mysql_mutator yaml-cpp mysql_impl)
 target_include_directories(mysql_mutator PRIVATE srcs/internal/mysql srcs)
-target_compile_options(mysql_mutator PRIVATE -O3 -fsanitize=address -g -fPIC)
+target_compile_options(mysql_mutator PRIVATE -fPIC)
 target_compile_definitions(mysql_mutator PRIVATE __SQUIRREL_MYSQL__)
-
 
 add_executable(db_driver srcs/db_driver.cc)
 target_link_libraries(db_driver yaml-cpp all_client)
-target_compile_options(db_driver PRIVATE -O3 -fsanitize=address -g)
-target_link_options(db_driver PRIVATE -fsanitize=address -g)
 
 add_executable(test_client srcs/internal/client/test_client.cc)
 target_link_libraries(test_client yaml-cpp all_client)
-target_include_directories(test_client PUBLIC ${MySQL_INCLUDE_DIRS} srcs/internal/client)
-target_compile_options(test_client PRIVATE -O3 -fsanitize=address -g)
-target_link_options(test_client PRIVATE -fsanitize=address -g)
+target_include_directories(test_client PUBLIC ${MySQL_INCLUDE_DIRS}
+                                              srcs/internal/client)
 
 add_library(all_client SHARED srcs/internal/client/client.cc)
-target_include_directories(all_client PUBLIC ${MySQL_INCLUDE_DIRS} srcs/internal/client)
+target_include_directories(all_client PUBLIC ${MySQL_INCLUDE_DIRS}
+                                             srcs/internal/client)
 target_link_libraries(all_client PUBLIC yaml-cpp mysql_client)
-target_compile_options(all_client PRIVATE -O3 -fsanitize=address -g -fPIC)
+target_compile_options(all_client PRIVATE -fPIC)
 
-#MySQL client
+# MySQL client
 add_library(mysql_client OBJECT srcs/internal/client/client_mysql.cc)
-target_include_directories(mysql_client PUBLIC ${MySQL_INCLUDE_DIRS} srcs/internal/client)
+target_include_directories(mysql_client PUBLIC ${MySQL_INCLUDE_DIRS}
+                                               srcs/internal/client)
 target_link_libraries(mysql_client PUBLIC ${MySQL_LIBRARIES} yaml-cpp)
-target_compile_options(mysql_client PRIVATE -O3 -fsanitize=address -g -fPIC)
+target_compile_options(mysql_client PRIVATE -fPIC)
 
 include(GoogleTest)
-#gtest_discover_tests(variable_check_test)
+# gtest_discover_tests(variable_check_test)
 
 include(clang-format.cmake)
