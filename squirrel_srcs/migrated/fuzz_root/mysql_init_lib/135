@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 INT , v2 INT ) ; INSERT INTO v0 ( v2 , v2 ) VALUES ( 10 , 10 ) ; SELECT * , '1995-09-01' FROM v0 WHERE v1 = 10 AND ( ( v1 = 1 AND v2 = 10 ) OR v2 = 10 ) ORDER BY v1 DESC ; 

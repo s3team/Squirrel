@@ -23,9 +23,9 @@ class MySQLDB : public DataBase {
   virtual bool clean_up() { return true; }
 
  private:
-  size_t validate_all(const std::vector<IR *> &ir_set);
+  size_t validate_all(std::vector<IR *> &ir_set);
   std::unique_ptr<Mutator> mutator_;
-  std::stack<std::pair<unsigned char *, size_t>> validated_test_cases_;
+  std::stack<std::pair<char *, size_t>> validated_test_cases_;
 };
 
 MySQLDB *create_mysql();

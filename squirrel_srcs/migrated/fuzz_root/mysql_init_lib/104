@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 INTEGER ) ; SELECT printf ( count ( ( NOT ( v1 IS NULL ) ) AND ( NOT ( NOT ( '%%green%%' = '23' AND v1 = 1 ) ) ) ) , 10.100000 , 'GERMANY' ) ; SELECT v1 , sum ( v1 ) OVER( PARTITION BY v1 ) FROM v0 AS REVENUE ; 

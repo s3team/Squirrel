@@ -15,6 +15,8 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+#include <iostream>
+
 #include "client.h"
 #include "config.h"
 #include "types.h"
@@ -190,6 +192,8 @@ int main(int argc, char *argv[]) {
 
   int counter = 1;
   while ((len = __afl_next_testcase(buf, sizeof(buf))) > 0) {
+    std::string query((const char *)buf, len);
+    std::cerr << "Executing: " << query << std::endl;
     database->prepare_env();
 
     client::ExecutionStatus status = database->execute((const char *)buf, len);

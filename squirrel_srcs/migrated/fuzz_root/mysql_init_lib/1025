@@ -1,0 +1,1 @@
+SELECT CAST ( zeroblob ( 10 ) AS DOUBLE ) WHERE last_insert_rowid () ; SELECT DISTINCT ( SELECT total_changes () ) LIMIT 10 OFFSET 1 ; 

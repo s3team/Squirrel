@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 INTEGER ) ; INSERT INTO v0 ( v1 , v1 , v1 ) VALUES ( 3 , 10 , 1 ) ,( 1 , 12 , 10 ) ; SELECT instr ( v1 , julianday ( 10.100000 ) ) FROM v0 ; SELECT v1 , v1 FROM v0 WHERE v1 IS NOT NULL ; 

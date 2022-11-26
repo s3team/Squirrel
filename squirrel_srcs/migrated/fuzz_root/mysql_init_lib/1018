@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 INTEGER ) ; SELECT instr ( v1 , v1 ) FROM v0 ; SELECT v1 , v1 FROM v0 WHERE - '' >= v1 IS NOT NULL ; 

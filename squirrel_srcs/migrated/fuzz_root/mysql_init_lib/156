@@ -1,0 +1,1 @@
+CREATE TABLE v0 AS SELECT v1 FROM v0 ( v1 , v3 , v2 ) ; SELECT * FROM v0 WHERE v1 = 'EUROPE' AND v1 = 'Al' LIMIT 10 ; UPDATE v0 SET v3 = ( SELECT 10 WHERE ( SELECT coalesce ( v2 , v2 ) FROM v0 AS x GROUP BY v3 ) != 'abc' ) ; 

@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 INTEGER ) ; INSERT INTO v0 VALUES ( 9223372036854775807 ) ,( 10 ) ,( 10 ) ,( 9 ) ,( 10 ) ,( 10 ) ,( 10 ) ; SELECT SUM ( v1 * ( ( random () % 9223372036854775807 ) + v1 ) ) FROM v0 ORDER BY length ( v1 ) DESC ; SELECT v1 , v1 FROM v0 WHERE v1 IS NOT NULL ; 

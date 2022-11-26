@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 VARCHAR(0) ) ; INSERT INTO v0 ( v1 , v1 , v1 ) VALUES ( 1 , 4294967295 , 10 ) ,( 9 , 10 , NULL ) ,( 10.100000 , '%%green%%' , 0 ) ,( 1 , 2 , NULL ) ,( 10 , 1 , 1 ) ,( 1 , 1 , 1 ) ,( 2 , 10 , 3 ) ; SELECT 9223372036854775807 AS d FROM v0 AS one , v0 AS two NATURAL JOIN v0 NATURAL JOIN v0 ORDER BY random () ; SELECT min ( v1 ) FROM v0 ORDER BY v1 * 10 ; 

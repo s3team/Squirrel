@@ -1,0 +1,1 @@
+CREATE TABLE v0 ( v1 INTEGER ) ; INSERT INTO v0 VALUES ( 10 ) ,( 9223372036854775807 ) ,( 10 ) ,( 1 ) ,( 9 ) ,( 10 ) ,( 1 ) ; SELECT SUM ( v1 * ( 1 - v1 ) ) FROM v0 ; SELECT printf ( count ( lower ( '23' ) ) OVER( ) , 0.100000 , 'c' ) FROM v0 WHERE v1 IS NOT NULL ; 

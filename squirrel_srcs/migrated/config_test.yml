@@ -1,6 +1,7 @@
 ---
-init_lib: /home/yongheng/Squirrel/squirrel_srcs/SQLite/fuzz_root/init_lib
+init_lib: /home/yongheng/Squirrel/squirrel_srcs/migrated/fuzz_root/mysql_init_lib
 pragma: /home/yongheng/Squirrel/squirrel_srcs/SQLite/fuzz_root/pragma
+data_lib: /home/yongheng/Squirrel/squirrel_srcs/migrated/fuzz_root/global_data_lib_mysql
 db: mysql
 passwd: ''
 user_name: yongheng
