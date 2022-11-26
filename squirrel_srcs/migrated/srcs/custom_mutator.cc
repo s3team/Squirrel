@@ -7,12 +7,19 @@
 
 #include "afl-fuzz.h"
 #include "db.h"
+#include "env.h"
 #include "yaml-cpp/yaml.h"
 
 extern "C" {
 
 void *afl_custom_init(afl_state_t *afl, unsigned int seed) {
-  std::string config_file((const char *)(afl->init_lib));
+  const char *config_file_path = getenv(kConfigEnv);
+  if (!config_file_path) {
+    std::cerr << "You should set the enviroment variable " << kConfigEnv
+              << " to the path of your config file." << std::endl;
+    exit(-1);
+  }
+  std::string config_file(config_file_path);
   std::cerr << "Config file: " << config_file << std::endl;
   YAML::Node config = YAML::LoadFile(config_file);
   auto *mutator = create_database(config);

@@ -19,6 +19,7 @@
 
 #include "client.h"
 #include "config.h"
+#include "env.h"
 #include "types.h"
 #include "yaml-cpp/yaml.h"
 
@@ -166,17 +167,16 @@ static void __afl_end_testcase(client::ExecutionStatus status) {
 /* you just need to modify the while() loop in this main() */
 
 int main(int argc, char *argv[]) {
-  if (argc != 2) {
-    return -1;
+  const char *config_file_path = getenv(kConfigEnv);
+  if (!config_file_path) {
+    std::cerr << "You should set the enviroment variable " << kConfigEnv
+              << " to the path of your config file." << std::endl;
+    exit(-1);
   }
-  YAML::Node config = YAML::LoadFile(argv[1]);
+  YAML::Node config = YAML::LoadFile(config_file_path);
   std::string db_name = config["db"].as<std::string>();
   client::DBClient *database = client::create_client(db_name, config);
   database->initialize(config);
-
-  const char *query = "select 1;";
-  for (int i = 0; i < 0x100; ++i) {
-  }
 
   /* This is were the testcase data is written into */
   u8 buf[1024];  // this is the maximum size for a test case! set it!
