@@ -15,8 +15,10 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+#include "client.h"
 #include "config.h"
 #include "types.h"
+#include "yaml-cpp/yaml.h"
 
 u8 *__afl_area_ptr;
 
@@ -150,20 +152,31 @@ static u32 __afl_next_testcase(u8 *buf, u32 max_len) {
   return status;
 }
 
-static void __afl_end_testcase(int counter) {
-  int status = 0xffffff;
-  if (counter % 1000 == 0) {
-    status = 0x7;
+static void __afl_end_testcase(client::ExecutionStatus status) {
+  int waitpid_status = 0xffffff;
+  if (status == client::kServerCrash) {
+    waitpid_status = 0x6;  // raise.
   }
 
-  if (write(FORKSRV_FD + 1, &status, 4) != 4) exit(1);
+  if (write(FORKSRV_FD + 1, &waitpid_status, 4) != 4) exit(1);
 }
 
 /* you just need to modify the while() loop in this main() */
 
 int main(int argc, char *argv[]) {
-  /* This is were the testcase data is written into */
+  if (argc != 2) {
+    return -1;
+  }
+  YAML::Node config = YAML::LoadFile(argv[1]);
+  std::string db_name = config["db"].as<std::string>();
+  client::DBClient *database = client::create_client(db_name, config);
+  database->initialize(config);
 
+  const char *query = "select 1;";
+  for (int i = 0; i < 0x100; ++i) {
+  }
+
+  /* This is were the testcase data is written into */
   u8 buf[1024];  // this is the maximum size for a test case! set it!
   s32 len;
 
@@ -177,19 +190,16 @@ int main(int argc, char *argv[]) {
 
   int counter = 1;
   while ((len = __afl_next_testcase(buf, sizeof(buf))) > 0) {
-    if (len > 4) {  // the minimum data size you need for the target
+    database->prepare_env();
 
-      /* here you have to create the magic that feeds the buf/len to the
-         target and write the coverage to __afl_area_ptr */
+    client::ExecutionStatus status = database->execute((const char *)buf, len);
 
-      // ... the magic ...
+    database->clean_up_env();
 
-      // remove this, this is just to make afl-fuzz not complain when run
-      __afl_area_ptr[0] = 1;
-    }
+    __afl_area_ptr[0] = 1;
 
     /* report the test case is done and wait for the next */
-    __afl_end_testcase(counter);
+    __afl_end_testcase(status);
     counter += 1;
   }
   assert(false && "Crash on parent?");

@@ -74,7 +74,15 @@ target_compile_definitions(mysql_mutator PRIVATE __SQUIRREL_MYSQL__)
 
 
 add_executable(db_driver srcs/db_driver.cc)
-target_link_libraries(db_driver yaml-cpp)
+target_link_libraries(db_driver yaml-cpp all_client)
+target_compile_options(db_driver PRIVATE -O3 -fsanitize=address -g)
+target_link_options(db_driver PRIVATE -fsanitize=address -g)
+
+add_executable(test_client srcs/internal/client/test_client.cc)
+target_link_libraries(test_client yaml-cpp all_client)
+target_include_directories(test_client PUBLIC ${MySQL_INCLUDE_DIRS} srcs/internal/client)
+target_compile_options(test_client PRIVATE -O3 -fsanitize=address -g)
+target_link_options(test_client PRIVATE -fsanitize=address -g)
 
 add_library(all_client SHARED srcs/internal/client/client.cc)
 target_include_directories(all_client PUBLIC ${MySQL_INCLUDE_DIRS} srcs/internal/client)

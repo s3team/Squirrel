@@ -2,6 +2,7 @@
 #define __CLIENT_MYSQL_H__
 
 #include <cstddef>
+#include <optional>
 #include <string>
 
 #include "client.h"
@@ -18,7 +19,6 @@ class MySQLClient : public DBClient {
   virtual ExecutionStatus execute(const char *query, size_t size);
   virtual void clean_up_env();
 
- private:
   bool connect();
   void disconnect();
   bool fix_database();
@@ -26,14 +26,17 @@ class MySQLClient : public DBClient {
   bool check_server_alive();
   int reset_database();
   ExecutionStatus clean_up_connection(MYSQL &);
+  bool create_database(std::string database);
+  std::optional<MYSQL> create_connection(const std::string_view db_name);
 
-  unsigned int database_id = 1;
+ private:
+  unsigned int database_id_ = 0;
   MYSQL m_;
   std::string host_;
   std::string user_name_;
   std::string passwd_;
-  bool is_first_time_;
-  unsigned counter_ = 0;  // odd for "test", even for "test2"
+  std::string sock_path_;
+  std::string db_prefix_;
 };
 
 };  // namespace client
