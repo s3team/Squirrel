@@ -29,9 +29,9 @@ FetchContent_MakeAvailable(yaml-cpp)
 
 enable_testing()
 
-set(HEADER_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../include)
+set(AFLPP_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../AFLplusplus/include)
 
-include_directories(${HEADER_DIR})
+include_directories(${AFLPP_DIR})
 
 add_library(sqlite_mutator SHARED srcs/custom_mutator.cc srcs/db.cc)
 
