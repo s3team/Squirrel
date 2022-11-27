@@ -5,9 +5,6 @@
 
 `Squirrel` was first built on [AFL](https://github.com/google/AFL) and then migrated to [AFLplusplus](https://github.com/AFLplusplus/AFLplusplus) to enjoy the improvement of state-of-the-art fuzzing strategies.
 
-## Feature
-TODO
-
 ## Currently supported DBMSs
 1. SQLite
 2. PostgreSQL
@@ -36,11 +33,26 @@ sudo apt install libmysqlclient-dev cmake ninja-build clang pkg-config clang-for
 
 ## Run
 
-### Mormal Mode
-TODO
+### Configuration
 
-### Client/Server Mode
-TODO
+1. Set up a configuration file in `yaml`. Examples can be found in `data/*.yml`.
+2. Set the enviroment variable 
+```bash
+export SQUIRREL_CONFIG=/path/to/config.yml
+export AFL_CUSTOM_MUTATOR_ONLY=1
+export AFL_CUSTOM_MUTATOR_LIBRARY= REPO_DIR/build/libxxxx_mutator.so
+export AFL_DISABLE_TRIM=1
+```
+
+### Normal Mode (SQLite)
+
+Same as AFLplusplus: `afl-fuzz -i input -o output -- sqlite_harness`.
+
+### Client/Server Mode (MySQL/MariaDB/PostgreSQL)
+
+(To improve)
+1. Run `afl-fuzz -i input -o output -- ./build/db_driver`, get the share memory id.
+2. Start the databse server with `export __AFL_SHM_ID=xxxx`.
 
 ## Publications
 <a href="https://arxiv.org/pdf/2006.02398.pdf"><img src="https://huhong789.github.io/images/squirrel.png" align="right" width="250"></a>
