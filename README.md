@@ -1,10 +1,11 @@
-# Squirrel
+# Squirrel, a coverage-guided DBMS fuzzer.
+[![build](https://github.com/Changochen/Squirrel/actions/workflows/build.yml/badge.svg)](https://github.com/Changochen/Squirrel/actions/workflows/build.yml)
 
-<a href="https://arxiv.org/pdf/2006.02398.pdf"><img src="https://huhong789.github.io/images/squirrel.png" align="right" width="250"></a>
+`Squirrel` is a fuzzer for database managment systems (DBMSs).
 
-`Squirrel` is a fuzzer that aims at finding memory corruption issues in database managment systems (DBMSs). It is built on [AFL](https://github.com/google/AFL). More details can be found in our [CCS 2020 paper](http://arxiv.org/abs/2006.02398). And the bugs found by `Squirrel` can be found in [here](https://github.com/s3team/Squirrel/wiki/Bug-List).
+`Squirrel` was first built on [AFL](https://github.com/google/AFL) and then migrated to [AFLplusplus](https://github.com/AFLplusplus/AFLplusplus) to enjoy the improvement of state-of-the-art fuzzing strategies.
 
-Currently supported DBMSs:
+## Currently supported DBMSs
 1. SQLite
 2. PostgreSQL
 3. MySQL
@@ -12,66 +13,52 @@ Currently supported DBMSs:
 
 ## Build Instruction
 
-Currently we test `Squirrel` on `Ubuntu 16` and `Ubuntu 18`.
+### Prerequisite
 
-1. `Prerequisites`:
-    ```
-    sudo apt-get -y update && apt-get -y upgrade
-    sudo apt-get -y install gdb bison flex git make cmake build-essential gcc-multilib g++-multilib xinetd libreadline-dev zlib1g-dev
-    sudo apt-get -y install clang libssl-dev libncurses5-dev
+For ubuntu:
+```
+sudo apt install libmysqlclient-dev cmake ninja-build clang pkg-config clang-format libpq-dev
+```
 
-    # Compile AFL, which is used for instrumenting the DBMSs
-    cd ~
-    git clone https://github.com/google/AFL.git
-    cd AFL
-    sed -i  's/#define MAP_SIZE_POW2       16/#define MAP_SIZE_POW2       18/' config.h
-    make
-    cd llvm_mode/
-    make
-    ```
+### Build Squirrel
+1. Clone this repo and run `git submodule update --init`.
+2. `cmake -S . -B build -DCMAKE_BUILD_TYPE=Release`.
+3. `cmake --build build -j`, the binaries are in `build/`.
 
-2. `DBMS-specific requirements:` Headers and libary of `MySQL`, `PostgreSQL` and `MariaDB` if you want to test them. The most direct way is to compile the DBMSs.
 
-3. `Compile Squirrel:`
-    ```
-    git clone 
-    cd Squirrel/DBNAME/AFL
-    make afl-fuzz # You need to set the path in the Makefile
-    ```
+### Build AFLplusplus and DBMSs
+1. Build aflplusplus.
+2. Use `afl-cc` and `afl-c++` to instrument your database.
 
-4. `Instrument DBMS:`
-    ```
-    # SQLite:
-    git clone https://github.com/sqlite/sqlite.git
-    cd sqlite
-    mkdir bld
-    cd bld
-    CC=/path/to/afl-gcc CXX=/path/to/afl-g++ ../configure # You can also turn on debug flag if you want to find assertion
-    make
-
-    # MySQL/PostgreSQL/MariaDB
-    cd Squirrel/DBNAME/docker/
-    cp ../AFL/afl-fuzz .
-    sudo docker build -t IMAGE_ID . 
-   ```
 
 ## Run
 
+### Configuration
+
+1. Set up a configuration file in `yaml`. Examples can be found in `data/*.yml`.
+2. Set the enviroment variable 
+```bash
+export SQUIRREL_CONFIG=/path/to/config.yml
+export AFL_CUSTOM_MUTATOR_ONLY=1
+export AFL_CUSTOM_MUTATOR_LIBRARY= REPO_DIR/build/libxxxx_mutator.so
+export AFL_DISABLE_TRIM=1
 ```
-# SQLite:
-cd Squirrel/SQLite/fuzz_root
-./afl-fuzz -i input -o output -- /path/to/sqlite3 --bail
 
-# MySQL, PostgreSQL, MySQL, MariaDB
-docker run -it IMAGE_ID bash
-python run.py # wait for a few minutes
-tmux a -t fuzzing
-```
+### Normal Mode (SQLite)
 
-Since the `input` has been well-tested. It is more likely to find new bugs if you use your own seeds.
+Same as AFLplusplus: `afl-fuzz -i input -o output -- sqlite_harness`.
 
+### Client/Server Mode (MySQL/MariaDB/PostgreSQL)
+
+(To improve)
+1. `export AFL_FORKSRV_INIT_TMOUT=1000000`
+2. Run `afl-fuzz -i input -o output -- ./build/db_driver`, it will print the share memory id and wait for 30 seconds.
+3. Start the databse server with `export __AFL_SHM_ID=xxxx`.
 
 ## Publications
+<a href="https://arxiv.org/pdf/2006.02398.pdf"><img src="https://huhong789.github.io/images/squirrel.png" align="right" width="250"></a>
+
+More details can be found in our [CCS 2020 paper](http://arxiv.org/abs/2006.02398). And the bugs found by `Squirrel` can be found in [here](https://github.com/s3team/Squirrel/wiki/Bug-List).
 
 ```
 SQUIRREL: Testing Database Management Systems with Language Validity and Coverage Feedback

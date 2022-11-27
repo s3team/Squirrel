@@ -1,0 +1,5 @@
+{
+  "clang-format.fallbackStyle": "Google",
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": false
+}
