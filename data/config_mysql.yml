@@ -1,0 +1,9 @@
+---
+init_lib: ./data/fuzz_root/mysql_init_lib
+data_lib: ./data/fuzz_root/global_data_lib_mysql
+db: mysql
+passwd: ''
+user_name: yongheng
+host: localhost
+sock_path: /tmp/mysql.sock
+db_prefix: test
