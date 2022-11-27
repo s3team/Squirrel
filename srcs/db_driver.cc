@@ -119,8 +119,10 @@ static void __afl_map_shm(void) {
       exit(1);
     }
 
-    /* Write something into the bitmap so that the parent doesn't give up */
+    std::cerr << "SHM ID: " << id_str << std::endl;
+    sleep(20);
 
+    /* Write something into the bitmap so that the parent doesn't give up */
     __afl_area_ptr[0] = 1;
   }
 }
@@ -137,6 +139,7 @@ static void __afl_start_forkserver(void) {
   memcpy(tmp, &status, 4);
 
   /* Phone home and tell the parent that we're OK. */
+  
 
   if (write(FORKSRV_FD + 1, tmp, 4) != 4) return;
 }
@@ -194,7 +197,7 @@ int main(int argc, char *argv[]) {
   int counter = 1;
   while ((len = __afl_next_testcase(buf, kMaxInputSize)) > 0) {
     std::string query((const char *)buf, len);
-    std::cerr << "Executing: " << query << std::endl;
+    // std::cerr << "Executing: " << query << std::endl;
     database->prepare_env();
 
     client::ExecutionStatus status = database->execute((const char *)buf, len);

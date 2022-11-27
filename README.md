@@ -51,8 +51,9 @@ Same as AFLplusplus: `afl-fuzz -i input -o output -- sqlite_harness`.
 ### Client/Server Mode (MySQL/MariaDB/PostgreSQL)
 
 (To improve)
-1. Run `afl-fuzz -i input -o output -- ./build/db_driver`, get the share memory id.
-2. Start the databse server with `export __AFL_SHM_ID=xxxx`.
+1. `export AFL_FORKSRV_INIT_TMOUT=1000000`
+2. Run `afl-fuzz -i input -o output -- ./build/db_driver`, it will print the share memory id and wait for 30 seconds.
+3. Start the databse server with `export __AFL_SHM_ID=xxxx`.
 
 ## Publications
 <a href="https://arxiv.org/pdf/2006.02398.pdf"><img src="https://huhong789.github.io/images/squirrel.png" align="right" width="250"></a>
