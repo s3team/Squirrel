@@ -1,5 +1,5 @@
 # Squirrel, a coverage-guided DBMS fuzzer.
-[![build](https://github.com/Changochen/Squirrel/actions/workflows/build.yml/badge.svg)](https://github.com/Changochen/Squirrel/actions/workflows/build.yml)
+[![build](https://github.com/s3team/Squirrel/actions/workflows/build.yml/badge.svg)](https://github.com/s3team/Squirrel/actions/workflows/build.yml)
 
 `Squirrel` is a fuzzer for database managment systems (DBMSs).
 
