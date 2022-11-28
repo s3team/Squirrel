@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+#include "absl/strings/str_format.h"
 #include "ast.h"
 #include "define.h"
 #include "mutator.h"
@@ -19,7 +20,7 @@ bool PostgreSQLDB::initialize(YAML::Node config) {
   std::vector<std::string> file_list =
       get_all_files_in_dir(init_lib_path.c_str());
   for (auto &f : file_list) {
-    mutator_->init(init_lib_path + "/" + f);
+    mutator_->init(absl::StrFormat("%s/%s", init_lib_path, f));
   }
   mutator_->init_data_library(data_lib);
   return true;
