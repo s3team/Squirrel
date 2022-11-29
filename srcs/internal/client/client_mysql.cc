@@ -55,7 +55,7 @@ ExecutionStatus MySQLClient::execute(const char *query, size_t size) {
     return kServerCrash;
   }
 
-  // auto status = clean_up_connection(*connection);
+  // TODO: Check the result.
   clean_up_connection(*connection);
   mysql_close(&(*connection));
   return kNormal;
