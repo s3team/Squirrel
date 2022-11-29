@@ -15,7 +15,7 @@
 
 ### Prerequisite
 
-For ubuntu:
+For ubuntu 22.04:
 ```
 sudo apt install libmysqlclient-dev cmake ninja-build clang pkg-config clang-format libpq-dev
 ```
