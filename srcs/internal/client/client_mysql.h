@@ -26,7 +26,7 @@ class MySQLClient : public DBClient {
   bool check_server_alive();
   int reset_database();
   ExecutionStatus clean_up_connection(MYSQL &);
-  bool create_database(std::string database);
+  bool create_database(const std::string &database);
   std::optional<MYSQL> create_connection(const std::string_view db_name);
 
  private:

@@ -53,14 +53,15 @@ foreach(dbms IN LISTS DBMS)
   target_include_directories(${dbms}_impl PRIVATE srcs/internal/${dbms}/include
                                                   srcs)
   target_compile_options(${dbms}_impl PRIVATE -fPIC)
-  target_link_libraries(${dbms}_impl yaml-cpp)
+  target_link_libraries(${dbms}_impl yaml-cpp absl::strings absl::str_format)
 
   string(TOUPPER ${dbms} UPPER_CASE_DBMS)
   add_library(${dbms}_mutator SHARED srcs/custom_mutator.cc srcs/db_factory.cc)
   target_link_libraries(${dbms}_mutator ${dbms}_impl)
   target_include_directories(${dbms}_mutator PRIVATE srcs/internal/${dbms} srcs)
-  #target_compile_options(${dbms}_mutator PRIVATE -fPIC)
-  target_compile_definitions(${dbms}_mutator PRIVATE __SQUIRREL_${UPPER_CASE_DBMS}__)
+  # target_compile_options(${dbms}_mutator PRIVATE -fPIC)
+  target_compile_definitions(${dbms}_mutator
+                             PRIVATE __SQUIRREL_${UPPER_CASE_DBMS}__)
 endforeach()
 
 add_executable(db_driver srcs/db_driver.cc)
@@ -92,4 +93,4 @@ target_compile_options(postgresql_client PRIVATE -fPIC)
 include(GoogleTest)
 # gtest_discover_tests(variable_check_test)
 
-include(clang-format.cmake)
+include(lint.cmake)

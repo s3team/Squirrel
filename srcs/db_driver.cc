@@ -139,7 +139,6 @@ static void __afl_start_forkserver(void) {
   memcpy(tmp, &status, 4);
 
   /* Phone home and tell the parent that we're OK. */
-  
 
   if (write(FORKSRV_FD + 1, tmp, 4) != 4) return;
 }
