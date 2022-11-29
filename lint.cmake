@@ -15,7 +15,9 @@ add_custom_target(formatcheck COMMAND clang-format -style=file --Werror
                                       ${ALL_SOURCE_FILES})
 
 file(GLOB ALL_NEW_FILES srcs/*.cc srcs/*.h srcs/internal/*/*.h
-     srcs/internal/*/*.cc)
+     srcs/internal/*/*.cc
+     srcs/utils/*
+     )
 add_custom_target(
   lint
   COMMAND

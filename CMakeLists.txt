@@ -3,7 +3,6 @@ project(Squirrel)
 
 set(BUILD_SHARED_LIBS ON)
 
-# GoogleTest requires at least C++ 14
 set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -g -O2 -fsanitize=address")
@@ -16,15 +15,6 @@ pkg_check_modules(MySQL REQUIRED mysqlclient>=5.7)
 find_package(PostgreSQL REQUIRED)
 
 include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
-)
-# For Windows : Prevent overriding the parent project's compiler/linker settings
-set(gtest_force_shared_crt
-    ON
-    CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
 
 FetchContent_Declare(
   yaml-cpp
@@ -32,7 +22,6 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(yaml-cpp)
 
 add_subdirectory(third_party/abseil-cpp)
-enable_testing()
 
 set(AFLPP_DIR ${CMAKE_CURRENT_SOURCE_DIR}/AFLplusplus/include)
 
@@ -57,7 +46,7 @@ foreach(dbms IN LISTS DBMS)
 
   string(TOUPPER ${dbms} UPPER_CASE_DBMS)
   add_library(${dbms}_mutator SHARED srcs/custom_mutator.cc srcs/db_factory.cc)
-  target_link_libraries(${dbms}_mutator ${dbms}_impl)
+  target_link_libraries(${dbms}_mutator ${dbms}_impl config_validator)
   target_include_directories(${dbms}_mutator PRIVATE srcs/internal/${dbms} srcs)
   # target_compile_options(${dbms}_mutator PRIVATE -fPIC)
   target_compile_definitions(${dbms}_mutator
@@ -90,7 +79,12 @@ target_link_libraries(postgresql_client PUBLIC ${PostgreSQL_LIBRARIES} yaml-cpp
                                                absl::strings absl::str_format)
 target_compile_options(postgresql_client PRIVATE -fPIC)
 
-include(GoogleTest)
-# gtest_discover_tests(variable_check_test)
+add_library(config_validator OBJECT srcs/utils/config_validate.cc)
+target_link_libraries(config_validator PRIVATE yaml-cpp absl::strings absl::str_format)
+target_include_directories(config_validator PUBLIC srcs/utils)
+target_compile_options(config_validator PRIVATE -fPIC)
+
 
 include(lint.cmake)
+add_subdirectory(tests)
+

@@ -32,3 +32,5 @@ jobs:
         run: cmake --build build --target formatcheck
       - name: Clang tidy
         run: cmake --build build --target lint
+      - name: Tests
+        run: cd build/tests && ctest
