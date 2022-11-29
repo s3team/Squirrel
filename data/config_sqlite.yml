@@ -1,4 +1,4 @@
----
+required: ["init_lib", "pragma"]
 init_lib: /home/yongheng/Squirrel/squirrel_srcs/SQLite/fuzz_root/init_lib
 pragma: /home/yongheng/Squirrel/squirrel_srcs/SQLite/fuzz_root/pragma
 db: sqlite

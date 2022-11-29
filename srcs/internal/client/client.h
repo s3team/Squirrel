@@ -27,7 +27,7 @@ class DBClient {
   virtual void clean_up_env() {}
 };
 
-DBClient *create_client(const std::string &db_name, YAML::Node config);
+DBClient *create_client(const std::string &db_name, const YAML::Node &config);
 };  // namespace client
 
 #endif

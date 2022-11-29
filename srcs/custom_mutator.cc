@@ -6,6 +6,7 @@
 #include <string>
 
 #include "afl-fuzz.h"
+#include "config_validate.h"
 #include "db.h"
 #include "env.h"
 #include "yaml-cpp/yaml.h"
@@ -22,6 +23,9 @@ void *afl_custom_init(afl_state_t *afl, unsigned int seed) {
   std::string config_file(config_file_path);
   std::cerr << "Config file: " << config_file << std::endl;
   YAML::Node config = YAML::LoadFile(config_file);
+  if (!utils::validate_db_config(config)) {
+    std::cerr << "Invalid config!" << std::endl;
+  }
   auto *mutator = create_database(config);
   return mutator;
 }

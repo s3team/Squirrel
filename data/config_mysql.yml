@@ -1,4 +1,4 @@
----
+required: ["init_lib", "data_lib", "db", "passwd", "user_name", "host", "sock_path", "db_prefix"]
 init_lib: ./data/fuzz_root/mysql_init_lib
 data_lib: ./data/fuzz_root/global_data_lib_mysql
 db: mysql

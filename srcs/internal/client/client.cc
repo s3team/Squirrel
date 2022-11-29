@@ -6,7 +6,7 @@
 #include "client_mysql.h"
 #include "client_postgresql.h"
 namespace client {
-DBClient *create_client(const std::string &db_name, YAML::Node config) {
+DBClient *create_client(const std::string &db_name, const YAML::Node &config) {
   DBClient *result = nullptr;
   if (db_name == "mysql") {
     result = new MySQLClient;
