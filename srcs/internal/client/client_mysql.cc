@@ -168,9 +168,8 @@ int MySQLClient::reset_database() {
   reset_query += "CREATE DATABASE IF NOT EXISTS test" +
                  std::to_string(database_id_ + 1) + ";";
 
+  // TODO: Check the result.
   mysql_real_query(&m_, reset_query.c_str(), reset_query.size());
-  // auto tmp_res = mysql_real_query(&m_, reset_query.c_str(),
-  // reset_query.size());
   database_id_++;
 
   return server_response;
@@ -206,8 +205,6 @@ bool MySQLClient::fix_database() {
   if (mysql_real_connect(&tmp_m, host_.c_str(), user_name_.c_str(),
                          passwd_.c_str(), "duck", 0, sock_path_.c_str(),
                          CLIENT_MULTI_STATEMENTS) == NULL) {
-    // fprintf(stderr, "Connection error3 \n", mysql_errno(&tmp_m),
-    //        mysql_error(&tmp_m));
     mysql_close(&tmp_m);
     return false;
   }
