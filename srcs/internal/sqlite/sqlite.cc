@@ -51,8 +51,7 @@ size_t SQLiteDB::validate_all(const std::vector<IR *> &ir_set) {
     if (validated_ir.empty()) {
       continue;
     }
-    char *buf = strdup(validated_ir.c_str());
-    validated_test_cases_.push(std::make_pair(buf, validated_ir.size()));
+    validated_test_cases_.push(std::move(validated_ir));
   }
   return validated_test_cases_.size();
 }
@@ -93,7 +92,7 @@ size_t SQLiteDB::mutate(const std::string &query) {
   return validated_ir_size;
 }
 
-std::pair<char *, size_t> SQLiteDB::get_next_mutated_query() {
+std::string SQLiteDB::get_next_mutated_query() {
   auto result = validated_test_cases_.top();
   validated_test_cases_.pop();
   return result;
