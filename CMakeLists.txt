@@ -21,7 +21,12 @@ FetchContent_Declare(
   URL https://github.com/jbeder/yaml-cpp/archive/refs/tags/yaml-cpp-0.7.0.zip)
 FetchContent_MakeAvailable(yaml-cpp)
 
+set_target_properties(yaml-cpp PROPERTIES COMPILE_FLAGS "-w")
+
+set(ABSL_PROPAGATE_CXX_STD ON)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w")
 add_subdirectory(third_party/abseil-cpp)
+string(REPLACE " -w" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 set(AFLPP_DIR ${CMAKE_CURRENT_SOURCE_DIR}/AFLplusplus/include)
 
