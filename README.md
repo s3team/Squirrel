@@ -22,12 +22,12 @@ sudo apt install libmysqlclient-dev cmake ninja-build clang pkg-config clang-for
 
 ### Build Squirrel
 1. Clone this repo and run `git submodule update --init`.
-2. `cmake -S . -B build -DCMAKE_BUILD_TYPE=Release`.
+2. `cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -Wno-dev`.
 3. `cmake --build build -j`, the binaries are in `build/`.
 
 
 ### Build AFLplusplus and DBMSs
-1. Build aflplusplus.
+1. Build aflplusplus: `cd AFLplusplus && make -j && cd ..`.
 2. Use `afl-cc` and `afl-c++` to instrument your database.
 
 
