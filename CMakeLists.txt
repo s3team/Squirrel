@@ -8,14 +8,53 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -g -O2 -fsanitize=address")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O3")
 set(LINK_FLAGS "${LINK_FLAGS} -fsanitize=address")
-
 find_package(PkgConfig)
-pkg_check_modules(MySQL REQUIRED mysqlclient>=5.7)
 
-find_package(PostgreSQL REQUIRED)
+option(ALL "Build all types of database" ON)
+option(SQLITE "Build sqlite" OFF)
+option(MYSQL "Build mysql" OFF)
+option(POSTGRESQL "Build postgresql" OFF)
+
+if(SQLITE OR MYSQL OR POSTGRESQL)
+  set(ALL OFF)
+endif()
+
+if(ALL)
+  set(SQLITE ON)
+  set(MYSQL ON)
+  set(POSTGRESQL ON)
+endif()
+
+if(SQLITE)
+  list(APPEND DBMS sqlite)
+endif()
+
+if(MYSQL)
+  list(APPEND DBMS mysql)
+  pkg_check_modules(MySQL REQUIRED mysqlclient>=5.7)
+  add_library(mysql_client OBJECT srcs/internal/client/client_mysql.cc)
+  target_include_directories(mysql_client PUBLIC ${MySQL_INCLUDE_DIRS}
+                                                srcs/internal/client)
+  target_link_libraries(mysql_client PUBLIC ${MySQL_LIBRARIES} yaml-cpp)
+  target_compile_options(mysql_client PRIVATE -fPIC)
+  list(APPEND LINK_CLIENT mysql_client)
+  list(APPEND CLIENT_DEFINITION __SQUIRREL_MYSQL__)
+endif()
+
+if(POSTGRESQL)
+  list(APPEND DBMS postgresql)
+  find_package(PostgreSQL REQUIRED)
+  add_library(postgresql_client OBJECT srcs/internal/client/client_postgresql.cc)
+  target_include_directories(postgresql_client PUBLIC ${PostgreSQL_INCLUDE_DIRS}
+                                                      srcs/internal/client)
+  target_link_libraries(postgresql_client PUBLIC ${PostgreSQL_LIBRARIES} yaml-cpp
+                                                absl::strings absl::str_format)
+  target_compile_options(postgresql_client PRIVATE -fPIC)
+  list(APPEND LINK_CLIENT postgresql_client)
+  list(APPEND CLIENT_DEFINITION __SQUIRREL_POSTGRESQL__)
+endif()
 
 include(FetchContent)
-
 FetchContent_Declare(
   yaml-cpp
   URL https://github.com/jbeder/yaml-cpp/archive/refs/tags/yaml-cpp-0.7.0.zip)
@@ -31,8 +70,6 @@ string(REPLACE " -w" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 set(AFLPP_DIR ${CMAKE_CURRENT_SOURCE_DIR}/AFLplusplus/include)
 
 include_directories(${AFLPP_DIR})
-
-list(APPEND DBMS sqlite mysql postgresql)
 
 foreach(dbms IN LISTS DBMS)
   add_library(
@@ -58,6 +95,7 @@ foreach(dbms IN LISTS DBMS)
                              PRIVATE __SQUIRREL_${UPPER_CASE_DBMS}__)
 endforeach()
 
+if(MYSQL OR POSTGRESQL)
 add_executable(db_driver srcs/db_driver.cc)
 target_link_libraries(db_driver yaml-cpp all_client absl::strings
                       absl::str_format)
@@ -68,21 +106,9 @@ target_include_directories(test_client PUBLIC srcs/internal/client)
 
 add_library(all_client SHARED srcs/internal/client/client.cc)
 target_include_directories(all_client PUBLIC srcs/internal/client)
-target_link_libraries(all_client PUBLIC mysql_client postgresql_client)
-
-# MySQL client
-add_library(mysql_client OBJECT srcs/internal/client/client_mysql.cc)
-target_include_directories(mysql_client PUBLIC ${MySQL_INCLUDE_DIRS}
-                                               srcs/internal/client)
-target_link_libraries(mysql_client PUBLIC ${MySQL_LIBRARIES} yaml-cpp)
-target_compile_options(mysql_client PRIVATE -fPIC)
-
-add_library(postgresql_client OBJECT srcs/internal/client/client_postgresql.cc)
-target_include_directories(postgresql_client PUBLIC ${PostgreSQL_INCLUDE_DIRS}
-                                                    srcs/internal/client)
-target_link_libraries(postgresql_client PUBLIC ${PostgreSQL_LIBRARIES} yaml-cpp
-                                               absl::strings absl::str_format)
-target_compile_options(postgresql_client PRIVATE -fPIC)
+target_link_libraries(all_client PUBLIC ${LINK_CLIENT})
+add_compile_definitions(all_client PRIVATE ${CLIENT_DEFINITION})
+endif()
 
 add_library(config_validator OBJECT srcs/utils/config_validate.cc)
 target_link_libraries(config_validator PRIVATE yaml-cpp absl::strings absl::str_format)
