@@ -15,13 +15,13 @@ namespace client {
 DBClient *create_client(const std::string &db_name, const YAML::Node &config) {
   DBClient *result = nullptr;
   if (db_name == "mysql") {
-    #ifdef __SQUIRREL_MYSQL__
+#ifdef __SQUIRREL_MYSQL__
     result = new MySQLClient;
-    #endif
+#endif
   } else if (db_name == "postgresql") {
-    #ifdef __SQUIRREL_POSTGRESQL__
+#ifdef __SQUIRREL_POSTGRESQL__
     result = new PostgreSQLClient;
-    #endif
+#endif
   } else {
     assert(false && "It is not supported!");
   }
