@@ -72,3 +72,7 @@ SQUIRREL: Testing Database Management Systems with Language Validity and Coverag
   address      = {Orlando, USA},
 }
 ```
+
+## Special Thanks
+1. Roel Van de Paar ([@mariadb-RoelVandePaar](https://github.com/mariadb-RoelVandePaar)): For his helpful feedback for improving Squirrel.
+
