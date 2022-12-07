@@ -22,7 +22,7 @@ sudo apt install libmysqlclient-dev cmake ninja-build clang pkg-config clang-for
 
 ### Build Squirrel
 1. Clone this repo and run `git submodule update --init`.
-2. `cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -Wno-dev`.
+2. `cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -Wno-dev`. If you want to compile only the mutator for the specific databases, add `-DXXXXX=ON`, `XXXXX` can be `SQLITE`, `MYSQL` and `POSTGRESQL`. `Mariadb` share the same interface with `MySQL`.
 3. `cmake --build build -j`, the binaries are in `build/`.
 
 
