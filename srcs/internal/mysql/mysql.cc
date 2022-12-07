@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+#include "absl/strings/str_format.h"
 #include "ast.h"
 #include "define.h"
 #include "mutator.h"
@@ -19,7 +20,7 @@ bool MySQLDB::initialize(YAML::Node config) {
   std::vector<std::string> file_list =
       get_all_files_in_dir(init_lib_path.c_str());
   for (auto &f : file_list) {
-    mutator_->init(init_lib_path + "/" + f);
+    mutator_->init(absl::StrFormat("%s/%s", init_lib_path, f));
   }
   mutator_->init_data_library(data_lib);
   return true;
@@ -51,8 +52,7 @@ size_t MySQLDB::validate_all(std::vector<IR *> &ir_set) {
       continue;
     }
     std::string validated_ir = ir->to_string();
-    char *buf = strdup(validated_ir.c_str());
-    validated_test_cases_.push(std::make_pair(buf, validated_ir.size()));
+    validated_test_cases_.push(std::move(validated_ir));
   }
   return validated_test_cases_.size();
 }
@@ -93,8 +93,7 @@ size_t MySQLDB::mutate(const std::string &query) {
   return validated_ir_size;
 }
 
-std::pair<char * /*buffer*/, size_t /*size*/>
-MySQLDB::get_next_mutated_query() {
+std::string MySQLDB::get_next_mutated_query() {
   assert(has_mutated_test_cases());
   auto result = validated_test_cases_.top();
   validated_test_cases_.pop();

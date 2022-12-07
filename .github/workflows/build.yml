@@ -23,8 +23,14 @@ jobs:
       - name: update
         run: sudo apt-get update && sudo apt-get upgrade -y
       - name: install packages
-        run: sudo apt-get install -y -m -f --install-suggests build-essential git libtool libtool-bin automake bison libglib2.0-0 clang llvm-dev libc++-dev findutils libcmocka-dev python3-dev python3-setuptools ninja-build
+        run: sudo apt-get install -y -m -f --install-suggests build-essential git libtool libtool-bin automake bison libglib2.0-0 clang llvm-dev libc++-dev findutils libcmocka-dev python3-dev python3-setuptools ninja-build clang-tidy clang-format libyaml-cpp-dev
       - name: Run cmake
-        run: cmake -S . -B build
+        run: cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
       - name: Build
         run: cmake --build build -j
+      - name: Clang format
+        run: cmake --build build --target formatcheck
+      - name: Clang tidy
+        run: cmake --build build --target lint
+      - name: Tests
+        run: cd build/tests && ctest

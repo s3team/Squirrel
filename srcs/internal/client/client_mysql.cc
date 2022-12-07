@@ -55,7 +55,8 @@ ExecutionStatus MySQLClient::execute(const char *query, size_t size) {
     return kServerCrash;
   }
 
-  auto status = clean_up_connection(*connection);
+  // TODO: Check the result.
+  clean_up_connection(*connection);
   mysql_close(&(*connection));
   return kNormal;
 }
@@ -117,7 +118,8 @@ ExecutionStatus MySQLClient::execute_query(char *cmd) {
   std::cerr << "Server response: " << server_response << std::endl;
   std::cerr << "Server error: " << mysql_errno(&m_) << std::endl;
 
-  auto correctness = clean_up_connection(m_);
+  clean_up_connection(m_);
+  // auto correctness = clean_up_connection(m_);
 
   if (server_response == CR_SERVER_LOST ||
       server_response == CR_SERVER_GONE_ERROR) {
@@ -149,7 +151,7 @@ bool MySQLClient::check_server_alive() {
   if (mysql_real_connect(&tmp_m, host_.c_str(), user_name_.c_str(),
                          passwd_.c_str(), "duck", 0, sock_path_.c_str(),
                          CLIENT_MULTI_STATEMENTS) == NULL) {
-    fprintf(stderr, "Connection error2 \n", mysql_errno(&tmp_m),
+    fprintf(stderr, "Connection error2 %d, %s\n", mysql_errno(&tmp_m),
             mysql_error(&tmp_m));
     mysql_close(&tmp_m);
     return false;
@@ -166,7 +168,8 @@ int MySQLClient::reset_database() {
   reset_query += "CREATE DATABASE IF NOT EXISTS test" +
                  std::to_string(database_id_ + 1) + ";";
 
-  auto tmp_res = mysql_real_query(&m_, reset_query.c_str(), reset_query.size());
+  // TODO: Check the result.
+  mysql_real_query(&m_, reset_query.c_str(), reset_query.size());
   database_id_++;
 
   return server_response;
@@ -202,8 +205,6 @@ bool MySQLClient::fix_database() {
   if (mysql_real_connect(&tmp_m, host_.c_str(), user_name_.c_str(),
                          passwd_.c_str(), "duck", 0, sock_path_.c_str(),
                          CLIENT_MULTI_STATEMENTS) == NULL) {
-    fprintf(stderr, "Connection error3 \n", mysql_errno(&tmp_m),
-            mysql_error(&tmp_m));
     mysql_close(&tmp_m);
     return false;
   }
@@ -215,7 +216,7 @@ bool MySQLClient::fix_database() {
   return true;
 }
 
-bool MySQLClient::create_database(std::string database) {
+bool MySQLClient::create_database(const std::string &database) {
   MYSQL tmp_m;
 
   if (mysql_init(&tmp_m) == NULL) {
@@ -226,7 +227,7 @@ bool MySQLClient::create_database(std::string database) {
   if (mysql_real_connect(&tmp_m, host_.c_str(), user_name_.c_str(),
                          passwd_.c_str(), nullptr, 0, sock_path_.c_str(),
                          CLIENT_MULTI_STATEMENTS) == NULL) {
-    fprintf(stderr, "Connection error3 \n", mysql_errno(&tmp_m),
+    fprintf(stderr, "Connection error3 %d, %s\n", mysql_errno(&tmp_m),
             mysql_error(&tmp_m));
     mysql_close(&tmp_m);
     return false;
