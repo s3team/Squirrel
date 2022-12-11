@@ -21,6 +21,7 @@ enum ExecutionStatus {
 class DBClient {
  public:
   virtual void initialize(YAML::Node) = 0;
+  virtual bool check_alive() = 0;
   // Set up a clean environment for execution.
   virtual void prepare_env() = 0;
   virtual ExecutionStatus execute(const char *query, size_t size) = 0;

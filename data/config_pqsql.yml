@@ -1,4 +1,4 @@
-required: ["init_lib", "data_lib", "db", "passwd", "user_name", "host"]
+required: ["init_lib", "data_lib", "db", "passwd", "user_name", "host", "startup_cmd"]
 init_lib: ./data/fuzz_root/pqsql_init_lib
 data_lib: ./data/fuzz_root/pqsql_data_lib
 db: postgresql

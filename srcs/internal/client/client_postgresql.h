@@ -17,6 +17,7 @@ class PostgreSQLClient : public DBClient {
   virtual void prepare_env();
   virtual ExecutionStatus execute(const char *query, size_t size);
   virtual void clean_up_env();
+  virtual bool check_alive();
 
  private:
   unsigned int database_id_ = 0;

@@ -18,18 +18,18 @@ class MySQLClient : public DBClient {
   virtual void prepare_env();
   virtual ExecutionStatus execute(const char *query, size_t size);
   virtual void clean_up_env();
+  virtual bool check_alive();
 
+ private:
   bool connect();
   void disconnect();
   bool fix_database();
   ExecutionStatus execute_query(char *cmd);
-  bool check_server_alive();
   int reset_database();
   ExecutionStatus clean_up_connection(MYSQL &);
   bool create_database(const std::string &database);
   std::optional<MYSQL> create_connection(const std::string_view db_name);
 
- private:
   unsigned int database_id_ = 0;
   MYSQL m_;
   std::string host_;

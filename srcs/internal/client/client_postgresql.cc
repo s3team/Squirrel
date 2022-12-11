@@ -84,4 +84,11 @@ ExecutionStatus PostgreSQLClient::execute(const char *query, size_t size) {
 }
 
 void PostgreSQLClient::clean_up_env() {}
+
+bool PostgreSQLClient::check_alive() {
+  std::string conninfo = absl::StrFormat(
+      "hostaddr=%s port=%d connect_timeout=4", "127.0.0.1", 5432);
+  PGPing res = PQping(conninfo.c_str());
+  return res == PQPING_OK;
+}
 }  // namespace client

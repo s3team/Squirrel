@@ -178,6 +178,7 @@ int main(int argc, char *argv[]) {
   }
   YAML::Node config = YAML::LoadFile(config_file_path);
   std::string db_name = config["db"].as<std::string>();
+  std::string startup_cmd = config["startup_cmd"].as<std::string>();
   client::DBClient *database = client::create_client(db_name, config);
   database->initialize(config);
 
@@ -193,7 +194,12 @@ int main(int argc, char *argv[]) {
   __afl_map_shm();
   __afl_start_forkserver();
 
-  int counter = 1;
+  // Start the database server. In case that the driver
+  // is stopped and restarted, we should not start another server.
+  if (!database->check_alive()) {
+    system(startup_cmd.c_str());
+  }
+
   while ((len = __afl_next_testcase(buf, kMaxInputSize)) > 0) {
     std::string query((const char *)buf, len);
     // std::cerr << "Executing: " << query << std::endl;
@@ -207,7 +213,11 @@ int main(int argc, char *argv[]) {
 
     /* report the test case is done and wait for the next */
     __afl_end_testcase(status);
-    counter += 1;
+
+    if (status == client::kServerCrash) {
+      // Restart the server.
+      system(startup_cmd.c_str());
+    }
   }
   assert(false && "Crash on parent?");
 
