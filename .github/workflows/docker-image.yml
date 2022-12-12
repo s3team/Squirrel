@@ -20,7 +20,12 @@ jobs:
       uses: andstor/file-existence-action@v2
       with:
         files: "scripts/dockers/${{matrix.database}}/Dockerfile"
+    - name: Get changed files in the docs folder
+      id: changed-files-specific
+      uses: tj-actions/changed-files@v34
+      with:
+        files: "scripts/dockers/${{matrix.database}}/**"
     - name: Build the Docker image for each database
-      if: steps.check_files.outputs.files_exists == 'true'
+      if: steps.check_files.outputs.files_exists == 'true' && steps.changed-files-specific.outputs.any_changed == 'true'
       run: docker build . --file Dockerfile 
       working-directory: "scripts/dockers/${{matrix.database}}"
