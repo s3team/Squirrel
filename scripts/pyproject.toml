@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "script"
+version = "0.1.0"
+description = ""
+authors = ["Yongheng Chen <changochen1@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fire = "^0.5.0"
+pylint = "*"
+yapf = "*"
+mypy = "*"
+nox = "*"
+toml = "^0.10.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.yapf]
+based_on_style = "google"
+indent_width = 2
+column_limit = 100
+SPACES_BEFORE_COMMENT=2

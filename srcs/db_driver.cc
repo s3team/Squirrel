@@ -50,7 +50,6 @@ static void __afl_map_shm(void) {
   /* NOTE TODO BUG FIXME: if you want to supply a variable sized map then
      uncomment the following: */
 
-  /*
   if ((ptr = getenv("AFL_MAP_SIZE")) != NULL) {
 
     u32 val = atoi(ptr);
@@ -58,7 +57,6 @@ static void __afl_map_shm(void) {
 
   }
 
-  */
 
   if (__afl_map_size > MAP_SIZE) {
     if (__afl_map_size > FS_OPT_MAX_MAPSIZE) {
@@ -119,9 +117,6 @@ static void __afl_map_shm(void) {
       exit(1);
     }
 
-    std::cerr << "SHM ID: " << id_str << std::endl;
-    sleep(20);
-
     /* Write something into the bitmap so that the parent doesn't give up */
     __afl_area_ptr[0] = 1;
   }
@@ -178,6 +173,7 @@ int main(int argc, char *argv[]) {
   }
   YAML::Node config = YAML::LoadFile(config_file_path);
   std::string db_name = config["db"].as<std::string>();
+  std::string startup_cmd = config["startup_cmd"].as<std::string>();
   client::DBClient *database = client::create_client(db_name, config);
   database->initialize(config);
 
@@ -190,10 +186,19 @@ int main(int argc, char *argv[]) {
   __afl_map_size = MAP_SIZE;  // default is 65536
 
   /* then we initialize the shared memory map and start the forkserver */
+
+  // Start the database server. In case that the driver
+  // is stopped and restarted, we should not start another server.
   __afl_map_shm();
+
+  if (!database->check_alive()) {
+    system(startup_cmd.c_str());
+    sleep(5);
+  }
+
   __afl_start_forkserver();
 
-  int counter = 1;
+
   while ((len = __afl_next_testcase(buf, kMaxInputSize)) > 0) {
     std::string query((const char *)buf, len);
     // std::cerr << "Executing: " << query << std::endl;
@@ -207,7 +212,13 @@ int main(int argc, char *argv[]) {
 
     /* report the test case is done and wait for the next */
     __afl_end_testcase(status);
-    counter += 1;
+
+    if (status == client::kServerCrash) {
+        if (!database->check_alive()) {
+          // Restart the server.
+      	  system(startup_cmd.c_str());
+	}
+    }
   }
   assert(false && "Crash on parent?");
 

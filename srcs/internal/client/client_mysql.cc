@@ -128,7 +128,7 @@ ExecutionStatus MySQLClient::execute_query(char *cmd) {
   }
 
   auto res = kNormal;
-  auto check_res = check_server_alive();
+  auto check_res = check_alive();
   if (check_res == false) {
     disconnect();
     sleep(2);  // waiting for server to be up again
@@ -141,7 +141,7 @@ ExecutionStatus MySQLClient::execute_query(char *cmd) {
   return res;
 }
 
-bool MySQLClient::check_server_alive() {
+bool MySQLClient::check_alive() {
   MYSQL tmp_m;
 
   if (mysql_init(&tmp_m) == NULL) {
