@@ -6,7 +6,6 @@ on:
       - master
     paths:
       - "srcs/**"
-  pull_request:
 
 jobs:
   linux:
