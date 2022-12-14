@@ -29,7 +29,7 @@ RUN git clone https://github.com/s3team/Squirrel.git && \
 RUN git clone --depth=1 https://github.com/mysql/mysql-server.git mysql
 RUN sudo apt-get -y install apt-transport-https curl software-properties-common gnutls-dev
 RUN mkdir bld && cd bld/ && \
-    CC=/home/Squirrel/AFLplusplus/afl-cc CXX=/home/Squirrel/AFLplusplus/afl-c++ \
+    CC=/home/Squirrel/AFLplusplus/afl-clang-fast CXX=/home/Squirrel/AFLplusplus/afl-clang-fast++ \
     cmake ../mysql/ -DDOWNLOAD_BOOST=1 -DWITH_BOOST=../boost -DWITH_ASAN=1 -DWITH_ASAN_SCOPE=1 \
     -DWITH_DEBUG=1 -DCPACK_MONOLITHIC_INSTALL=1 -DWITH_UNIT_TESTS=OFF
     
@@ -37,7 +37,7 @@ RUN cd bld/ && make -j && sudo cmake --install . --prefix /usr/local/mysql/
 
 RUN sudo chown dobigthing:dobigthing /usr/local/mysql/ -R && \
     cd /usr/local/mysql/ && mkdir mysql-files && chmod 750 mysql-files && \
-    bin/mysqld --initialize-insecure --user=dobigthing && bin/mysql_ssl_rsa_setup
+    AFL_IGNORE_PROBLEMS=1 bin/mysqld --initialize-insecure --user=dobigthing && bin/mysql_ssl_rsa_setup
 
 #ENTRYPOINT bash
 #ENTRYPOINT /usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql \
@@ -45,4 +45,4 @@ RUN sudo chown dobigthing:dobigthing /usr/local/mysql/ -R && \
 #            --pid-file=server_pid.pid --max_statement_time=1
 RUN AFL_DEBUG=1 __AFL_SHM_ID=1234 /usr/local/mysql/bin/mysqld 2>&1 | grep "__afl_map_size" | tail -n 1 | cut -d"," -f8 | cut -d" " -f 3 > /tmp/mapsize
 WORKDIR /home/Squirrel/scripts/utils
-ENTRYPOINT AFL_MAP_SIZE=$(cat /tmp/mapsize) python3 run.py mysql ../../data/fuzz_root/mysql_input/
+ENTRYPOINT AFL_IGNORE_PROBLEMS=1 AFL_MAP_SIZE=$(cat /tmp/mapsize) python3 run.py mysql ../../data/fuzz_root/mysql_input/

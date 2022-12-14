@@ -10,6 +10,8 @@ DBMS = ["sqlite", "mysql", "mariadb", "postgresql"]
 ROOTPATH = Path(os.path.dirname(os.path.realpath(__file__))).parent.parent
 
 def get_mutator_so_path(database):
+    if database == "mariadb":
+        database = "mysql"
     return f"{ROOTPATH}/build/lib{database}_mutator.so"
 
 def get_config_path(database):
@@ -26,9 +28,6 @@ def run(database, input_dir, output_dir=None, config_file=None, fuzzer=None):
     if database not in DBMS:
         print(f"Unsupported database. The supported ones are {DBMS}")
         return
-    # Alias
-    if database == "mariadb":
-        database = "mysql"
 
     if not output_dir:
         output_dir = "/tmp/fuzz"

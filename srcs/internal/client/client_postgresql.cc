@@ -42,19 +42,18 @@ void PostgreSQLClient::initialize(YAML::Node config) {
   port_ = config["port"].as<std::string>();
   user_name_ = config["user_name"].as<std::string>();
   passwd_ = config["passwd"].as<std::string>();
-  sock_path_ = config["sock_path"].as<std::string>();
-  db_prefix_ = config["db_prefix"].as<std::string>();
+  db_name_ = config["db_name"].as<std::string>();
   std::cerr << "Sock path: " << sock_path_ << std::endl;
 }
 
 void PostgreSQLClient::prepare_env() {
-  PGconn *conn = create_connection("x");
+  PGconn *conn = create_connection(db_name_);
   reset_database(conn);
   PQfinish(conn);
 }
 
 ExecutionStatus PostgreSQLClient::execute(const char *query, size_t size) {
-  auto conn = create_connection("x");
+  auto conn = create_connection(db_name_);
 
   if (PQstatus(conn) != CONNECTION_OK) {
     fprintf(stderr, "Error2: %s\n", PQerrorMessage(conn));

@@ -26,7 +26,7 @@ class PostgreSQLClient : public DBClient {
   std::string user_name_;
   std::string passwd_;
   std::string sock_path_;
-  std::string db_prefix_;
+  std::string db_name_;
 };
 
 };  // namespace client
