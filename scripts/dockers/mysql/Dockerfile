@@ -5,7 +5,7 @@ LABEL maintainer="Squirrel"
 RUN apt-get update
 RUN apt-get -y install make cmake build-essential vim sudo git \
     clang libmysqlclient-dev ninja-build pkg-config clang-format \
-    libpq-dev libyaml-cpp-dev lld llvm bison
+    libpq-dev libyaml-cpp-dev lld llvm bison python3-fire
 
 RUN mkdir -p /home && \
     groupadd dobigthing && \
@@ -39,7 +39,10 @@ RUN sudo chown dobigthing:dobigthing /usr/local/mysql/ -R && \
     cd /usr/local/mysql/ && mkdir mysql-files && chmod 750 mysql-files && \
     bin/mysqld --initialize-insecure --user=dobigthing && bin/mysql_ssl_rsa_setup
 
-ENTRYPOINT bash
+#ENTRYPOINT bash
 #ENTRYPOINT /usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql \
 #            --datadir=/usr/local/mysql/data --log-error=err_log.err \
 #            --pid-file=server_pid.pid --max_statement_time=1
+RUN AFL_DEBUG=1 __AFL_SHM_ID=1234 /usr/local/mysql/bin/mysqld 2>&1 | grep "__afl_map_size" | tail -n 1 | cut -d"," -f8 | cut -d" " -f 3 > /tmp/mapsize
+WORKDIR /home/Squirrel/scripts/utils
+ENTRYPOINT AFL_MAP_SIZE=$(cat /tmp/mapsize) python3 run.py mysql ../../data/fuzz_root/mysql_input/

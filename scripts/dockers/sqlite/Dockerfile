@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get -y install make cmake build-essential vim sudo git tcl8.6 tcl8.6-tdbc-sqlite3\
     clang ninja-build pkg-config clang-format \
-    libpq-dev libyaml-cpp-dev lld llvm
+    libpq-dev libyaml-cpp-dev lld llvm python3-fire
 
 RUN mkdir -p /home && \
     groupadd dobigthing && \
@@ -47,4 +47,5 @@ RUN $CXX $CXXFLAGS \
     /home/sqlite3/test/ossfuzz.o /home/sqlite3/test/ossshell.o -o /home/ossfuzz \
    ./sqlite3.o -ldl -pthread
 
-ENTRYPOINT bash
+WORKDIR /home/Squirrel/scripts/utils
+ENTRYPOINT python3 run.py postgresql ../../data/fuzz_root/

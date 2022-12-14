@@ -5,7 +5,7 @@ LABEL maintainer="Squirrel"
 RUN apt-get update
 RUN apt-get -y install make cmake build-essential vim sudo git \
     clang ninja-build pkg-config clang-format libpq-dev llvm libyaml-cpp-dev zlib1g-dev \
-    libreadline8 libreadline-dev bison flex
+    libreadline8 libreadline-dev bison flex python3-fire
 
 RUN mkdir -p /home && \
     groupadd dobigthing && \
@@ -34,4 +34,6 @@ RUN git clone https://github.com/postgres/postgres.git postgres/ && \
 RUN cd bld/ && make -j && sudo make install && \
     sudo mkdir /usr/local/pgsql/data && sudo chown dobigthing /usr/local/pgsql/data
 
-ENTRYPOINT bash
+RUN AFL_DEBUG=1 __AFL_SHM_ID=1234 /usr/local/pgsql/bin/postgres 2>&1 | grep "__afl_map_size" | tail -n 1 | cut -d"," -f8 | cut -d" " -f 3 > /tmp/mapsize
+WORKDIR /home/Squirrel/scripts/utils
+ENTRYPOINT AFL_MAP_SIZE=$(cat /tmp/mapsize) python3 run.py postgresql ../../data/fuzz_root/pqsql_input/

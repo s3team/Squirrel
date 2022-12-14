@@ -1,0 +1,10 @@
+required: ["init_lib", "data_lib", "db", "passwd", "user_name", "host", "startup_cmd"]
+init_lib: /home/Squirrel/data/fuzz_root/pqsql_init_lib
+data_lib: /home/Squirrel/data/fuzz_root/pqsql_data_lib
+db: postgresql
+passwd: ''
+user_name: dobigthing
+db_name: postgres
+host: localhost
+port: 5432
+startup_cmd: "/usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data"

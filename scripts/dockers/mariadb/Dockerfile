@@ -5,7 +5,7 @@ LABEL maintainer="Squirrel"
 RUN apt-get update
 RUN apt-get -y install make cmake build-essential vim sudo git \
     clang libmysqlclient-dev ninja-build pkg-config clang-format \
-    libpq-dev libyaml-cpp-dev lld
+    libpq-dev libyaml-cpp-dev lld python3-fire
 
 RUN mkdir -p /home && \
     groupadd dobigthing && \
@@ -28,7 +28,7 @@ RUN apt-get update && apt-get -y build-dep mariadb
 USER dobigthing
 WORKDIR /home
 
-RUN git clone https://github.com/s3team/Squirrel.git && \
+RUN git clone https://github.com/Dobigthing666/Squirrel.git && \
     cd Squirrel && git submodule update --init && \
     cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && \
     cmake --build build -j && \
@@ -43,4 +43,7 @@ RUN sudo chown dobigthing:dobigthing /usr/local/mysql/ -R && \
     cd /usr/local/mysql/ && \
     scripts/mysql_install_db --user=dobigthing
 
-ENTRYPOINT bash
+# Get map size and save it to /tmp/mapsize
+RUN AFL_DEBUG=1 __AFL_SHM_ID=1234 /usr/local/mysql/bin/mariadbd 2>&1 | tail -n 1 | cut -d"," -f8 | cut -d" " -f 3 > /tmp/mapsize
+WORKDIR /home/Squirrel/scripts/utils
+ENTRYPOINT AFL_MAP_SIZE=$(cat /tmp/mapsize) python3 run.py mariadb ../../data/fuzz_root/mysql_input/

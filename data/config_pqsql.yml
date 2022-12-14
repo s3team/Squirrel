@@ -1,8 +1,0 @@
-required: ["init_lib", "data_lib", "db", "passwd", "user_name", "host", "startup_cmd"]
-init_lib: ./data/fuzz_root/pqsql_init_lib
-data_lib: ./data/fuzz_root/pqsql_data_lib
-db: postgresql
-passwd: ''
-user_name: yongheng
-host: localhost
-port: 5432

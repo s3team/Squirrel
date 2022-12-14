@@ -1,11 +1,12 @@
 ---
 required: ["init_lib", "data_lib", "db", "passwd", "user_name", "host", "sock_path", "db_prefix", "startup_cmd"]
-init_lib: ./data/fuzz_root/mysql_init_lib
-data_lib: ./data/fuzz_root/global_data_lib_mysql
+init_lib: /home/Squirrel/data/fuzz_root/mysql_init_lib
+data_lib: /home/Squirrel/data/fuzz_root/global_data_lib_mysql
 db: mysql
 passwd: ''
-user_name: yongheng
+user_name: dobigthing
 host: localhost
 sock_path: /tmp/mysql.sock
 db_prefix: test
-startup_cmd: 'echo hello'
+# It is important that the command should run on background
+startup_cmd: "/usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --log-error=err_log.err --pid-file=server_pid.pid --max_statement_time=1 &"
