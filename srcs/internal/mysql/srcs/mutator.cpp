@@ -949,8 +949,8 @@ bool Mutator::fill_one(IR *ir) {
           auto c_data_type = *itr;
           remove_one_pair_from_datalibrary_2d(type, c_data_type.first,
                                               ir->str_val_);
-          itr--;
           if (!has_key(data_library_2d_[type], ir->str_val_)) break;
+          itr--;
         }
       }
     }
