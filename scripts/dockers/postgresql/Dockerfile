@@ -32,7 +32,8 @@ RUN git clone https://github.com/postgres/postgres.git postgres/ && \
     ../postgres/configure
 
 RUN cd bld/ && make -j && sudo make install && \
-    sudo mkdir /usr/local/pgsql/data && sudo chown dobigthing /usr/local/pgsql/data
+    sudo mkdir /usr/local/pgsql/data && sudo chown dobigthing /usr/local/pgsql/data &&  \
+    AFL_IGNORE_PROBLEMS=1 /usr/local/pgsql/bin/init_db -D /usr/local/pgsql/data
 
 RUN AFL_DEBUG=1 __AFL_SHM_ID=1234 /usr/local/pgsql/bin/postgres 2>&1 | grep "__afl_map_size" | tail -n 1 | cut -d"," -f8 | cut -d" " -f 3 > /tmp/mapsize
 WORKDIR /home/Squirrel/scripts/utils

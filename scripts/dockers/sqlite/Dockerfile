@@ -48,4 +48,4 @@ RUN $CXX $CXXFLAGS \
    ./sqlite3.o -ldl -pthread
 
 WORKDIR /home/Squirrel/scripts/utils
-ENTRYPOINT python3 run.py postgresql ../../data/fuzz_root/
+ENTRYPOINT python3 run.py sqlite ../../data/fuzz_root/input
