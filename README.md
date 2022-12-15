@@ -11,7 +11,13 @@
 3. MySQL
 4. MariaDB
 
-## Build Instruction
+## Build Instruction (Run in docker, recommended)
+
+1. Go to the directory of the dockerfile: `cd scripts/docker/xxx/`, where `xxx` is the database name.
+2. Build the docker: `docker build -t xxx .`.
+3. Run: `docker run -it xxx`.
+
+## Build Instruction (Run on localhost)
 
 ### Prerequisite
 
@@ -20,20 +26,20 @@ For ubuntu 22.04:
 sudo apt install libmysqlclient-dev cmake ninja-build clang pkg-config clang-format libpq-dev libyaml-cpp-dev
 ```
 
-### Build Squirrel
+#### Build Squirrel
 1. Clone this repo and run `git submodule update --init`.
 2. `cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -Wno-dev`. If you want to compile only the mutator for the specific databases, add `-DXXXXX=ON`, `XXXXX` can be `SQLITE`, `MYSQL` and `POSTGRESQL`. `Mariadb` share the same interface with `MySQL`.
 3. `cmake --build build -j`, the binaries are in `build/`.
 
 
-### Build AFLplusplus and DBMSs
+#### Build AFLplusplus and DBMSs
 1. Build aflplusplus: `cd AFLplusplus && make -j && cd ..`.
 2. Use `afl-cc` and `afl-c++` to instrument your database.
 
 
-## Run
+### Run
 
-### Configuration
+#### Configuration
 
 1. Set up a configuration file in `yaml`. Examples can be found in `data/*.yml`.
 2. Set the enviroment variable 
@@ -44,14 +50,13 @@ export AFL_CUSTOM_MUTATOR_LIBRARY= REPO_DIR/build/libxxxx_mutator.so
 export AFL_DISABLE_TRIM=1
 ```
 
-### Normal Mode (SQLite)
+#### Normal Mode (SQLite)
 
 Same as AFLplusplus: `afl-fuzz -i input -o output -- sqlite_harness`.
 
-### Client/Server Mode (MySQL/MariaDB/PostgreSQL)
+#### Client/Server Mode (MySQL/MariaDB/PostgreSQL)
 
-(To improve)
-1. `export AFL_FORKSRV_INIT_TMOUT=1000000`
+1. Dry run the database to get the `__afl_map_size` and set it to `AFL_MAP_SIZE`.
 2. Run `afl-fuzz -i input -o output -- ./build/db_driver`, it will print the share memory id and wait for 30 seconds.
 3. Start the databse server with `export __AFL_SHM_ID=xxxx`.
 
