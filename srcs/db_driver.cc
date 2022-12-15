@@ -202,19 +202,17 @@ int main(int argc, char *argv[]) {
 
     client::ExecutionStatus status = database->execute((const char *)buf, len);
 
-    database->clean_up_env();
-
     __afl_area_ptr[0] = 1;
-
     /* report the test case is done and wait for the next */
     __afl_end_testcase(status);
 
     if (status == client::kServerCrash) {
       if (!database->check_alive()) {
-        // Restart the server.
-        system(startup_cmd.c_str());
+        // Wait for the server to be restart.
+        sleep(5);
       }
     }
+    database->clean_up_env();
   }
   assert(false && "Crash on parent?");
 

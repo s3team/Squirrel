@@ -67,7 +67,7 @@ void MySQLClient::clean_up_env() {
   std::optional<MYSQL> connection = create_connection("");
   if (!connection.has_value()) {
     std::cerr << "Impossiable" << std::endl;
-    exit(-1);
+    return;
   }
   int server_response =
       mysql_real_query(&(*connection), reset_query.c_str(), reset_query.size());
@@ -84,9 +84,8 @@ std::optional<MYSQL> MySQLClient::create_connection(std::string_view db_name) {
   if (mysql_real_connect(&result, host_.c_str(), user_name_.c_str(),
                          passwd_.c_str(), db_name.data(), 0, sock_path_.c_str(),
                          CLIENT_MULTI_STATEMENTS) == NULL) {
-    std::cerr << "Connection error1: " << mysql_errno(&m_) << mysql_error(&m_)
-              << std::endl;
-    disconnect();
+    std::cerr << "Connection error1: " << mysql_errno(&result)
+              << mysql_error(&result) << std::endl;
     mysql_close(&result);
     return std::nullopt;
   }
@@ -94,125 +93,12 @@ std::optional<MYSQL> MySQLClient::create_connection(std::string_view db_name) {
   return result;
 }
 
-ExecutionStatus MySQLClient::execute_query(char *cmd) {
-  auto conn = connect();
-
-  if (!conn) {
-    string previous_inputs = "";
-    int crash_fd = -1;
-    // for (auto i : g_previous_input) previous_inputs += string(i) + "\n\n";
-    previous_inputs += "-------------\n\n";
-    write(crash_fd, previous_inputs.c_str(), previous_inputs.size());
-  }
-
-  int retry_time = 0;
-  while (!conn) {
-    // cout << "reconnecting..." << endl;
-    sleep(5);
-    conn = connect();
-    if (!conn) fix_database();
-  }
-  // cout << "connect succeed!" << endl;
-  // cerr << "Trying to execute " << cmd << endl;
-  int server_response = mysql_real_query(&m_, cmd, strlen(cmd));
-  std::cerr << "Server response: " << server_response << std::endl;
-  std::cerr << "Server error: " << mysql_errno(&m_) << std::endl;
-
-  clean_up_connection(m_);
-  // auto correctness = clean_up_connection(m_);
-
-  if (server_response == CR_SERVER_LOST ||
-      server_response == CR_SERVER_GONE_ERROR) {
-    disconnect();
-    return kServerCrash;
-  }
-
-  auto res = kNormal;
-  auto check_res = check_alive();
-  if (check_res == false) {
-    disconnect();
-    sleep(2);  // waiting for server to be up again
-    return kServerCrash;
-  }
-
-  reset_database();
-
-  disconnect();
-  return res;
-}
-
 bool MySQLClient::check_alive() {
-  MYSQL tmp_m;
-
-  if (mysql_init(&tmp_m) == NULL) {
-    mysql_close(&tmp_m);
+  std::optional<MYSQL> connection = create_connection("");
+  if (!connection.has_value()) {
     return false;
   }
-  if (mysql_real_connect(&tmp_m, host_.c_str(), user_name_.c_str(),
-                         passwd_.c_str(), "duck", 0, sock_path_.c_str(),
-                         CLIENT_MULTI_STATEMENTS) == NULL) {
-    fprintf(stderr, "Connection error2 %d, %s\n", mysql_errno(&tmp_m),
-            mysql_error(&tmp_m));
-    mysql_close(&tmp_m);
-    return false;
-  }
-  mysql_close(&tmp_m);
-  return true;
-}
-
-int MySQLClient::reset_database() {
-  int server_response;
-
-  string reset_query =
-      "DROP DATABASE IF EXISTS test" + std::to_string(database_id_) + ";";
-  reset_query += "CREATE DATABASE IF NOT EXISTS test" +
-                 std::to_string(database_id_ + 1) + ";";
-
-  // TODO: Check the result.
-  mysql_real_query(&m_, reset_query.c_str(), reset_query.size());
-  database_id_++;
-
-  return server_response;
-}
-
-bool MySQLClient::connect() {
-  if (mysql_init(&m_) == NULL) return false;
-
-  std::string dbname = "test" + std::to_string(database_id_);
-  dbname.clear();
-  if (mysql_real_connect(&m_, host_.c_str(), user_name_.c_str(),
-                         passwd_.c_str(), dbname.c_str(), 0, sock_path_.c_str(),
-                         CLIENT_MULTI_STATEMENTS) == NULL) {
-    std::cerr << "Connection error1: " << mysql_errno(&m_) << mysql_error(&m_)
-              << std::endl;
-    disconnect();
-    return false;
-  }
-
-  return true;
-}
-
-void MySQLClient::disconnect() { mysql_close(&m_); }
-
-bool MySQLClient::fix_database() {
-  MYSQL tmp_m;
-
-  database_id_ += 1;
-  if (mysql_init(&tmp_m) == NULL) {
-    mysql_close(&tmp_m);
-    return false;
-  }
-  if (mysql_real_connect(&tmp_m, host_.c_str(), user_name_.c_str(),
-                         passwd_.c_str(), "duck", 0, sock_path_.c_str(),
-                         CLIENT_MULTI_STATEMENTS) == NULL) {
-    mysql_close(&tmp_m);
-    return false;
-  }
-  string cmd =
-      "CREATE DATABASE IF NOT EXISTS test" + std::to_string(database_id_) + ";";
-  mysql_real_query(&tmp_m, cmd.c_str(), cmd.size());
-  mysql_close(&tmp_m);
-  sleep(2);
+  mysql_close(&(*connection));
   return true;
 }
 
