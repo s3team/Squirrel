@@ -51,12 +51,9 @@ static void __afl_map_shm(void) {
      uncomment the following: */
 
   if ((ptr = getenv("AFL_MAP_SIZE")) != NULL) {
-
     u32 val = atoi(ptr);
     if (val > 0) __afl_map_size = val;
-
   }
-
 
   if (__afl_map_size > MAP_SIZE) {
     if (__afl_map_size > FS_OPT_MAX_MAPSIZE) {
@@ -198,7 +195,6 @@ int main(int argc, char *argv[]) {
 
   __afl_start_forkserver();
 
-
   while ((len = __afl_next_testcase(buf, kMaxInputSize)) > 0) {
     std::string query((const char *)buf, len);
     // std::cerr << "Executing: " << query << std::endl;
@@ -214,10 +210,10 @@ int main(int argc, char *argv[]) {
     __afl_end_testcase(status);
 
     if (status == client::kServerCrash) {
-        if (!database->check_alive()) {
-          // Restart the server.
-      	  system(startup_cmd.c_str());
-	}
+      if (!database->check_alive()) {
+        // Restart the server.
+        system(startup_cmd.c_str());
+      }
     }
   }
   assert(false && "Crash on parent?");
