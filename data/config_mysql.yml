@@ -9,4 +9,4 @@ host: localhost
 sock_path: /tmp/mysql.sock
 db_prefix: test
 # It is important that the command should run on background
-startup_cmd: "/usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --log-error=err_log.err --pid-file=server_pid.pid &"
+startup_cmd: "/usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --log-error=err_log.err --pid-file=server_pid.pid --max-execution-time=1000 &"

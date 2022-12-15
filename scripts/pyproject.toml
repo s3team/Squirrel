@@ -23,3 +23,6 @@ based_on_style = "google"
 indent_width = 2
 column_limit = 100
 SPACES_BEFORE_COMMENT=2
+
+[tool.mypy]
+ignore_missing_imports = true
