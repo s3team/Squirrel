@@ -52,7 +52,7 @@ def run(database, input_dir, output_dir=None, config_file=None, fuzzer=None):
   if database == "sqlite":
     cmd = f"{fuzzer} -i {input_dir} -o {output_dir} -M {output_id} -- /home/ossfuzz @@"
   else:
-    cmd = f"{fuzzer} -i {input_dir} -o {output_dir} -M {output_id} -t 10000 -- {ROOTPATH}/build/db_driver"
+    cmd = f"{fuzzer} -i {input_dir} -o {output_dir} -M {output_id} -t 60000 -- {ROOTPATH}/build/db_driver"
 
   os.system(cmd)
 
