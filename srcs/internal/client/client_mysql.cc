@@ -65,9 +65,8 @@ void MySQLClient::clean_up_env() {
   if (!connection.has_value()) {
     return;
   }
-  int server_response =
-      mysql_real_query(&(*connection), reset_query.c_str(), reset_query.size());
   // TODO: clean up the connection.
+  mysql_real_query(&(*connection), reset_query.c_str(), reset_query.size());
   clean_up_connection((*connection));
   mysql_close(&(*connection));
 }
@@ -116,7 +115,7 @@ bool MySQLClient::create_database(const std::string &database) {
 
   string cmd = "CREATE DATABASE IF NOT EXISTS " + database + ";";
   // TODO: Check server response status.
-  int server_response = mysql_real_query(&tmp_m, cmd.c_str(), cmd.size());
+  mysql_real_query(&tmp_m, cmd.c_str(), cmd.size());
   // std::cerr << "Server response: " << server_response << std::endl;
   clean_up_connection(tmp_m);
   mysql_close(&tmp_m);
