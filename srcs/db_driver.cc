@@ -51,12 +51,9 @@ static void __afl_map_shm(void) {
      uncomment the following: */
 
   if ((ptr = getenv("AFL_MAP_SIZE")) != NULL) {
-
     u32 val = atoi(ptr);
     if (val > 0) __afl_map_size = val;
-
   }
-
 
   if (__afl_map_size > MAP_SIZE) {
     if (__afl_map_size > FS_OPT_MAX_MAPSIZE) {
@@ -190,7 +187,6 @@ int main(int argc, char *argv[]) {
   // Start the database server. In case that the driver
   // is stopped and restarted, we should not start another server.
   __afl_map_shm();
-
   if (!database->check_alive()) {
     system(startup_cmd.c_str());
     sleep(5);
@@ -198,27 +194,23 @@ int main(int argc, char *argv[]) {
 
   __afl_start_forkserver();
 
-
   while ((len = __afl_next_testcase(buf, kMaxInputSize)) > 0) {
     std::string query((const char *)buf, len);
-    // std::cerr << "Executing: " << query << std::endl;
     database->prepare_env();
 
     client::ExecutionStatus status = database->execute((const char *)buf, len);
 
-    database->clean_up_env();
-
     __afl_area_ptr[0] = 1;
-
     /* report the test case is done and wait for the next */
-    __afl_end_testcase(status);
 
     if (status == client::kServerCrash) {
-        if (!database->check_alive()) {
-          // Restart the server.
-      	  system(startup_cmd.c_str());
-	}
+      while (!database->check_alive()) {
+        // Wait for the server to be restart.
+        sleep(5);
+      }
     }
+    database->clean_up_env();
+    __afl_end_testcase(status);
   }
   assert(false && "Crash on parent?");
 
