@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 project(Squirrel)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -16,17 +16,17 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 add_executable(
-  hello_test
-  hello_test.cc
+  db_config_test
+  db_config_test.cc
 )
 
 target_link_libraries(
-  hello_test
+  db_config_test
   GTest::gtest_main
   yaml-cpp
   config_validator
 )
 
 include(GoogleTest)
-gtest_discover_tests(hello_test)
+gtest_discover_tests(db_config_test)
 

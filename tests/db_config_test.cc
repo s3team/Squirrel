@@ -35,11 +35,25 @@ TEST(ConfigValidatorTest, EveryRequiredKeywordShouldBeSet) {
   EXPECT_FALSE(utils::validate_db_config(config));
 }
 
+TEST(ConfigValidatorTest, MissingFilesInShoulExistIsNotAllowed) {
+  const char* kConfig = R"V0G0N(
+  required: ["init_lib", "pragma", "db"]
+  should_exist: ["pragma"]
+  pragma: "/file/not/exist"
+  init_lib: x
+  db: sqlite
+  )V0G0N";
+
+  YAML::Node config = YAML::Load(kConfig);
+  EXPECT_FALSE(utils::validate_db_config(config));
+}
+
 TEST(ConfigValidatorTest, CorrectlyConfiguredFileReturnTrue) {
   const char* kConfig = R"V0G0N(
   required: ["init_lib", "pragma", "db"]
-  pragma: x
-  init_lib: x
+  should_exist: ["pragma", "init_lib"]
+  pragma: "/bin/sh"
+  init_lib: "/bin"
   db: sqlite
   )V0G0N";
 
