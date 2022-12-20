@@ -1,7 +1,11 @@
 #include "config_validate.h"
 
+#include <sys/stat.h>
+#include <sys/types.h>
+
 #include <iostream>
 #include <string>
+#include <string_view>
 
 #include "absl/strings/str_format.h"
 
@@ -11,6 +15,11 @@ constexpr std::string_view kSupportedDB[] = {"sqlite", "mysql", "postgresql",
 };
 
 namespace utils {
+
+bool path_exist(std::string_view path) {
+  struct stat sb;
+  return stat(path.data(), &sb) == 0;
+}
 bool validate_db_config(const YAML::Node& config) {
   if (!config["required"] || !config["db"]) {
     std::cerr
@@ -22,6 +31,26 @@ bool validate_db_config(const YAML::Node& config) {
   if (!config["required"].IsSequence()) {
     std::cerr << "The `required` field should be a list." << std::endl;
     return false;
+  }
+
+  if (config["should_exist"]) {
+    if (!config["should_exist"].IsSequence()) {
+      return false;
+    }
+    for (std::size_t i = 0; i < config["should_exist"].size(); i++) {
+      std::string key_should_exist =
+          config["should_exist"].as<YAML::Node>()[i].as<std::string>();
+      if (!config[key_should_exist]) {
+        std::cerr << key_should_exist
+                  << " is set in `should_exist` but is not a valid key!\n";
+      }
+      std::string file_should_exist =
+          config[key_should_exist].as<std::string>();
+      if (!path_exist(file_should_exist)) {
+        std::cerr << file_should_exist << " doesn't exist!\n";
+        return false;
+      }
+    }
   }
 
   for (std::size_t i = 0; i < config["required"].size(); i++) {

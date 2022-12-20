@@ -30,7 +30,7 @@ RUN git clone --depth=1 https://github.com/mysql/mysql-server.git mysql
 RUN sudo apt-get -y install apt-transport-https curl software-properties-common gnutls-dev
 RUN mkdir bld && cd bld/ && \
     CC=/home/Squirrel/AFLplusplus/afl-clang-fast CXX=/home/Squirrel/AFLplusplus/afl-clang-fast++ \
-    cmake ../mysql/ -DDOWNLOAD_BOOST=1 -DWITH_BOOST=../boost -DWITH_ASAN=1 -DWITH_ASAN_SCOPE=1 \
+    cmake ../mysql/ -DDOWNLOAD_BOOST=1 -DWITH_BOOST=../boost \
     -DWITH_DEBUG=1 -DCPACK_MONOLITHIC_INSTALL=1 -DWITH_UNIT_TESTS=OFF
     
 RUN cd bld/ && make -j && sudo cmake --install . --prefix /usr/local/mysql/
