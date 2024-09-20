@@ -1,5 +1,3 @@
-Mic-test2
-
 # Squirrel, a coverage-guided DBMS fuzzer.
 [![build](https://github.com/s3team/Squirrel/actions/workflows/build.yml/badge.svg)](https://github.com/s3team/Squirrel/actions/workflows/build.yml)
 
