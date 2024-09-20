@@ -1,3 +1,5 @@
+Mic-test
+
 # Squirrel, a coverage-guided DBMS fuzzer.
 [![build](https://github.com/s3team/Squirrel/actions/workflows/build.yml/badge.svg)](https://github.com/s3team/Squirrel/actions/workflows/build.yml)
 
@@ -59,25 +61,4 @@ Same as AFLplusplus: `afl-fuzz -i input -o output -- sqlite_harness`.
 1. Dry run the database to get the `__afl_map_size` and set it to `AFL_MAP_SIZE`.
 2. Run `afl-fuzz -i input -o output -- ./build/db_driver`, it will print the share memory id and wait for 30 seconds.
 3. Start the databse server with `export __AFL_SHM_ID=xxxx`.
-
-## Publications
-<a href="https://arxiv.org/pdf/2006.02398.pdf"><img src="https://huhong789.github.io/images/squirrel.png" align="right" width="250"></a>
-
-More details can be found in our [CCS 2020 paper](http://arxiv.org/abs/2006.02398). And the bugs found by `Squirrel` can be found in [here](https://github.com/s3team/Squirrel/wiki/Bug-List).
-
-```
-SQUIRREL: Testing Database Management Systems with Language Validity and Coverage Feedback
-
-@inproceedings{zhong:squirrel,
-  title        = {{SQUIRREL: Testing Database Management Systems with Language Validity and Coverage Feedback}},
-  author       = {Rui Zhong and Yongheng Chen and Hong Hu and Hangfan Zhang and Wenke Lee and Dinghao Wu},
-  booktitle    = {Proceedings of the 27th ACM Conference on Computer and Communications Security (CCS)},
-  month        = nov,
-  year         = 2020,
-  address      = {Orlando, USA},
-}
-```
-
-## Special Thanks
-1. Roel Van de Paar ([@mariadb-RoelVandePaar](https://github.com/mariadb-RoelVandePaar)): For his helpful feedback for improving Squirrel.
 
